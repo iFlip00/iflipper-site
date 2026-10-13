@@ -710,6 +710,11 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
 .ev .s{gap:4px}
 :root[data-skin="studio"] .brow .bar{height:5px}
 :root[data-skin="studio"] .mgroup h3{font-size:13px;font-weight:600;color:var(--muted)}
+
+.shot-tip{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:var(--tint)}
+.shot-tip .btn{flex:none;display:inline-flex;align-items:center;gap:6px}
+.shot-tip .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.shot-tip .small{line-height:1.45}
 @keyframes stIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 </style>
 <script>(function(){var r=document.documentElement,m=null;r.dataset.skin="studio";try{m=localStorage.getItem("iflipper-mode")}catch(e){}if(m!=="light"&&m!=="dark")m=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";r.dataset.mode=m})()</script>
@@ -921,6 +926,10 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
       <label>Listing and messages
         <textarea id="stext">iPhone 15 Pro Max 256GB Natural Titanium. Like new, never dropped. £520 ono. Selling as got a new phone for work. I'm away this week so can post it, just need £100 deposit by bank transfer to hold it. No box sorry.</textarea>
       </label>
+      <div class="shot-tip" id="shotTip">
+        <button type="button" class="btn" id="spaste"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="4" width="10" height="4" rx="1"/><path d="M8 6H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2"/></svg>Paste</button>
+        <p class="small"><b>Got a screenshot?</b> Open it in Photos, press and hold on the text, tap <b>Select All</b> then <b>Copy</b>. Come back and tap Paste.</p>
+      </div>
       <label id="simgwrap" hidden>Screenshot (optional)<input type="file" id="simg" accept="image/*"></label>
       <button class="primary" id="sgo">Check this listing</button>
       <p class="small" id="soff" hidden>Quick check: looks for the warning signs flippers see most. Full AI checks are coming to iFlipper Pro.</p>
@@ -1187,7 +1196,7 @@ let maxImages = 0;
 (async () => {
   try { sample = await window.claude?.use?.("sample"); } catch(e){ sample = null; }
   if (!sample){ hideAI(); return; }
-  try { const lim = await sample.limits(); $("simgwrap").hidden = !lim?.images; maxImages = lim?.images?.maxCount || 0; } catch(e){}
+  try { const lim = await sample.limits(); $("simgwrap").hidden = !lim?.images; if (lim?.images) $("shotTip").hidden = true; maxImages = lim?.images?.maxCount || 0; } catch(e){}
   if (!maxImages){ $("ggo").hidden = true; $("goff").hidden = false; }
 })();
 const AI_OFF = ["not_granted","sampling_disabled","capability_disabled","not_declared"];
@@ -2074,6 +2083,10 @@ $("mreset").addEventListener("click", () => { mboxes.forEach(b => b.checked = fa
 renderMeet();
 
 /* SCAM CHECK */
+$("spaste").addEventListener("click", async () => {
+  try { const t = await navigator.clipboard.readText(); if (t && t.trim()){ $("stext").value = t.trim(); $("sres").hidden = true; } else toast("Nothing copied yet. Copy the text from your screenshot first."); }
+  catch(e){ $("stext").focus(); toast("Press and hold in the box and tap Paste."); }
+});
 function quickScam(text){
   const t = " " + text.toLowerCase().replace(/[’']/g, "'") + " ";
   const has = re => re.test(t);
