@@ -916,14 +916,14 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
 
   <!-- SCAM -->
   <section id="scam" hidden>
-    <p class="intro">Paste the listing and any messages from the seller. AI reads it like an experienced flipper would and tells you what to check before paying.</p>
+    <p class="intro">Paste the listing and any messages from the seller. It picks out the warning signs and tells you what to ask and check before you pay.</p>
     <div class="panel">
       <label>Listing and messages
         <textarea id="stext">iPhone 15 Pro Max 256GB Natural Titanium. Like new, never dropped. £520 ono. Selling as got a new phone for work. I'm away this week so can post it, just need £100 deposit by bank transfer to hold it. No box sorry.</textarea>
       </label>
       <label id="simgwrap" hidden>Screenshot (optional)<input type="file" id="simg" accept="image/*"></label>
       <button class="primary" id="sgo">Check this listing</button>
-      <p class="small" id="soff" hidden>AI scam checks are coming soon. For now: never pay a deposit, check the IMEI, and watch them switch off Find My in person.</p>
+      <p class="small" id="soff" hidden>Quick check: looks for the warning signs flippers see most. Full AI checks are coming to iFlipper Pro.</p>
     </div>
     <div class="ticket" id="sres" hidden aria-live="polite"></div>
   </section>
@@ -1181,7 +1181,7 @@ const errCopy = c => ({
   refused:"AI couldn't check that text. Try pasting just the listing.",
   invalid_json:"The answer came back garbled. Tap the button to try again."
 }[c] || "Something went wrong. Tap the button to try again.");
-function hideAI(){ [["sgo","soff"],["lgo","loff"],["ogo","ooff"],["ggo","goff"]].forEach(([b,o]) => { $(b).hidden = true; $(o).hidden = false; }); }
+function hideAI(){ [["lgo","loff"],["ogo","ooff"],["ggo","goff"]].forEach(([b,o]) => { $(b).hidden = true; $(o).hidden = false; }); $("soff").hidden = false; }
 let maxImages = 0;
 
 (async () => {
@@ -2074,9 +2074,47 @@ $("mreset").addEventListener("click", () => { mboxes.forEach(b => b.checked = fa
 renderMeet();
 
 /* SCAM CHECK */
+function quickScam(text){
+  const t = " " + text.toLowerCase().replace(/[’']/g, "'") + " ";
+  const has = re => re.test(t);
+  const flags = [], ask = new Set(), check = new Set();
+  let score = 0;
+  const add = (pts, flag, q, c) => { score += pts; flags.push(flag); if (q) ask.add(q); if (c) check.add(c); };
+  if (has(/deposit|hold it|to hold|reserve it|secure it/)) add(3, "Wants a deposit before you've seen the phone. This is the most common phone scam.", "Can I see it in person before I pay anything?", "Never pay a deposit. Pay only once you've checked it in person.");
+  if (has(/bank transfer|transfer the money|friends (and|&) family|\bf ?& ?f\b|gift card|crypto|bitcoin|western union|moneygram|wise transfer/)) add(3, "Wants paying by bank transfer or friends & family, which has no buyer protection.", null, "Pay cash or by bank transfer on the spot only after every check passes.");
+  if (has(/\b(post|posted|ship|shipped|courier|deliver)/) && has(/away|abroad|offshore|working away|can't meet|cant meet|not around|out of (the )?country|military|deployed|rig/)) add(2, "Says they're away and can only post it, so you can't check it first.", "Can we meet somewhere public so I can check it?", null);
+  else if (has(/can't meet|cant meet|no meet|post only|postage only/)) add(2, "Won't meet in person.", "Can we meet somewhere public so I can check it?", null);
+  if (has(/icloud|activation lock|apple id|find my|forgot (the )?password|passcode|locked to (an|the) account/)) add(3, "Mentions iCloud, Apple ID or a passcode problem. A locked phone is worthless.", "Is it signed out of iCloud and Find My?", "Watch them sign out of Apple ID and Find My in front of you.");
+  if (has(/blacklist|barred|blocked imei|\blost\b|stolen|insurance|on finance|finance left|outstanding|still paying|contract phone/)) add(3, "Could be blacklisted, lost, stolen or still on finance.", "Can you send me the IMEI so I can check it?", null);
+  if (has(/no box|without box|no receipt|no proof|lost the box|don't have the box|dont have the box/)) add(1, "No box or receipt, so there's less proof it's theirs.", "Do you have the box, receipt or any proof of purchase?", null);
+  if (has(/quick sale|urgent|asap|need gone|today only|first to pay|first come|first person|need the money|need cash/)) add(1, "Pushing you to buy fast. Pressure is a classic scam tactic.", null, null);
+  if (has(/whatsapp|text me on|message me on|email me|call me on|telegram/)) add(1, "Wants to move the chat off the platform, where you lose protection.", "Can we keep talking on here?", null);
+  if (has(/payment link|pay(ment)? via (a )?link|click (the|this) link|courier (will )?collect|sending a courier/)) add(3, "Mentions a payment link or courier collection. These are often fake.", null, "Don't click payment links from sellers.");
+  if (has(/replacement screen|aftermarket|non[- ]?genuine|copy screen|unknown part|third[- ]party (screen|battery)/)) add(1, "Mentions replaced or non-genuine parts, which lowers the value.", "Which parts have been replaced, and by who?", "Check Settings → General → About → Parts and Service History.");
+  if (has(/network locked|locked to (ee|o2|vodafone|three|giffgaff|verizon|at&t|t-mobile)/)) add(1, "May be locked to one network.", "Is it unlocked to all networks?", null);
+  if (has(/too good|bargain|below market|cheap(est)?/)) add(1, "Sold as a bargain. If the price is well under what it normally sells for, be careful.", null, null);
+  ask.add("Can you send me the IMEI so I can check it?");
+  ["Run the IMEI through a blacklist check before you meet.", "Watch them sign out of Apple ID and Find My in front of you.", "Have it erased in front of you, then check it starts up as new."].forEach(c => check.add(c));
+  const risk = score >= 3 ? "high" : score >= 1 ? "medium" : "low";
+  const summary = {high: "This has the signs of a scam. Don't send any money until you've seen it in person.", medium: "A few things to be careful about. Get answers before you meet.", low: "Nothing obvious stands out, but still do every check in person."}[risk];
+  return {risk, summary, red_flags: flags.slice(0, 6), ask_seller: [...ask].slice(0, 4), before_paying: [...check].slice(0, 5)};
+}
+function showScam(r, ai){
+  const risk = ["low","medium","high"].includes(r?.risk) ? r.risk : "medium";
+  const cls = {low:"v-good",medium:"v-fair",high:"v-bad"}[risk];
+  const word = {low:"Looks OK",medium:"Be careful",high:"High risk"}[risk];
+  const list = (title, arr) => Array.isArray(arr)&&arr.length ? `<h3>${title}</h3><ul>${arr.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "";
+  $("sres").hidden = false;
+  $("sres").innerHTML = `<div class="verdict ${cls}"><span class="tag">Scam risk</span><span class="word">${word}</span><p class="why">${esc(r?.summary||"")}</p></div>
+    <div class="body">${list("Red flags", r?.red_flags)}${list("Ask the seller", r?.ask_seller)}${list("Before you pay", r?.before_paying)}
+    <p class="small">${ai ? "AI can miss things." : "This checks for common warning signs and can miss things."} Always check the IMEI and see Find My switched off in person.</p></div>`;
+}
 $("sgo").addEventListener("click", async () => {
-  if (!sample) return hideAI();
   const text = $("stext").value.trim();
+  if (!sample){
+    if (!text){ $("sres").hidden = false; $("sres").innerHTML = `<div class="body"><p>Paste the listing or the seller's messages first.</p></div>`; return; }
+    showScam(quickScam(text), false); $("sres").scrollIntoView({behavior:"smooth", block:"start"}); return;
+  }
   const file = $("simg").files?.[0];
   if (!text && !file){ $("sres").hidden=false; $("sres").innerHTML = `<div class="body"><p>Paste the listing text or add a screenshot first.</p></div>`; return; }
   $("sgo").disabled = true; $("sres").hidden = false;
@@ -2091,15 +2129,9 @@ LISTING AND MESSAGES:
 ${text.slice(0,6000) || "(see screenshot)"}`;
   try {
     const r = await sample.json(prompt, file ? {images:[file]} : {});
-    const risk = ["low","medium","high"].includes(r?.risk) ? r.risk : "medium";
-    const cls = {low:"v-good",medium:"v-fair",high:"v-bad"}[risk];
-    const word = {low:"Looks OK",medium:"Be careful",high:"High risk"}[risk];
-    const list = (title, arr) => Array.isArray(arr)&&arr.length ? `<h3>${title}</h3><ul>${arr.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "";
-    $("sres").innerHTML = `<div class="verdict ${cls}"><span class="tag">Scam risk</span><span class="word">${word}</span><p class="why">${esc(r?.summary||"")}</p></div>
-      <div class="body">${list("Red flags", r?.red_flags)}${list("Ask the seller", r?.ask_seller)}${list("Before you pay", r?.before_paying)}
-      <p class="small">AI can miss things. Always check the IMEI and see Find My switched off in person.</p></div>`;
+    showScam(r, true);
   } catch(e){
-    if (["not_granted","sampling_disabled","capability_disabled","not_declared"].includes(e?.code)) hideAI();
+    if (["not_granted","sampling_disabled","capability_disabled","not_declared"].includes(e?.code)){ sample = null; hideAI(); if (text){ showScam(quickScam(text), false); return; } }
     $("sres").innerHTML = `<div class="body"><p>${errCopy(e?.code)}</p></div>`;
   } finally { $("sgo").disabled = false; }
 });
