@@ -263,6 +263,18 @@ input[type=search]{font:500 15px var(--body)}
 .d-lab{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .d-big{font:600 48px var(--mono);letter-spacing:-.02em;line-height:1.05;font-variant-numeric:tabular-nums}
 .d-sub{font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.cseg{flex-wrap:nowrap;gap:2px;background:var(--field,var(--bg));border-radius:9px;padding:2px}
+.cseg button{flex:0 0 auto;border:0!important;background:none!important;padding:5px 10px;font-size:12.5px;border-radius:7px;color:var(--muted)}
+.cseg button[aria-pressed="true"]{background:var(--surface-2,var(--surface))!important;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.ctip{display:flex;align-items:baseline;gap:8px;margin:-2px 0 2px;min-height:26px}
+.ctip b{font-size:20px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.ctip span{font-size:13px;color:var(--muted)}
+.dchart svg{touch-action:pan-y;cursor:crosshair;overflow:visible}
+.dchart .cbar{transition:opacity .15s}
+.clegend{display:flex;gap:16px;margin-top:6px;font-size:12.5px;color:var(--muted)}
+.clegend span{display:flex;align-items:center;gap:6px}
+.clegend .lk{width:14px;height:0;border-top:2.5px solid var(--accent);border-radius:2px}
+.clegend .lk.dash{border-top:2px dashed var(--muted)}
 .d-about{margin:4px 0 0;font-size:13.5px;color:var(--muted);line-height:1.45}
 .chg{font:700 13px var(--body);padding:3px 9px;border-radius:99px;background:var(--tint);color:var(--ink)}
 .chg.up{background:var(--good-soft);color:var(--good)} .chg.down{background:var(--bad-soft);color:var(--bad)}
@@ -715,12 +727,249 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
 .shot-tip .btn{flex:none;display:inline-flex;align-items:center;gap:6px}
 .shot-tip .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .shot-tip .small{line-height:1.45}
+
+/* IMEI check */
+.imei-btns{display:flex;gap:8px;margin-top:-6px}
+.imei-btns .btn{display:inline-flex;align-items:center;gap:6px}
+.imei-btns svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#imeiIn{font:600 20px var(--mono);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.imei-num{font:700 26px var(--mono);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.ilist.flat{box-shadow:none;background:var(--field);border-radius:16px}
+.irow.static{cursor:default}
+.irow.static:active{background:none}
+.imei-save{display:flex;gap:8px}
+.imei-save select{flex:1}
+.linkbtn{cursor:pointer;font-family:var(--body)}
+
+/* month picker */
+#tperiod button,#dChips button{white-space:nowrap}
+.chev-d{display:inline-block;width:7px;height:7px;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:translateY(-3px) rotate(45deg);margin-left:4px;opacity:.7;font-style:normal}
+.mp-list{display:flex;flex-direction:column;margin:4px -4px 0}
+.mp-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;text-align:left;padding:14px 12px;border:0;border-radius:14px;background:none;color:var(--ink);font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.mp-row+.mp-row{border-top:.5px solid var(--line);border-radius:0}
+.mp-row:active{background:var(--tint)}
+.mp-row.on{background:var(--accent-soft);border-radius:14px;border-top-color:transparent}
+.mp-row.on + .mp-row{border-top-color:transparent}
+.mp-n{display:flex;flex-direction:column;gap:1px;min-width:0}
+.mp-n b{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.mp-n small{font-size:13px;color:var(--muted)}
+.mp-v{font:700 17px var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--good)}
+.mp-v.neg{color:var(--bad)}
+.mp-bar{grid-column:1/-1;height:4px;border-radius:99px;background:var(--track);overflow:hidden}
+.mp-bar i{display:block;height:100%;border-radius:99px;background:var(--accent)}
+
+/* is it real */
+.lg-prog{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted);padding:0 4px}
+.lg-mini{font-weight:700;background:none!important}.lg-mini.v-good{color:var(--good)}.lg-mini.v-fair{color:var(--warn)}.lg-mini.v-bad{color:var(--bad)}.lg-mini.v-idle{color:var(--accent)}
+.lg-reset{border:0;background:none;color:var(--accent);font:500 15px var(--body);cursor:pointer;padding:4px}
+.lg-steps{display:flex;flex-direction:column;gap:12px}
+.lg-step{gap:12px!important;transition:box-shadow .25s}
+:root[data-skin="studio"] .lg-step.good{box-shadow:var(--card-shadow),inset 0 0 0 1.5px color-mix(in srgb,var(--good) 45%,transparent)}
+:root[data-skin="studio"] .lg-step.warn{box-shadow:var(--card-shadow),inset 0 0 0 1.5px color-mix(in srgb,var(--warn) 45%,transparent)}
+:root[data-skin="studio"] .lg-step.bad{box-shadow:var(--card-shadow),inset 0 0 0 1.5px color-mix(in srgb,var(--bad) 55%,transparent)}
+.lg-head{display:flex;gap:12px;align-items:flex-start}
+.lg-head h3{margin:0;font-size:17px;font-weight:600;letter-spacing:-.02em}
+.lg-head p{margin:3px 0 0;font-size:14px;color:var(--muted);line-height:1.45}
+.lg-n{flex:none;width:28px;height:28px;border-radius:99px;display:grid;place-items:center;background:var(--tint);font:700 14px var(--body);color:var(--muted)}
+.lg-n.done{background:var(--accent);color:#FFF}
+.lg-seg button{font-size:14px!important}
+#lgLetter{font:600 18px var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.lg-letter{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:14px;font-size:14px;line-height:1.4}
+.lg-letter b{font-size:15px}
+.lg-letter.good{background:var(--good-soft);color:var(--good)} .lg-letter.good span{color:var(--ink)}
+.lg-letter.warn{background:var(--warn-soft);color:var(--warn)} .lg-letter.warn span{color:var(--ink)}
+.lg-letter.bad{background:var(--bad-soft);color:var(--bad)} .lg-letter.bad span{color:var(--ink)}
+.lg-step .linkbtn{align-self:flex-start}
+.legit-link{background:var(--surface);border-radius:22px;box-shadow:var(--card-shadow);padding:14px 16px}
+
+/* audit polish */
+.soon{grid-column:3;font:700 11px var(--body);letter-spacing:.02em;color:var(--muted);background:var(--tint);border-radius:99px;padding:3px 8px;white-space:nowrap}
+.irow.soon-row{grid-template-columns:30px minmax(0,1fr) auto}
+.irow.soon-row .iic{opacity:.55}
+.empty-msg{text-align:center;padding:28px 12px;font-size:15px!important}
+
+/* ---- home: member card, to do, cash ---- */
+.homecards{display:flex;flex-direction:column;gap:14px}
+.mcard{height:208px}
+.mc-in{position:relative;height:100%;transition:transform .17s cubic-bezier(.4,0,.2,1)}
+.mcard.squash .mc-in{transform:scaleX(.02) scaleY(.96)}
+[data-card]{--mc-bg:radial-gradient(120% 140% at 0% 0%,#3a3550 0%,#16141f 45%,#0b0a10 100%);--mc-ink:#fff;--mc-dim:rgba(255,255,255,.66);--mc-faint:rgba(255,255,255,.5);--mc-pill:rgba(255,255,255,.14);
+  --mc-logo:linear-gradient(160deg,#9b83ff,#5b3df5);--mc-logo-ink:#fff;--mc-shadow:rgba(20,10,60,.55);--mc-edge:rgba(255,255,255,.1);--mc-hit:rgba(232,200,120,.8);--mc-hit-ink:#E8C878;
+  --mc-on-ink:#111;--mc-sheen:linear-gradient(110deg,transparent 42%,rgba(185,168,255,.3) 48%,rgba(255,255,255,.2) 50%,rgba(120,200,255,.22) 52%,transparent 58%);--mc-grain:rgba(255,255,255,.02)}
+[data-card="black"]{--mc-bg:linear-gradient(150deg,#26262a 0%,#0d0d0f 55%,#030303 100%);--mc-logo:rgba(255,255,255,.12);--mc-shadow:rgba(0,0,0,.6);--mc-sheen:linear-gradient(110deg,transparent 44%,rgba(255,255,255,.14) 50%,transparent 56%);--mc-grain:rgba(255,255,255,.025)}
+[data-card="titanium"]{--mc-on-ink:#fff;--mc-bg:linear-gradient(125deg,#e9eaec 0%,#b9bbbf 38%,#eeeff1 62%,#a4a7ab 100%);--mc-ink:#1c1c1e;--mc-dim:rgba(0,0,0,.58);--mc-faint:rgba(0,0,0,.45);--mc-pill:rgba(0,0,0,.08);
+  --mc-logo:#1c1c1e;--mc-shadow:rgba(60,60,70,.45);--mc-edge:rgba(255,255,255,.55);--mc-hit:rgba(160,120,40,.85);--mc-hit-ink:#7a5a14;--mc-sheen:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.65) 50%,transparent 58%);--mc-grain:rgba(0,0,0,.025)}
+[data-card="gold"]{--mc-on-ink:#f6e7bd;--mc-bg:linear-gradient(125deg,#f6e7bd 0%,#cfa95c 40%,#f3dfa6 64%,#b38a3d 100%);--mc-ink:#2e2108;--mc-dim:rgba(46,33,8,.66);--mc-faint:rgba(46,33,8,.5);--mc-pill:rgba(46,33,8,.1);
+  --mc-logo:#2e2108;--mc-logo-ink:#f3dfa6;--mc-shadow:rgba(120,85,20,.5);--mc-edge:rgba(255,255,255,.5);--mc-hit:rgba(255,255,255,.95);--mc-hit-ink:#2e2108;--mc-sheen:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.6) 50%,transparent 58%);--mc-grain:rgba(0,0,0,.025)}
+[data-card="rose"]{--mc-on-ink:#fbe1da;--mc-bg:linear-gradient(125deg,#fbe1da 0%,#e4a99c 42%,#f7d3c7 64%,#c88677 100%);--mc-ink:#3a1c16;--mc-dim:rgba(58,28,22,.64);--mc-faint:rgba(58,28,22,.5);--mc-pill:rgba(58,28,22,.1);
+  --mc-logo:#3a1c16;--mc-logo-ink:#fbe1da;--mc-shadow:rgba(150,80,70,.45);--mc-edge:rgba(255,255,255,.5);--mc-hit:rgba(255,255,255,.95);--mc-hit-ink:#3a1c16;--mc-sheen:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%);--mc-grain:rgba(0,0,0,.02)}
+[data-card="ocean"]{--mc-bg:radial-gradient(130% 150% at 0% 0%,#2f8cff 0%,#0b45b0 42%,#061b4d 100%);--mc-logo:rgba(255,255,255,.18);--mc-shadow:rgba(10,50,140,.55);--mc-sheen:linear-gradient(110deg,transparent 42%,rgba(160,220,255,.32) 50%,transparent 58%)}
+[data-card="emerald"]{--mc-bg:radial-gradient(130% 150% at 0% 0%,#1fa37a 0%,#0b5a43 45%,#03231a 100%);--mc-logo:rgba(255,255,255,.16);--mc-shadow:rgba(5,80,55,.5);--mc-sheen:linear-gradient(110deg,transparent 42%,rgba(170,255,220,.28) 50%,transparent 58%)}
+[data-card="aurora"]{--mc-bg:linear-gradient(125deg,#ff5f6d 0%,#ff9966 22%,#c86dd7 48%,#3a7bd5 74%,#00c6b8 100%);--mc-dim:rgba(255,255,255,.92);--mc-faint:rgba(255,255,255,.85);--mc-pill:rgba(255,255,255,.2);
+  --mc-logo:rgba(255,255,255,.22);--mc-shadow:rgba(120,60,160,.5);--mc-edge:rgba(255,255,255,.3);--mc-hit:rgba(255,255,255,.95);--mc-hit-ink:#fff;--mc-sheen:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.35) 50%,transparent 58%)}
+.mc-face{position:absolute;inset:0;border-radius:24px;overflow:hidden;color:var(--mc-ink);text-align:left;font:inherit;border:0;padding:20px;display:flex;flex-direction:column;
+  background:var(--mc-bg);box-shadow:0 24px 40px -22px var(--mc-shadow),inset 0 0 0 1px var(--mc-edge),inset 0 1px 0 rgba(255,255,255,.14)}
+.mc-front{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.mc-front::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--mc-grain) 0 1px,transparent 1px 3px);pointer-events:none}
+.mc-sheen{position:absolute;inset:-60% -80%;background:var(--mc-sheen);transform:translateX(-45%);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){.mc-sheen{animation:mcSweep 5s cubic-bezier(.4,0,.2,1) .4s infinite}}
+@keyframes mcSweep{0%{transform:translateX(-45%)}40%,100%{transform:translateX(45%)}}
+.mc-top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.mc-logo{width:30px;height:30px;border-radius:9px;background:var(--mc-logo);color:var(--mc-logo-ink);display:grid;place-items:center}
+.mc-logo svg{width:17px;height:17px}
+.mc-brand{font:600 11px var(--body);letter-spacing:.18em;color:var(--mc-faint)}
+.mc-big{position:relative;z-index:1;font:700 44px var(--mono);letter-spacing:-.04em;margin-top:22px;line-height:1;font-variant-numeric:tabular-nums}
+.mc-sub{position:relative;z-index:1;font:600 11px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mc-dim);margin-top:6px}
+.mc-foot{position:absolute;z-index:1;left:20px;right:20px;bottom:16px;display:flex;justify-content:space-between;font:600 11px var(--body);letter-spacing:.14em;color:var(--mc-faint)}
+.mcard.hit .mc-face{box-shadow:inset 0 0 0 1.5px var(--mc-hit),0 24px 40px -22px var(--mc-shadow)}
+.mcard.hit .mc-brand{color:var(--mc-hit-ink)}
+.mcard:not(.flipped) .mc-back,.mcard.flipped .mc-front{visibility:hidden;pointer-events:none}
+.mc-back{gap:10px;padding:16px 18px}
+.mc-bhead{display:flex;justify-content:space-between;align-items:center;font:600 11px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mc-faint)}
+.mc-bhead .mc-btns{display:flex;gap:6px}
+.mc-x{border:0;background:var(--mc-pill);color:var(--mc-ink);border-radius:99px;padding:5px 12px;font:600 13px var(--body);letter-spacing:0;text-transform:none;cursor:pointer}
+.mc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 10px}
+.mc-grid div{display:flex;flex-direction:column;min-width:0}
+.mc-grid span{font-size:11px;color:var(--mc-faint);font-weight:600}
+.mc-grid b{font:700 16px var(--mono);letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-edit{display:flex;gap:8px;margin-top:auto}
+.mc-edit input{flex:1;min-width:0;background:var(--mc-pill)!important;border:0!important;color:var(--mc-ink)!important;border-radius:10px!important;padding:8px 12px!important;font:500 15px var(--body)!important;box-shadow:none!important}
+.mc-edit input::placeholder{color:var(--mc-faint)}
+.mc-edit button{border:0;border-radius:10px;background:var(--mc-ink);color:var(--mc-on-ink);font:600 14px var(--body);padding:0 14px;cursor:pointer}
+.hcard{background:var(--surface);border-radius:22px;box-shadow:var(--card-shadow);padding:16px 18px 18px}
+.hc-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.hc-head b{font:700 19px var(--display);letter-spacing:-.02em}
+.hc-head span{font-size:13px;color:var(--muted);font-weight:600}
+.todo{display:grid;grid-template-columns:34px minmax(0,1fr) 10px;gap:12px;align-items:center;width:100%;padding:11px 0;border:0;border-top:.5px solid var(--line);background:none;color:var(--ink);font:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.todo:first-child{border-top:0}
+.todo:active{opacity:.6}
+.todo span{display:flex;flex-direction:column;gap:1px;min-width:0}
+.todo b{font-size:15.5px;font-weight:600;letter-spacing:-.015em}
+.todo small{font-size:13px;color:var(--muted)}
+.td-ic{width:34px;height:34px;border-radius:99px;display:grid;place-items:center}
+.td-ic svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+.td-ic.blue{background:var(--accent-soft);color:var(--accent)} .td-ic.warn{background:var(--warn-soft);color:var(--warn)} .td-ic.grey{background:var(--tint);color:var(--muted)}
+.todo .chev{grid-row:auto}
+.todo-done{display:flex;gap:12px;align-items:center;padding:8px 0 2px}
+.todo-done i{width:34px;height:34px;border-radius:99px;background:var(--good-soft);color:var(--good);display:grid;place-items:center;font-style:normal;font-weight:800}
+.todo-done span{display:flex;flex-direction:column}.todo-done b{font-size:15.5px}.todo-done small{font-size:13px;color:var(--muted)}
+.cash-row{display:grid;grid-template-columns:1fr 1fr;margin-top:6px}
+.cash-row div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.cash-row div+div{border-left:.5px solid var(--line);padding-left:16px}
+.cash-row span{font-size:13px;color:var(--muted);font-weight:600}
+.cash-row b{font:700 24px var(--mono);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cash-bar{display:flex;gap:3px;height:10px;margin:14px 0 10px}
+.cash-bar i{display:block;border-radius:99px;min-width:4px}
+#cashBarOut{background:var(--track)} html[data-mode="dark"] #cashBarOut{background:#48484A}
+#cashBarIn{background:var(--accent)}
+.cash-net{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.cash-net b{font:700 17px var(--mono);letter-spacing:-.02em;white-space:nowrap}
+.goal-line{border-top:.5px solid var(--line);margin-top:14px;padding-top:12px;display:flex;flex-direction:column;gap:8px}
+.gl-top{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted)}
+.gl-top b{color:var(--ink)}
+.gl-top button{border:0;background:none;color:var(--accent);font:500 15px var(--body);cursor:pointer;padding:2px 0}
+.gl-bar{height:6px;border-radius:99px;background:var(--track);overflow:hidden}
+.gl-bar i{display:block;height:100%;border-radius:99px;background:var(--accent);transition:width .8s cubic-bezier(.25,.8,.25,1)}
+#cashCard .goal-edit{margin-top:10px}
+
+.mc-subrow{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.mc-subrow .mc-sub{margin-top:0}
+.mc-per{display:inline-flex;align-items:center;gap:2px;border:0;border-radius:99px;background:var(--mc-pill);color:var(--mc-ink);font:600 13px var(--body);padding:6px 12px;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.mc-per:active{opacity:.7}
+.mc-edit input{font-size:16px!important}
+.todo-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;border-top:.5px solid var(--line)}
+.todo-row:first-child{border-top:0}
+.todo-row .todo{border-top:0;grid-template-columns:34px minmax(0,1fr)}
+.td-more{display:block;width:100%;margin-top:6px;padding:12px 0 2px;border:0;border-top:.5px solid var(--line);background:none;color:var(--accent);font:600 15px var(--body);cursor:pointer;text-align:center}
+.kinds{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -2px 14px;padding:2px}
+.kinds::-webkit-scrollbar{display:none}
+.kinds button{flex:0 0 auto;display:flex;align-items:center;gap:6px;border:1px solid var(--line2,var(--line));background:var(--field,var(--bg));color:var(--ink);border-radius:99px;padding:8px 13px;font:600 14px var(--body);cursor:pointer;white-space:nowrap}
+.kinds button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.kinds button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.kbar{margin:0 0 10px}
+.kbar button{padding:6px 12px;font-size:13.5px}
+.kinds.wrap{display:flex!important;flex-flow:row wrap;overflow:visible;margin:0;padding:0!important;gap:8px}
+.kinds.wrap button{width:auto!important;flex:0 0 auto;margin:0!important;padding:7px 12px;font-size:13.5px;border-radius:99px}
+.kinds.wrap button[aria-pressed="true"]::before{content:"✓";font-weight:700}
+.lfield{margin:0 0 14px}.lflab{display:block;font:600 13px var(--body);color:var(--muted);margin:0 0 8px}.lflab small{font-weight:400;margin-left:4px}
+.lhead{display:flex;justify-content:space-between;align-items:baseline;margin:2px 0 6px}
+.lhead span{font:600 13px var(--body);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.lhead small{font-size:12.5px;color:var(--muted)}.lhead small.over{color:var(--bad,#FF3B30);font-weight:600}
+.listing.ltitle{font-weight:600;font-size:15.5px}
+#lres .body > .row-btns{margin:10px 0 18px}
+#lres .body > .row-btns:last-of-type{margin-bottom:6px}
+.td-unhide{display:block;margin:8px auto 0;border:0;background:none;color:var(--muted);font:500 13px var(--body);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.td-skip{border:0;background:var(--tint);color:var(--muted);font:600 12.5px var(--body);border-radius:99px;padding:6px 10px;cursor:pointer;white-space:nowrap}
+
+/* tweak pass */
+.hcard.slim{padding:12px 16px}
+.hcard.slim .hc-head{display:none}
+.hcard.slim .todo-done{padding:0}
+.hcard.slim .todo-done i{width:28px;height:28px;font-size:13px}
+.hcard.slim .todo-done b{font-size:15px}
+.stats-h{margin:10px 4px -4px;font:700 21px var(--display);letter-spacing:-.022em;color:var(--ink)}
+.mc-hint{font-size:10px;letter-spacing:.12em;color:var(--mc-faint);text-transform:uppercase}
+@media (prefers-reduced-motion:no-preference){.mc-hint{animation:hintPulse 2.4s ease-in-out infinite}}
+@keyframes hintPulse{50%{opacity:.45}}
+.lv-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;min-height:150px;padding:10px 20px}
+.lv-empty b{font-size:16px;letter-spacing:-.015em}
+.lv-empty span{font-size:13.5px;color:var(--muted)}
+.mcard.hit .mc-back .mc-bhead > span{color:var(--mc-hit-ink)}
+#paceCard{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:0;background:var(--surface);box-shadow:var(--card-shadow);border-radius:22px}
+#paceCard[hidden]{display:none}
+.pc-lab{font-size:13px;font-weight:600;color:var(--muted)}
+.pc-big{display:flex;align-items:baseline;gap:6px;margin-top:2px}
+.pc-big b{font:700 42px var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.04em;line-height:1}
+.pc-big span{font:600 20px var(--mono);letter-spacing:-.02em;color:var(--muted)}
+.pc-sub{font-size:15px;color:var(--muted)}
+.pc-sub .neg,.pc-sub .pos{font-weight:600}
+.pc-chart{margin:6px -2px 0}
+.pc-chart svg{display:block;width:100%;height:auto;overflow:visible}
+.pc-leg{display:flex;gap:16px;font-size:12.5px;color:var(--muted)}
+.pc-leg i{display:inline-block;width:14px;height:0;border-top:2.5px solid var(--accent);vertical-align:3px;margin-right:6px}
+.pc-leg i.d{border-top:2px dashed var(--muted)}
+#paceCard .goal-foot{border-top:.5px solid var(--line);padding-top:10px;margin-top:4px}
+#paceCard .goal-foot button{font-size:15px;font-weight:500;color:var(--accent)}
+.set-lab{display:block;font:600 13px var(--body);color:var(--muted);margin:14px 0 8px}
+.set-row{display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:12px;padding:12px 0 2px;border:0;border-top:.5px solid var(--line);background:none;color:var(--ink);font:500 16px var(--body);cursor:pointer;text-align:left}
+.set-row small{color:var(--muted);font-size:15px;display:flex;align-items:center;gap:6px}
+.set-row small svg{width:8px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;opacity:.6}
+.set-row[hidden]{display:none}
+.cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:4px 2px 10px}
+.cd-opt{border:0;background:none;padding:0;cursor:pointer;text-align:left;font:inherit;color:var(--ink)}
+.cd-mini{position:relative;aspect-ratio:1.586;border-radius:13px;background:var(--mc-bg);box-shadow:0 10px 18px -12px var(--mc-shadow),inset 0 0 0 1px var(--mc-edge);overflow:hidden;color:var(--mc-ink);padding:10px 11px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .15s}
+.cd-mini b{font:600 8px var(--body);letter-spacing:.18em;color:var(--mc-faint)}
+.cd-mini i{font:700 18px var(--mono);font-style:normal;letter-spacing:-.03em}
+.cd-opt span{display:flex;justify-content:space-between;align-items:center;margin-top:7px;font:600 14px var(--body)}
+.cd-opt[aria-pressed="true"] .cd-mini{box-shadow:0 0 0 2.5px var(--bg),0 0 0 4.5px var(--accent),0 10px 18px -12px var(--mc-shadow)}
+.cd-opt[aria-pressed="true"] span::after{content:"✓";color:var(--accent);font-weight:700}
+.cd-opt:active .cd-mini{transform:scale(.97)}
+.imp-unread{margin:6px 0 12px;font-size:14px}
+.imp-unread summary{cursor:pointer;color:var(--warn);font-weight:600}
+.imp-unread div{padding:6px 0;border-top:.5px solid var(--line);color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+
+/* delete phones */
+.del-zone{margin-top:14px;padding-top:14px;border-top:.5px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.del-zone > .btn.danger{align-self:flex-start}
+.del-box{display:flex;flex-direction:column;gap:8px}
+.del-box p{margin:0 0 4px;font-size:14px;color:var(--muted);line-height:1.45}
+.del-box p b{color:var(--ink)}
+.del-opt{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:0;border-radius:14px;background:var(--bad-soft);color:var(--bad);padding:12px 14px;font:inherit;cursor:pointer;transition:background-color .2s,transform .12s}
+.del-opt b{font-size:15.5px}
+.del-opt small{font-size:13px;color:var(--ink);opacity:.75}
+.del-opt.arm{background:var(--bad);color:#FFF}
+.del-opt.arm small{color:#FFF}
+.del-opt:active{transform:scale(.98)}
+.toast.act{pointer-events:auto}
+.toast-undo{border:0;background:none;color:#64B5FF;font:700 14px var(--body);margin-left:10px;cursor:pointer;padding:2px 4px}
+
+.stale.junk{background:var(--accent-soft)}
+.stale.junk .st-ic{color:var(--accent)}
+.stale.junk .btn{display:block;margin-top:10px}
 @keyframes stIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 </style>
 <script>(function(){var r=document.documentElement,m=null;r.dataset.skin="studio";try{m=localStorage.getItem("iflipper-mode")}catch(e){}if(m!=="light"&&m!=="dark")m=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";r.dataset.mode=m})()</script>
 
-</head>
-<body>
 <div class="wrap">
   <div class="navmini" id="navmini">
     <button type="button" class="back" id="navBack" hidden><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M10 2L2 10l8 8"/></svg><span>Tools</span></button>
@@ -773,7 +1022,7 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
         <button class="btn" id="otrack" style="padding:12px">Bought it: add to tracker</button>
       </div>
       <p class="small" id="otmsg" hidden></p>
-      <p class="small" id="ooff" hidden>The AI offer writer is coming soon to iFlipper Pro.</p>
+      <p class="small" id="ooff" hidden>The offer writer isn't available in this view.</p>
     </div>
     <div class="ticket" id="ores" hidden aria-live="polite"></div>
   </section>
@@ -793,7 +1042,7 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
       <label>Images<input type="file" id="gfiles" accept="image/*" multiple></label>
       <div class="thumbs" id="gthumbs"></div>
       <button class="primary" id="ggo">Grade this phone</button>
-      <p class="small" id="goff" hidden>AI photo and parts grading is coming soon to iFlipper Pro.</p>
+      <p class="small" id="goff" hidden>Photo grading isn't available in this view.</p>
     </div>
     <div class="ticket" id="gres" hidden aria-live="polite"></div>
   </section>
@@ -838,14 +1087,44 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
       <div class="bk-txt"><b>Back up your phones</b><span id="bkMsg"></span></div>
       <div class="bk-btns"><button type="button" class="bk-go" id="bkGo">Back up now</button><button type="button" class="bk-later" id="bkLater">Later</button></div>
     </div>
-    <div class="goal" id="goalCard" aria-live="polite">
-      <span class="pc-lab">Profit this month</span>
-      <div class="pc-big"><b id="gtext">–</b><span id="ggoal"></span></div>
-      <div class="pc-sub"><span id="gpace"></span><span id="gdays"></span></div>
-      <div class="pc-chart" id="gchart"></div>
-      <div class="pc-leg"><span><i></i>Your profit</span><span><i class="d"></i>Pace to hit goal</span></div>
-      <div class="goal-foot"><span id="gleft"></span><button id="gedit">Change goal</button></div>
-      <div class="goal-edit" id="gform" hidden><input type="number" id="ginput" min="0" step="50" inputmode="decimal" aria-label="Monthly profit goal"><button class="btn" id="gsave">Save</button></div>
+    <div class="homecards" id="goalCard">
+      <div id="paceCard" aria-live="polite" hidden>
+        <span class="pc-lab">Profit this month</span>
+        <div class="pc-big"><b id="pgtext">–</b><span id="pggoal"></span></div>
+        <div class="pc-sub"><span id="pgpace"></span><span id="pgdays"></span></div>
+        <div class="pc-chart" id="pgchart"></div>
+        <div class="pc-leg"><span><i></i>Your profit</span><span><i class="d"></i>Pace to hit goal</span></div>
+        <div class="goal-foot"><span id="pgleft"></span><button type="button" id="pgedit">Change goal</button></div>
+        <div class="goal-edit" id="pgform" hidden><input type="number" id="pginput" min="0" step="50" inputmode="decimal" aria-label="Monthly profit goal"><button class="btn" id="pgsave">Save</button></div>
+      </div>
+      <div class="mcard" id="mcard" data-card="midnight">
+        <div class="mc-in">
+          <div class="mc-face mc-front" id="mcFront" role="button" tabindex="0" aria-label="Your member card. Tap to see lifetime stats">
+            <span class="mc-sheen" aria-hidden="true"></span>
+            <span class="mc-top"><span class="mc-logo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M12 5L6 11M12 5L18 11" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="mc-brand">IFLIPPER PRO</span></span>
+            <span class="mc-big" id="gtext">£0</span>
+            <span class="mc-subrow"><span class="mc-sub" id="mcSub"></span><button type="button" class="mc-per" id="mcPer" aria-label="Change period"><span id="mcPerLab">This month</span><i class="chev-d" aria-hidden="true"></i></button></span>
+            <span class="mc-foot"><span id="mcName">MEMBER</span><span class="mc-hint" id="mcHint" hidden>Tap for lifetime</span></span>
+          </div>
+          <div class="mc-face mc-back" id="mcBack">
+            <div class="mc-bhead"><span>Lifetime</span><span class="mc-btns"><button type="button" class="mc-x" id="mcDesign">Card design</button><button type="button" class="mc-x" id="mcFlipBack">Done</button></span></div>
+            <div class="mc-grid" id="mcLife"></div>
+            <div class="mc-edit" id="mcEdit"><input id="mcNameIn" placeholder="Your name on the card" maxlength="18" autocomplete="given-name"><button type="button" id="mcNameSave">Save</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="hcard" id="todoCard">
+        <div class="hc-head"><b>To do</b><span id="todoCount"></span></div>
+        <div id="todoList"></div>
+      </div>
+      <div class="hcard" id="cashCard">
+        <div class="hc-head"><b id="cashTitle">Cash</b><span>Money in vs out</span></div>
+        <div class="cash-row"><div><span>Spent buying</span><b id="cashOut">–</b></div><div><span>Took in selling</span><b id="cashIn">–</b></div></div>
+        <div class="cash-bar"><i id="cashBarOut"></i><i id="cashBarIn"></i></div>
+        <div class="cash-net"><span id="cashTied"></span><b id="cashNet"></b></div>
+        <div class="goal-line"><div class="gl-top"><span id="gleft"></span><button type="button" id="gedit">Change goal</button></div><div class="gl-bar"><i id="gbar2"></i></div></div>
+        <div class="goal-edit" id="gform" hidden><input type="number" id="ginput" min="0" step="50" inputmode="decimal" aria-label="Monthly profit goal"><button class="btn" id="gsave">Save</button></div>
+      </div>
     </div>
 
     <div class="seg tseg" id="tview">
@@ -853,19 +1132,21 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
       <button data-v="stock" aria-pressed="false">Stock <span class="cnt" id="cStock"></span></button>
       <button data-v="sold" aria-pressed="false">Sold <span class="cnt" id="cSold"></span></button>
     </div>
-    <button class="primary" id="addPhone">+ Add a phone</button>
+    <button class="primary" id="addPhone">+ Add stock</button>
 
     <div class="tv" id="v-stock" hidden>
       <div class="stats">
-        <div><span>Phones</span><b id="kStock">–</b></div>
+        <div><span>Items</span><b id="kStock">–</b></div>
         <div><span>Money in stock</span><b id="kTied">–</b></div>
         <div><span>Listed profit</span><b id="kPot">–</b></div>
       </div>
+      <div class="stale junk" id="junkNote" hidden></div>
       <div class="stale" id="stale" hidden></div>
       <input type="search" id="tsearch" placeholder="Search model, colour or IMEI" aria-label="Search your phones">
-      <p class="swhint">Swipe left on a phone to mark it listed or sold. Tap it to edit.</p>
+      <div class="kinds kbar" id="kindBar" hidden></div>
+      <p class="swhint" id="swHint">Swipe left on an item to mark it listed or sold. Tap it to edit.</p>
       <div class="flips" id="stockList"></div>
-      <p class="small" id="stockEmpty" hidden>No phones in stock. Tap "Add a phone" when you buy one.</p>
+      <p class="small empty-msg" id="stockEmpty" hidden>No phones in stock. Tap + to add one when you buy it.</p>
     </div>
 
     <div class="tv" id="v-sold" hidden>
@@ -874,10 +1155,11 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
     </div>
 
     <div class="tv" id="v-dash">
+      <h2 class="stats-h">Your stats</h2>
       <div class="chips" id="tperiod" role="group" aria-label="Time period">
         <button data-v="7" aria-pressed="false">7D</button>
         <button data-v="30" aria-pressed="true">30D</button>
-        <button data-v="month" aria-pressed="false">Month</button>
+        <button data-v="month" aria-pressed="false">Month <i class="chev-d" aria-hidden="true"></i></button>
         <button data-v="year" aria-pressed="false">Year</button>
         <button data-v="all" aria-pressed="false">All</button>
       </div>
@@ -889,7 +1171,7 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
       <div class="atiles" id="atiles"></div>
       <div class="kpis" id="kpis" hidden></div>
       <div class="panel" hidden>
-        <div class="phead"><h3 class="ph" id="chartTitle">Performance</h3><span class="legend"><i class="lg-p"></i>Profit <span class="lg-s-wrap"><i class="lg-s"></i>Phones sold</span></span></div>
+        <div class="phead"><h3 class="ph" id="chartTitle">Performance</h3><span class="legend"><i class="lg-p"></i>Profit <span class="lg-s-wrap"><i class="lg-s"></i>Items sold</span></span></div>
         <div id="chart" class="chart"></div>
       </div>
       <div class="panel">
@@ -914,6 +1196,15 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
         <input type="file" id="bRestore" accept=".json,application/json" hidden>
       </div>
       <div class="row-btns"><button class="btn" id="fclear">Remove example phones</button></div>
+      <div class="del-zone">
+        <button type="button" class="btn danger" id="delAllBtn">Delete phones…</button>
+        <div class="del-box" id="delBox" hidden>
+          <p><b>What do you want to delete?</b> Back up first if you might want them again.</p>
+          <button type="button" class="del-opt" data-del="stock"><b>Delete stock only</b><small id="delStockSub"></small></button>
+          <button type="button" class="del-opt" data-del="all"><b>Delete everything</b><small id="delAllSub"></small></button>
+          <div class="row-btns"><button type="button" class="btn" id="delBackup">Back up first</button><button type="button" class="btn" id="delCancel">Cancel</button></div>
+        </div>
+      </div>
       <p class="small" id="bkLast"></p>
       <p class="small" id="dmsg" hidden></p>
     </div>
@@ -937,31 +1228,66 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
     <div class="ticket" id="sres" hidden aria-live="polite"></div>
   </section>
 
+  <!-- IS IT REAL -->
+  <section id="legit" hidden>
+    <p class="intro">Go through this with the phone in your hand. Answer each step and you'll get a clear answer at the bottom.</p>
+    <div class="lg-prog"><span id="lgCount">0 of 8 checked</span><button type="button" class="lg-reset" id="lgReset">Start again</button></div>
+    <div id="lgSteps" class="lg-steps"></div>
+    <div class="ticket" id="lgRes" aria-live="polite"></div>
+  </section>
+
+  <!-- IMEI CHECK -->
+  <section id="imei" hidden>
+    <p class="intro">Check the IMEI before you hand over any money. A fake or mistyped number is the first sign something's wrong.</p>
+    <div class="panel">
+      <label>IMEI number<input id="imeiIn" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="15 digits, e.g. 35 123456 789012 3"></label>
+      <div class="imei-btns"><button type="button" class="btn" id="imeiPaste"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="4" width="10" height="4" rx="1"/><path d="M8 6H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2"/></svg>Paste</button></div>
+      <button class="primary" id="imeiGo">Check IMEI</button>
+    </div>
+    <div class="ticket" id="imeiRes" hidden aria-live="polite"></div>
+    <div class="panel">
+      <h3 class="ph">Where to find it</h3>
+      <div class="ilist flat">
+        <div class="irow static"><i class="iic" style="background:#34C759" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></i><span><b>Dial *#06#</b><small>Works on any phone, even if you can't get into Settings</small></span></div>
+        <div class="irow static"><i class="iic" style="background:#8E8E93" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></i><span><b>Settings → General → About</b><small>Scroll down. Press and hold the IMEI to copy it</small></span></div>
+        <div class="irow static"><i class="iic" style="background:#007AFF" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="6" rx="2"/><path d="M8 12h4"/></svg></i><span><b>SIM tray</b><small>Older iPhones print it on the tray. It should match Settings</small></span></div>
+      </div>
+      <p class="small">iPhones with eSIM have two IMEIs. Check the first one (IMEI, not IMEI2).</p>
+    </div>
+  </section>
+
   <!-- LISTING -->
   <section id="list" hidden>
-    <p class="intro">Fill in the phone's details and get a listing ready to paste into eBay, Facebook Marketplace or any local site, in your language.</p>
+    <p class="intro">Pick something from your stock or fill it in. You'll get a title and description ready to paste into eBay, Facebook Marketplace or any local site.</p>
     <div class="panel">
+      <label>From your stock<select id="lpick"><option value="">Fill it in myself</option></select></label>
       <div class="grid">
-        <label>Model<input id="lmodel" value="iPhone 14 Pro"></label>
+        <label>Model<input id="lmodel" value="iPhone 14 Pro" list="models"></label>
         <label>Storage<input id="lstore" value="256GB"></label>
         <label>Colour<input id="lcolour" value="Deep Purple"></label>
-        <label>Battery health %<input type="number" id="lbatt" min="50" max="100" value="88" inputmode="numeric"></label>
+        <label id="lbattw">Battery health %<input type="number" id="lbatt" min="50" max="100" value="88" inputmode="numeric"></label>
         <label>Condition
-          <select id="lcond"><option>Like new, no marks</option><option selected>Light marks on frame</option><option>Visible scratches</option><option>Faulty (see notes)</option></select>
+          <select id="lcond"><option value="like new">Like new</option><option value="light marks" selected>Light marks</option><option value="visible scratches">Scratches</option><option value="faulty">Faulty</option></select>
         </label>
-        <label>Network
-          <select id="llock"><option selected>Unlocked</option><option>Network locked</option></select>
+        <label id="llockw">Network
+          <select id="llock"><option selected>Unlocked</option><option>Network locked</option><option value="">Wi-Fi only</option></select>
         </label>
         <label>Where you'll post it
           <select id="lplat"><option>eBay</option><option value="Facebook Marketplace" selected>Facebook</option><option>Vinted</option><option>Gumtree</option><option>OLX</option><option>Craigslist</option><option>Other local site</option></select>
         </label>
-        <label>Language
+        <label>Asking price<input type="number" id="lprice" min="0" step="5" inputmode="decimal" placeholder="Optional"></label>
+        <label>Delivery
+          <select id="ldeliv"><option value="both">Both</option><option value="collect">Collection</option><option value="post">Post only</option></select>
+        </label>
+        <label id="llangw">Language
           <select id="llang"><option selected>English (UK)</option><option>English (US)</option><option>Spanish</option><option>French</option><option>German</option><option>Italian</option><option>Portuguese</option><option>Arabic</option><option>Dutch</option><option>Polish</option></select>
         </label>
       </div>
+      <label>Area for collection (optional)<input id="larea" placeholder="e.g. Manchester city centre"></label>
+      <div class="lfield"><span class="lflab">Checks done <small>tick what's true</small></span><div class="kinds wrap" id="lchecks"></div></div>
+      <div class="lfield"><span class="lflab">Style</span><div class="seg" id="lstyle"><button type="button" data-v="full" aria-pressed="true">Detailed</button><button type="button" data-v="short" aria-pressed="false">Short</button></div></div>
       <label>What's included and anything else<textarea id="lextra" style="min-height:80px">Original box and cable. Screen protector fitted since day one. Small mark on the left side of the frame.</textarea></label>
       <button class="primary" id="lgo">Write my listing</button>
-      <p class="small" id="loff" hidden>The AI listing writer is coming soon to iFlipper Pro.</p>
     </div>
     <div class="ticket" id="lres" hidden aria-live="polite"></div>
   </section>
@@ -969,9 +1295,8 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
   <section id="tools" hidden>
     <div class="ilist">
       <button type="button" class="irow" data-go="profit"><i class="iic" style="background:#34C759" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></i><span><b>Profit calculator</b><small>Max to pay, offer writer, add to stock</small></span><span class="chev"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M2 2l8 8-8 8"/></svg></span></button>
-      <button type="button" class="irow" data-go="scam"><i class="iic" style="background:#FF3B30" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><span><b>Scam check</b><small>AI reads a listing for red flags</small></span><span class="chev"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M2 2l8 8-8 8"/></svg></span></button>
       <button type="button" class="irow" data-go="grade"><i class="iic" style="background:#007AFF" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></i><span><b>Grade &amp; parts</b><small>AI grades photos and settings</small></span><span class="chev"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M2 2l8 8-8 8"/></svg></span></button>
-      <button type="button" class="irow" data-go="list"><i class="iic" style="background:#FF9500" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg></i><span><b>Listing writer</b><small>Ready-to-post ads in any language</small></span><span class="chev"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M2 2l8 8-8 8"/></svg></span></button>
+      <button type="button" class="irow" data-go="list"><i class="iic" style="background:#FF9500" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg></i><span><b>Listing writer</b><small>Title and description ready to post</small></span><span class="chev"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M2 2l8 8-8 8"/></svg></span></button>
     </div>
     <div class="ilist">
       <button type="button" class="irow" data-go="importer"><i class="iic" style="background:#AF52DE" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg></i><span><b>Import from Notes</b><small>Bring in your Apple Notes stock tables</small></span><span class="chev"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M2 2l8 8-8 8"/></svg></span></button>
@@ -982,6 +1307,12 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
         <button type="button" data-v="light" aria-pressed="false"><span class="mode-ic mode-l" aria-hidden="true"></span>Light</button>
         <button type="button" data-v="dark" aria-pressed="false"><span class="mode-ic mode-d" aria-hidden="true"></span>Dark</button>
       </div>
+      <span class="set-lab">Home screen</span>
+      <div class="seg" id="homeSeg">
+        <button type="button" data-v="card" aria-pressed="true">Member card</button>
+        <button type="button" data-v="classic" aria-pressed="false">Classic</button>
+      </div>
+      <button type="button" class="set-row" id="setCard"><span>Card design</span><small id="setCardName">Midnight <svg viewBox="0 0 12 20" aria-hidden="true"><path d="M2 2l8 8-8 8"/></svg></small></button>
     </div>
     <div id="toolsData"></div>
   </section>
@@ -994,7 +1325,7 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
     </div>
     <div id="impOut"></div>
   </section>
-  <p class="foot">iFlipper Pro · iflipperstore.com</p>
+  <p class="foot">iFlipper Pro</p>
 </div>
 
 <div class="welcome" id="welcome" hidden role="dialog" aria-modal="true" aria-labelledby="wTitle0">
@@ -1029,7 +1360,7 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
 <nav class="bnav" aria-label="Main">
   <button type="button" data-go="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Home</button>
   <button type="button" data-go="stock"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>Stock</button>
-  <button type="button" data-go="add" class="bplus" aria-label="Add a phone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+  <button type="button" data-go="add" class="bplus" aria-label="Add stock"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
   <button type="button" data-go="checks"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v3H9z"/><path d="M15 5h3v16H6V5h3"/><path d="M9 13l2 2 4-4"/></svg>Checks</button>
   <button type="button" data-go="tools"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>Tools</button>
 </nav>
@@ -1038,20 +1369,33 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
   <div class="d-top"><button type="button" class="d-back" id="dBack">‹ Dashboard</button><span class="d-period" id="dPeriod"></span></div>
   <div class="d-wrap" id="dBody"></div>
 </div>
+<div class="sheet-bg" id="cdpick" hidden>
+  <div class="sheet mp-sheet" role="dialog" aria-modal="true" aria-labelledby="cdTitle">
+    <div class="sh-head"><h2 id="cdTitle">Card design</h2><button type="button" class="btn" id="cdClose">Done</button></div>
+    <div class="cd-grid" id="cdList"></div>
+  </div>
+</div>
+<div class="sheet-bg" id="mpick" hidden>
+  <div class="sheet mp-sheet" role="dialog" aria-modal="true" aria-labelledby="mpTitle">
+    <div class="sh-head"><h2 id="mpTitle">Choose a month</h2><button type="button" class="btn" id="mpClose">Done</button></div>
+    <div class="mp-list" id="mpList"></div>
+  </div>
+</div>
 <div class="sheet-bg" id="sheet" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
     <div class="grab" aria-hidden="true"></div>
-    <div class="sh-head"><h2 id="shTitle">Add a phone</h2><button type="button" class="btn" id="shClose">Close</button></div>
+    <div class="sh-head"><h2 id="shTitle">Add stock</h2><button type="button" class="btn" id="shClose">Close</button></div>
     <form id="pform" novalidate>
-      <div class="fsec"><h3>The phone</h3>
+      <div class="fsec"><h3>What is it?</h3>
+        <div class="kinds" id="pf-kind" role="group" aria-label="Type of item"></div>
         <label>Model<input id="pf-model" list="models" placeholder="iPhone 13 Pro" autocomplete="off"></label>
         <div class="grid">
           <label>Storage<select id="pf-storage"><option value="">–</option><option>64GB</option><option selected>128GB</option><option>256GB</option><option>512GB</option><option>1TB</option><option>2TB</option></select></label>
           <label>Colour<input id="pf-colour" placeholder="Graphite"></label>
           <label>Condition<select id="pf-grade"><option>Excellent</option><option selected>Good</option><option>OK</option><option>Faulty</option></select></label>
-          <label>Battery %<input type="number" id="pf-battery" min="50" max="100" inputmode="numeric" placeholder="88"></label>
+          <label id="pf-battw">Battery %<input type="number" id="pf-battery" min="50" max="100" inputmode="numeric" placeholder="88"></label>
         </div>
-        <label>IMEI (optional)<input id="pf-imei" inputmode="numeric" placeholder="Last 4 digits is fine"></label>
+        <label><span id="pf-imeil">IMEI (optional)</span><input id="pf-imei" placeholder="Last 4 digits is fine"></label>
       </div>
       <div class="fsec"><h3>Buying</h3>
         <div class="grid">
@@ -1081,9 +1425,9 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
       </div>
       <label>Notes<textarea id="pf-notes" style="min-height:70px" placeholder="Small scratch on frame, new screen protector"></textarea></label>
       <p class="small" id="pf-msg" hidden></p>
-      <button type="submit" class="primary" id="pf-save">Save phone</button>
+      <button type="submit" class="primary" id="pf-save">Save</button>
       <div class="row-btns" id="pf-delwrap" hidden>
-        <button type="button" class="btn" id="pf-del">Delete this phone</button>
+        <button type="button" class="btn" id="pf-del">Delete this item</button>
         <span id="pf-delconfirm" hidden><button type="button" class="btn danger" id="pf-delyes">Yes, delete</button></span>
       </div>
     </form>
@@ -1099,6 +1443,12 @@ input[type=file]::file-selector-button{border:0;border-radius:980px;background:v
   <option>iPhone 17</option><option>iPhone Air</option><option>iPhone 17 Pro</option><option>iPhone 17 Pro Max</option>
   <option>iPhone SE (2022)</option>
   <option>iPad 9th gen</option><option>iPad 10th gen</option><option>iPad Air (M2)</option><option>iPad Pro 11-inch</option><option>iPad mini 6</option>
+  <option>Samsung Galaxy S23</option><option>Samsung Galaxy S24</option><option>Samsung Galaxy S24 Ultra</option><option>Google Pixel 8</option><option>Google Pixel 8 Pro</option>
+  <option>MacBook Air M1</option><option>MacBook Air M2</option><option>MacBook Air M3</option><option>MacBook Pro 14-inch</option><option>MacBook Pro 16-inch</option>
+  <option>Apple Watch Series 9</option><option>Apple Watch SE</option><option>Apple Watch Ultra 2</option>
+  <option>AirPods Pro 2</option><option>AirPods 4</option><option>AirPods Max</option>
+  <option>PS5</option><option>PS5 Digital</option><option>Xbox Series X</option><option>Xbox Series S</option><option>Nintendo Switch OLED</option><option>Steam Deck</option>
+  <option>GoPro Hero 12</option><option>DJI Mini 4 Pro</option>
 </datalist>
 
 
@@ -1111,9 +1461,9 @@ const SCREENS = {
   home:{sec:"track", title:"Home"}, stock:{sec:"track", title:"Stock"}, checks:{sec:"meet", title:"Meetup check"}, tools:{sec:"tools", title:"Tools"},
   profit:{sec:"profit", title:"Profit calculator", parent:"tools"}, scam:{sec:"scam", title:"Scam check", parent:"tools"},
   grade:{sec:"grade", title:"Grade & parts", parent:"tools"}, list:{sec:"list", title:"Listing writer", parent:"tools"},
-  importer:{sec:"importer", title:"Import from Notes", parent:"tools"}
+  importer:{sec:"importer", title:"Import from Notes", parent:"tools"}, imei:{sec:"imei", title:"IMEI check", parent:"tools"}, legit:{sec:"legit", title:"Is it real?", parent:"tools"}
 };
-const SECS = ["profit","scam","meet","grade","list","track","tools","importer"];
+const SECS = ["profit","scam","meet","grade","list","track","tools","importer","imei","legit"];
 let screen = "home";
 function go(sc){
   if (sc === "add"){ openSheet(null); return; }
@@ -1145,6 +1495,32 @@ function setSkin(v, save){
   if (typeof renderFlips === "function" && typeof phones !== "undefined") try { renderFlips(); } catch(e){}
 }
 
+const KIND_ICON = {
+  phone:'<svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>',
+  tablet:'<svg viewBox="0 0 24 24"><rect x="4.5" y="2.5" width="15" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>',
+  laptop:'<svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1.5"/><path d="M2.5 18.5h19"/></svg>',
+  watch:'<svg viewBox="0 0 24 24"><rect x="6.5" y="6" width="11" height="12" rx="3"/><path d="M9 6l.6-3h4.8l.6 3M9 18l.6 3h4.8l.6-3"/></svg>',
+  audio:'<svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3.5" y="13.5" width="4" height="6.5" rx="1.5"/><rect x="16.5" y="13.5" width="4" height="6.5" rx="1.5"/></svg>',
+  console:'<svg viewBox="0 0 24 24"><path d="M7 7h10a4.5 4.5 0 0 1 4.4 5.4l-.9 4.4a2.3 2.3 0 0 1-4 1L14.5 16h-5l-2 1.8a2.3 2.3 0 0 1-4-1l-.9-4.4A4.5 4.5 0 0 1 7 7z"/><path d="M8 10.5v3M6.5 12h3M15.5 11h.1M17.5 13h.1"/></svg>',
+  camera:'<svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2.5h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.2"/></svg>',
+  other:'<svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>'
+};
+const KINDS = [["phone","Phone"],["tablet","Tablet"],["laptop","Laptop"],["watch","Watch"],["audio","Audio"],["console","Console"],["camera","Camera"],["other","Other"]];
+const KIND_LABEL = Object.fromEntries(KINDS);
+const KIND_HINT = {phone:"iPhone 13 Pro", tablet:"iPad Air (M2)", laptop:"MacBook Air M2", watch:"Apple Watch Series 9", audio:"AirPods Pro 2", console:"PS5", camera:"GoPro Hero 12", other:"Dyson Airwrap"};
+const HAS_BATT = new Set(["phone","tablet","laptop","watch"]), HAS_NET = new Set(["phone","tablet","watch"]);
+function guessKind(t){
+  t = String(t || "").toLowerCase();
+  if (/ipad|\btab\b|galaxy tab|kindle|surface go|\btablet/.test(t)) return "tablet";
+  if (/macbook|laptop|thinkpad|chromebook|surface (pro|laptop|book)|imac|mac mini|mac studio|\bdell\b|\bhp\b|lenovo|asus|acer/.test(t)) return "laptop";
+  if (/watch/.test(t)) return "watch";
+  if (/airpods|beats|headphone|earbuds|\bbuds|bose|sony wh|sony wf|speaker|homepod|sonos/.test(t)) return "audio";
+  if (/ps5|ps4|playstation|xbox|switch|nintendo|steam deck|quest|\bvr\b|controller/.test(t)) return "console";
+  if (/camera|gopro|\bdji\b|drone|canon|nikon|fuji|insta360|sony a\d/.test(t)) return "camera";
+  if (/iphone|galaxy|pixel|oneplus|xiaomi|huawei|motorola|nokia|phone|\bi\d{1,2}\b/.test(t)) return "phone";
+  return "";
+}
+const kindOf = f => f.kind || guessKind(f.model) || "phone";
 const short = v => v === "Facebook Marketplace" ? "Facebook" : v === "Trade-in / buyback" ? "Trade-in" : v;
 const CHEV_SVG = '<svg viewBox="0 0 12 20" aria-hidden="true"><path d="M2 2l8 8-8 8"/></svg>';
 try { const c = localStorage.getItem("iflipper-cur"); if (c && [...$("cur").options].some(o => o.value === c)) $("cur").value = c; } catch(e){}
@@ -1152,27 +1528,34 @@ $("cur").addEventListener("change", () => { try { localStorage.setItem("iflipper
 /* PROFIT */
 function money(n){
   const c = $("cur").value;
+  try { return new Intl.NumberFormat(undefined,{style:"currency",currency:c,currencyDisplay:"narrowSymbol",maximumFractionDigits:0}).format(Math.round(n)); }
+  catch(e){}
   try { return new Intl.NumberFormat(undefined,{style:"currency",currency:c,maximumFractionDigits:0}).format(Math.round(n)); }
   catch(e){ return c + " " + Math.round(n); }
 }
 const num = (id,d=0) => { const v = parseFloat($(id).value); return isNaN(v) ? d : v; };
 function calc(){
   const sold=num("sold"), ask=num("ask"), fee=num("fee")/100, ship=num("ship"), repair=num("repair"), target=num("target");
-  const feeCost = sold*fee, net = sold - feeCost - ship - repair, max = Math.max(0, net-target), profit = net-ask;
-  $("pmax").textContent = money(max); $("pnet").textContent = money(net); $("pprofit").textContent = money(profit);
+  const feeCost = sold*fee, net = sold - feeCost - ship - repair, room = net - target, max = Math.max(0, room), profit = net-ask;
+  const tooHigh = sold > 0 && room <= 0;
+  $("pmax").textContent = tooHigh || !sold ? "–" : money(max); $("pnet").textContent = money(net); $("pprofit").textContent = ask ? money(profit) : "–";
   let cls, word, why;
-  if (!sold){ cls="v-idle"; word="Add a price"; why="Enter what this phone has recently sold for near you."; }
-  else if (ask <= max){ cls="v-good"; word="Buy it"; why=`You clear your ${money(target)} target with ${money(max-ask)} to spare.`; }
-  else if (profit > 0){ cls="v-fair"; word="Negotiate"; why=`Only ${money(profit)} profit at this price. Offer ${money(max)} or less.`; }
-  else { cls="v-bad"; word="Walk away"; why=`You'd lose ${money(-profit)} at this price.`; }
-  if (sold && ask>0 && ask < sold*0.5){ cls="v-bad"; word="Too cheap"; why="It's under half the usual price. Phones this cheap are often stolen, blacklisted or a scam. Run the Scam check first."; }
-  if (!$("oamt").dataset.touched) $("oamt").value = Math.floor(Math.min(max, ask || max) / 5) * 5;
+  if (!sold){ cls="v-idle"; word="Add a price"; why="Enter what this has recently sold for near you."; }
+  else if (net <= 0){ cls="v-bad"; word="Check the numbers"; why=`After fees, shipping and repairs you'd keep ${money(net)}. There's no profit in this one.`; }
+  else if (tooHigh){ cls="v-fair"; word="Target too high"; why=`Your ${money(target)} target is more than you'd keep after selling (${money(net)}). ${ask ? `At ${money(ask)} you'd make ${profit >= 0 ? money(profit) : "a loss of " + money(-profit)}. ` : ""}Lower your target to see the most you should pay.`; }
+  else if (!ask){ cls="v-good"; word=`Pay up to ${money(max)}`; why=`That keeps your ${money(target)} profit. Add the seller's asking price to see if it's a deal.`; }
+  else if (ask <= max){ cls="v-good"; word="Buy it"; why=`You'd make ${money(profit)}, which beats your ${money(target)} target by ${money(max-ask)}.`; }
+  else if (profit > 0){ cls="v-fair"; word="Negotiate"; why=`Only ${money(profit)} profit at ${money(ask)}. Offer ${money(Math.floor(max/5)*5)} or less to hit your ${money(target)} target.`; }
+  else { cls="v-bad"; word="Walk away"; why=`You'd lose ${money(-profit)} at ${money(ask)}. It's only worth it at ${money(Math.floor(max/5)*5)} or less.`; }
+  if (sold && ask>0 && ask < sold*0.5 && net > 0){ cls="v-bad"; word="Too cheap"; why="It's under half the usual price. Cheap ones are often stolen, blacklisted or a scam. Check the IMEI and see Find My switched off in person before you pay."; }
+  if (!$("oamt").dataset.touched) $("oamt").value = Math.max(0, Math.floor(Math.min(max || ask, ask || max) / 5) * 5);
   lastMax = max;
   $("pv").className = "verdict "+cls;
   $("pv").innerHTML = `<span class="tag">Verdict</span><span class="word">${word}</span><p class="why">${why}</p>`;
-  const rows = [["Sells for", sold], fee?[`Selling fee ${+(fee*100).toFixed(1)}%`, -feeCost]:null, ["Shipping", -ship], repair?["Repairs or parts", -repair]:null].filter(Boolean);
+  const rows = [["Sells for", sold], fee?[`Selling fee ${+(fee*100).toFixed(1)}%`, -feeCost]:null, ship?["Shipping", -ship]:null, repair?["Repairs or parts", -repair]:null].filter(Boolean);
   $("pbreak").innerHTML = rows.map(([l,v],i)=>`<div class="line"><span>${l}</span><em>${i&&v<0?"−":""}${money(Math.abs(v))}</em></div>`).join("")
-    + `<div class="line total"><span>You keep after selling</span><em>${money(net)}</em></div>`;
+    + `<div class="line total"><span>You keep after selling</span><em>${money(net)}</em></div>`
+    + (ask ? `<div class="line"><span>Buy price</span><em>−${money(ask)}</em></div><div class="line total"><span>Profit</span><em class="${profit>=0?"pos":"neg"}">${profit>=0?"":"−"}${money(Math.abs(profit))}</em></div>` : "");
 }
 let lastMax = 0;
 ["cur","sold","ask","fee","ship","repair","target"].forEach(id => $(id).addEventListener("input", calc));
@@ -1190,7 +1573,12 @@ const errCopy = c => ({
   refused:"AI couldn't check that text. Try pasting just the listing.",
   invalid_json:"The answer came back garbled. Tap the button to try again."
 }[c] || "Something went wrong. Tap the button to try again.");
-function hideAI(){ [["lgo","loff"],["ogo","ooff"],["ggo","goff"]].forEach(([b,o]) => { $(b).hidden = true; $(o).hidden = false; }); $("soff").hidden = false; }
+function markSoon(){
+  document.querySelectorAll('#tools .irow[data-go=grade]').forEach(r => {
+    r.classList.add("soon-row"); const c = r.querySelector(".chev"); if (c && !r.querySelector(".soon")) c.outerHTML = '<span class="soon">Soon</span>';
+  });
+}
+function hideAI(){ markSoon(); $("llangw").hidden = true; [["ogo","ooff"],["ggo","goff"]].forEach(([b,o]) => { $(b).hidden = true; $(o).hidden = false; }); $("soff").hidden = false; }
 let maxImages = 0;
 
 (async () => {
@@ -1295,6 +1683,19 @@ function examples(){
 }
 let phones = null;
 try { phones = JSON.parse(localStorage.getItem(TKEY)); } catch(e){}
+// fix mistyped years from imports, e.g. 1025 -> 2025
+const fixYear = iso => { if (!iso || typeof iso !== "string") return iso; const y = +iso.slice(0,4); if (y >= 2000 && y <= new Date().getFullYear() + 1) return iso; const ny = 2000 + (y % 100); return ny <= new Date().getFullYear() ? ny + iso.slice(4) : iso; };
+if (Array.isArray(phones)) phones.forEach(f => { if (!f) return; ["boughtOn","soldOn","listedOn","priceOn"].forEach(k => { if (f[k]) f[k] = fixYear(f[k]); }); });
+// tidy names from older imports: move battery / platform words like "98bh" or "Fb" into notes
+if (Array.isArray(phones)) phones.forEach(f => {
+  if (!f || f.ex || !/^n/.test(String(f.id)) || !f.model) return;
+  const JW = /\b\d{2,3}\s*(%|bh|bhp|b\/h)(?=\s|$)|\b(bh|battery|batt)\s*\d{2,3}\s*%?|\b(fb|facebook|marketplace|vinted|ebay|gumtree|monitor|unlocked|locked|cash|swap|boxed|no box)\b/gi;
+  const junk = f.model.match(JW); if (!junk) return;
+  const clean = f.model.replace(JW, " ").replace(/\s+/g, " ").trim(); if (!clean) return;
+  const bh = junk.join(" ").match(/(\d{2,3})/); if (bh && f.battery == null && +bh[1] <= 100) f.battery = +bh[1];
+  f.notes = [f.notes, junk.join(" ")].filter(Boolean).join(" "); f.model = clean;
+  if ((!f.source || f.source === "Other") && /\bfb\b|facebook|marketplace/i.test(junk.join(" "))) f.source = "Facebook Marketplace";
+});
 if (!Array.isArray(phones)){
   let old = null;
   try { old = JSON.parse(localStorage.getItem(OLDKEY)); } catch(e){}
@@ -1317,6 +1718,22 @@ const photoTag = f => "";
 const GKEY = "iflipper-goal-v1";
 let goal = 1000;
 try { const g = parseFloat(localStorage.getItem(GKEY)); if (g > 0) goal = g; } catch(e){}
+$("mcFront").addEventListener("click", e => {
+  if (e.target.closest("#mcPer")){ e.stopPropagation(); openMonths("card"); return; }
+  $("mcNameIn").value = lsGet("iflipper-name") || ""; lsSet("iflipper-flipped", "1"); $("mcHint").hidden = true; flipCard(true);
+});
+$("mcFront").addEventListener("keydown", e => { if (e.key === "Enter" && !e.target.closest("#mcPer")) flipCard(true); });
+$("mcFlipBack").addEventListener("click", () => flipCard(false));
+$("mcNameSave").addEventListener("click", () => { lsSet("iflipper-name", $("mcNameIn").value.trim()); renderFlips(); flipCard(false); toast("Name saved to your card"); });
+$("todoList").addEventListener("click", e => {
+  if (e.target.closest("#todoMore")){ todoAll = !todoAll; renderFlips(); if (!todoAll) $("todoCard").scrollIntoView({block: "nearest", behavior: "smooth"}); return; }
+  const sk = e.target.closest("[data-skip]");
+  if (sk){ const t = todoActions[+sk.dataset.skip]; if (t){ snooze(t.key, 3); renderFlips(); lastHidden = t.key;
+    toast(`Hidden for 3 days <button type="button" class="toast-undo" id="hideGood">Remove for good</button>`, 6000); $("toast").classList.add("act");
+    clearTimeout(lastHidden._t); setTimeout(() => $("toast")?.classList.remove("act"), 6000); } return; }
+  if (e.target.closest("#todoUnhide")){ try { localStorage.removeItem(SNKEY); } catch(_){} renderFlips(); toast("Hidden reminders are back"); return; }
+  const b = e.target.closest("[data-todo]"); if (b && todoActions[+b.dataset.todo]) todoActions[+b.dataset.todo].go();
+});
 $("gedit").addEventListener("click", () => { $("gform").hidden = !$("gform").hidden; $("ginput").value = goal; if (!$("gform").hidden) $("ginput").focus(); });
 $("gsave").addEventListener("click", () => {
   const v = parseFloat($("ginput").value); if (!(v > 0)) return;
@@ -1345,7 +1762,20 @@ function staleNote(f){
   }
   return `<span class="age">${d} days in stock and not listed yet. List it today to get your money back moving.</span>`;
 }
+function junkPhones(){ return phones.filter(f => !f.ex && (f.status !== "sold" || /^n/.test(String(f.id))) && !deviceName(f.model + (f.storage ? " " + f.storage : ""))); }
+function renderJunk(){
+  const j = junkPhones(); $("junkNote").hidden = !j.length; if (!j.length) return;
+  $("junkNote").innerHTML = `<i class="st-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.6v.1"/></svg></i><span><b>${j.length} item${j.length===1?" doesn't":"s don't"} look like real stock</b> ${esc(j.slice(0,4).map(f => f.model).join(", "))}${j.length > 4 ? "…" : ""}. They probably came from totals or notes when importing.<button type="button" class="btn" id="junkGo">Remove ${j.length===1?"it":"them"}</button></span>`;
+}
+document.addEventListener("click", e => {
+  if (!e.target.closest("#junkGo")) return;
+  const j = new Set(junkPhones()); undoPhones = phones.slice(); phones = phones.filter(f => !j.has(f)); saveFlips(); renderFlips();
+  toast(`Removed ${j.size} item${j.size===1?"":"s"} <button type="button" class="toast-undo" id="undoDel">Undo</button>`, 10000); $("toast").classList.add("act");
+  setTimeout(() => { undoPhones = null; $("toast")?.classList.remove("act"); }, 10000);
+});
+let stockKind = "all";
 function renderStock(){
+  renderJunk();
   const q = $("tsearch").value.trim().toLowerCase();
   const stock = phones.filter(f => f.status !== "sold");
   const tied = stock.reduce((a,f) => a + (f.buy||0) + (f.cost||0), 0);
@@ -1355,18 +1785,24 @@ function renderStock(){
   $("stale").hidden = !old.length;
   if (old.length){
     const stuck = old.reduce((a,f) => a + f.buy + (f.cost||0), 0);
-    $("stale").innerHTML = `<i class="st-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17.2v.1"/></svg></i><span><b>${old.length} phone${old.length>1?"s have":" has"} been in stock 7+ days.</b> That's ${money(stuck)} tied up. Drop the price, relist with fresh photos, or sell to a direct buyer.</span>`;
+    $("stale").innerHTML = `<i class="st-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17.2v.1"/></svg></i><span><b>${old.length} item${old.length>1?"s have":" has"} been in stock 7+ days.</b> That's ${money(stuck)} tied up. Drop the price, relist with fresh photos, or sell to a direct buyer.</span>`;
   }
-  const list = stock.filter(f => !q || [f.model,f.storage,f.colour,f.imei,f.notes].join(" ").toLowerCase().includes(q))
+  const kinds = [...new Set(stock.map(kindOf))];
+  if (stockKind !== "all" && !kinds.includes(stockKind)) stockKind = "all";
+  $("kindBar").hidden = kinds.length < 2;
+  if (kinds.length > 1) $("kindBar").innerHTML = `<button type="button" data-k="all" aria-pressed="${stockKind==="all"}">All ${stock.length}</button>` + KINDS.filter(([k]) => kinds.includes(k)).map(([k, l]) => `<button type="button" data-k="${k}" aria-pressed="${stockKind===k}">${KIND_ICON[k]}${l} ${stock.filter(f => kindOf(f) === k).length}</button>`).join("");
+  const list = stock.filter(f => (stockKind === "all" || kindOf(f) === stockKind) && (!q || [f.model,f.storage,f.colour,f.imei,f.notes].join(" ").toLowerCase().includes(q)))
     .sort((a,b) => a.boughtOn.localeCompare(b.boughtOn));
-  $("stockEmpty").hidden = !!stock.length;
+  $("stockEmpty").hidden = !!list.length;
+  $("stockEmpty").textContent = !stock.length ? "Nothing in stock. Tap + to add something when you buy it." : `Nothing matches${q ? ` "${q}"` : ""}. Try the model, colour or last digits of the IMEI.`;
+  $("swHint").hidden = !list.length;
   $("stockList").hidden = !list.length;
   $("stockList").innerHTML = list.map(f => {
     const d = daysBetween(f.boughtOn, today());
     const cost = (f.buy||0) + (f.cost||0);
     const listed = f.status === "listed" && f.list;
     const gain = listed ? f.list - cost : 0;
-    const bits = [f.grade, f.battery ? `${f.battery}% battery` : "", f.source && f.source !== "Other" ? (f.source === "Facebook Marketplace" ? "Facebook" : f.source) : ""].filter(Boolean).map(esc);
+    const bits = [kindOf(f) !== "phone" ? KIND_LABEL[kindOf(f)] : "", f.grade, f.battery ? `${f.battery}% battery` : "", f.source && f.source !== "Other" ? (f.source === "Facebook Marketplace" ? "Facebook" : f.source) : ""].filter(Boolean).map(esc);
     const age = d >= 7 ? `<span class="old"><i class="odot"></i>${d} days</span>` : `${d} day${d===1?"":"s"}`;
     return `<div class="srow">
       <div class="sw-acts">${listed?"":`<button type="button" class="sa sa-list" data-act="listed" data-id="${f.id}" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg>Listed</button>`}<button type="button" class="sa sa-sold" data-act="sold" data-id="${f.id}" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sold</button></div>
@@ -1422,7 +1858,14 @@ const ICON = {
   listed:'<svg viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg>',
   sold:'<svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>'
 };
+const isMon = p => typeof p === "string" && p.startsWith("m:");
+const monLast = ym => { const [y, m] = ym.split("-").map(Number); return `${ym}-${String(new Date(y, m, 0).getDate()).padStart(2,"0")}`; };
+const monName = (ym, opt = {month:"long", year:"numeric"}) => new Date(ym + "-15T12:00:00").toLocaleDateString(undefined, opt);
+const shiftMon = (ym, k) => { const [y, m] = ym.split("-").map(Number); const d = new Date(y, m - 1 + k, 15); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`; };
+function periodEnd(p){ return isMon(p) ? monLast(p.slice(2)) : "9999"; }
+function periodLabel(p){ return isMon(p) ? monName(p.slice(2)) : {"7":"Last 7 days","30":"Last 30 days",month:"This month",year:"This year",all:"All time"}[p]; }
 function periodStart(p){
+  if (isMon(p)) return p.slice(2) + "-01";
   const n = new Date(), y = n.getFullYear(), m = n.getMonth();
   const iso = d => new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())).toISOString().slice(0,10);
   if (p === "7") return daysAgo(6);
@@ -1437,6 +1880,7 @@ function prevRange(p){
   if (p === "7") return [daysAgo(13), daysAgo(7), "previous 7 days"];
   if (p === "30") return [daysAgo(59), daysAgo(30), "previous 30 days"];
   if (p === "month") return [iso(new Date(y, m-1, 1)), iso(new Date(y, m, 0)), "last month"];
+  if (isMon(p)){ const pm = shiftMon(p.slice(2), -1); return [pm + "-01", monLast(pm), monName(pm, {month:"long"})]; }
   return null;
 }
 const soldIn = (a, b) => phones.filter(f => f.status === "sold" && f.soldOn && f.soldOn >= a && f.soldOn <= b);
@@ -1449,7 +1893,7 @@ function kpi(cls, icon, label, value, sub, metric){
   return `<button type="button" class="kpi tap" data-metric="${metric}" aria-label="${label} ${String(value).replace(/<[^>]+>/g,"")}. Open report"><div class="kh"><span>${label}</span><i class="kico ${cls}">${ICON[icon]}</i></div><b>${value}</b>${sub ? `<small>${sub}</small>` : ""}<span class="kgo" aria-hidden="true">›</span></button>`;
 }
 function renderDash(){
-  const a = periodStart(tperiod), b = "9999";
+  const a = periodStart(tperiod), b = periodEnd(tperiod);
   const sold = soldIn(a, b);
   const prof = sumProfit(sold), rev = sold.reduce((s,f) => s + (f.sold||0), 0);
   const spent = sold.reduce((s,f) => s + f.buy + (f.cost||0) + (f.fees||0), 0);
@@ -1464,7 +1908,7 @@ function renderDash(){
   }
   $("kpis").innerHTML =
     kpi("k-gold","profit","Net profit", money(prof), delta || `${sold.length} phone${sold.length===1?"":"s"} sold`, "profit") +
-    kpi("k-violet","box","Phones sold", sold.length, `${money(avgP)} avg profit`, "sold") +
+    kpi("k-violet","box","Items sold", sold.length, `${money(avgP)} avg profit`, "sold") +
     kpi("k-blue","cash","Total sales", money(rev), "what buyers paid", "sales") +
     kpi("k-green","target","Return", `${roi}%`, "profit on money spent", "roi") +
     kpi("k-blue","clock","Time to sell", `${avgD} day${avgD===1?"":"s"}`, "average, bought to sold", "days") +
@@ -1475,18 +1919,20 @@ function renderDash(){
 }
 function chartBuckets(p){
   const out = [];
-  if (p === "7" || p === "30" || p === "month"){
-    const d = new Date(periodStart(p) + "T12:00:00"), end = new Date(today() + "T12:00:00");
+  if (p === "7" || p === "30" || p === "month" || isMon(p)){
+    const e = isMon(p) && periodEnd(p) < today() ? periodEnd(p) : today();
+    const d = new Date(periodStart(p) + "T12:00:00"), end = new Date(e + "T12:00:00");
     while (d <= end){
       const k = d.toISOString().slice(0,10);
       out.push({from:k, to:k, lab: p === "7" ? d.toLocaleDateString(undefined,{weekday:"short"}) : String(d.getDate())});
       d.setDate(d.getDate() + 1);
     }
   } else {
-    const n = new Date(), count = p === "year" ? n.getMonth() + 1 : 12;
+    const n = new Date(); let count = p === "year" ? n.getMonth() + 1 : 12;
+    if (p === "all"){ const first = phones.filter(f => f.status === "sold" && f.soldOn && !f.ex).reduce((m, f) => f.soldOn < m ? f.soldOn : m, today()); const fd = new Date(first + "T12:00:00"); count = Math.max(2, Math.min(60, (n.getFullYear() - fd.getFullYear()) * 12 + n.getMonth() - fd.getMonth() + 1)); }
     for (let i = count - 1; i >= 0; i--){
       const d = new Date(n.getFullYear(), n.getMonth() - i, 15), k = d.toISOString().slice(0,7);
-      out.push({from:k+"-01", to:k+"-31", lab:d.toLocaleDateString(undefined,{month:"short"})});
+      out.push({from:k+"-01", to:k+"-31", lab: count > 12 ? d.toLocaleDateString("en-GB",{month:"short"}) + " " + String(d.getFullYear()).slice(2) : d.toLocaleDateString(undefined,{month:"short"}), full:d.toLocaleDateString(undefined,{month:"long", year:"numeric"})});
     }
   }
   return out;
@@ -1522,7 +1968,7 @@ function renderChart(){
     const showLab = grouped || last || (i % every === 0 && n - 1 - i >= 4);
     if (showLab) g += `<text x="${cx}" y="${B+16}" text-anchor="middle" font-size="10.5" fill="${last?"var(--ink)":"var(--muted)"}" font-weight="${last?600:400}">${x.lab}</text>`;
   });
-  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Profit and phones sold over time">${g}</svg>`;
+  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Profit and items sold over time">${g}</svg>`;
 }
 function renderDonut(sold){
   if (!sold.length){ $("donut").innerHTML = `<p class="empty-note">No sales in this period yet.</p>`; return; }
@@ -1565,18 +2011,63 @@ const roiOf = f => { const sp = f.buy + (f.cost||0) + (f.fees||0); return sp ? p
 const signed = v => `${v>=0?"+":"−"}${money(Math.abs(v))}`;
 const METRICS = {
   profit:{title:"Net profit", icon:"profit", cls:"k-gold", val:l => sumProfit(l), fmt:v => money(v), run:true, about:"What you kept after buying, repairs, fees and postage."},
-  sold:{title:"Phones sold", icon:"box", cls:"k-violet", val:l => l.length, fmt:v => String(Math.round(v)), run:true, about:"Every phone you marked as sold."},
+  sold:{title:"Items sold", icon:"box", cls:"k-violet", val:l => l.length, fmt:v => String(Math.round(v)), run:true, about:"Everything you marked as sold."},
   sales:{title:"Total sales", icon:"cash", cls:"k-blue", val:l => l.reduce((s,f) => s + (f.sold||0), 0), fmt:v => money(v), run:true, about:"What buyers paid you, before costs."},
   roi:{title:"Return", icon:"target", cls:"k-green", val:l => { const sp = spentOf(l); return sp ? sumProfit(l) / sp * 100 : 0; }, fmt:v => `${Math.round(v)}%`, about:"Profit as a share of the money you put in. 25% means £25 back for every £100 spent."},
-  days:{title:"Time to sell", icon:"clock", cls:"k-blue", val:avgDays, fmt:v => `${Math.round(v)} day${Math.round(v)===1?"":"s"}`, lower:true, about:"Average days from buying a phone to selling it. Lower means your money works harder."},
-  stock:{title:"In stock", icon:"coin", cls:"k-gold", about:"Phones you've bought that haven't sold yet."}
+  days:{title:"Time to sell", icon:"clock", cls:"k-blue", val:avgDays, fmt:v => `${Math.round(v)} day${Math.round(v)===1?"":"s"}`, lower:true, about:"Average days from buying something to selling it. Lower means your money works harder."},
+  stock:{title:"In stock", icon:"coin", cls:"k-gold", about:"Stock you've bought that hasn't sold yet."}
 };
 let dMetric = null, dShowAll = false;
-function setPeriod(v){
-  tperiod = v;
-  document.querySelectorAll('#tperiod button, #dChips button').forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+function monthChipLabel(){ return isMon(tperiod) ? `${monName(tperiod.slice(2), {month:"short"})} <i class="chev-d" aria-hidden="true"></i>` : `Month <i class="chev-d" aria-hidden="true"></i>`; }
+function syncChips(){
+  document.querySelectorAll('#tperiod button, #dChips button').forEach(b => {
+    b.setAttribute("aria-pressed", b.dataset.v === tperiod || (b.dataset.v === "month" && isMon(tperiod)));
+    if (b.dataset.v === "month") b.innerHTML = monthChipLabel();
+  });
+}
+function setPeriod(v, picked){
+  if (v === "month" && !picked){ syncChips(); openMonths(); return; }
+  tperiod = v; syncChips();
   renderDash(); if (dMetric) renderDetail();
 }
+/* month picker */
+let mpTarget = "dash";
+function openMonths(target){
+  mpTarget = target === "card" ? "card" : "dash";
+  const curSel = mpTarget === "card" ? cardPer : tperiod;
+  const sold = phones.filter(f => f.status === "sold" && f.soldOn);
+  const cur = today().slice(0,7);
+  const first = sold.reduce((m, f) => f.soldOn.slice(0,7) < m ? f.soldOn.slice(0,7) : m, cur);
+  const rows = []; let ym = cur, guard = 0;
+  while (ym >= first && guard++ < 120){ rows.push(ym); ym = shiftMon(ym, -1); }
+  if (rows.length < 2) rows.push(shiftMon(cur, -1));
+  const best = Math.max(1, ...rows.map(r => Math.abs(sumProfit(soldIn(r + "-01", monLast(r))))));
+  $("mpList").innerHTML = rows.map(r => {
+    const l = soldIn(r + "-01", monLast(r)), pf = sumProfit(l), on = r === cur ? curSel === "month" : curSel === "m:" + r;
+    const tag = r === cur ? "This month" : r === shiftMon(cur, -1) ? "Last month" : "";
+    return `<button type="button" class="mp-row${on ? " on" : ""}" data-ym="${r}">
+      <span class="mp-n"><b>${monName(r)}</b><small>${tag ? tag + " · " : ""}${l.length} sold</small></span>
+      <span class="mp-v ${pf<0?"neg":""}">${pf ? (pf > 0 ? "+" : "−") + money(Math.abs(pf)) : money(0)}</span>
+      <span class="mp-bar"><i style="width:${Math.round(Math.abs(pf) / best * 100)}%"></i></span>
+    </button>`;
+  }).join("");
+  if (mpTarget === "card"){
+    const all = sold, pfa = sumProfit(all);
+    $("mpList").insertAdjacentHTML("afterbegin", `<button type="button" class="mp-row${curSel === "all" ? " on" : ""}" data-ym="all"><span class="mp-n"><b>All time</b><small>${all.length} sold</small></span><span class="mp-v ${pfa<0?"neg":""}">${pfa ? (pfa > 0 ? "+" : "−") + money(Math.abs(pfa)) : money(0)}</span></button>`);
+  }
+  $("mpTitle").textContent = mpTarget === "card" ? "Show on your card" : "Choose a month";
+  $("mpick").hidden = false; document.body.style.overflow = "hidden";
+}
+function closeMonths(){ $("mpick").hidden = true; document.body.style.overflow = (dMetric || !$("sheet").hidden) ? "hidden" : ""; }
+$("mpList").addEventListener("click", e => {
+  const b = e.target.closest("[data-ym]"); if (!b) return;
+  closeMonths();
+  const v = b.dataset.ym === "all" ? "all" : b.dataset.ym === today().slice(0,7) ? "month" : "m:" + b.dataset.ym;
+  if (mpTarget === "card"){ cardPer = v; lsSet("iflipper-cardper", v); renderFlips(); return; }
+  setPeriod(v, true);
+});
+$("mpick").addEventListener("click", e => { if (e.target === $("mpick")) closeMonths(); });
+$("mpClose").addEventListener("click", closeMonths);
 function openDetail(m){
   dMetric = m; dShowAll = false; renderDetail();
   $("detail").hidden = false; document.body.style.overflow = "hidden"; $("detail").scrollTop = 0;
@@ -1590,28 +2081,64 @@ function closeDetail(){
 function bucketPrev(x){
   if (tperiod === "7") return {from:addDays(x.from,-7), to:addDays(x.to,-7)};
   if (tperiod === "30") return {from:addDays(x.from,-30), to:addDays(x.to,-30)};
-  if (tperiod === "month"){ const d = new Date(x.from + "T12:00:00"); const p = new Date(d.getFullYear(), d.getMonth()-1, d.getDate(), 12); if (p.getMonth() === (d.getMonth()+11)%12){ const k = p.toISOString().slice(0,10); return {from:k, to:k}; } return null; }
+  if (tperiod === "month" || isMon(tperiod)){ const d = new Date(x.from + "T12:00:00"); const p = new Date(d.getFullYear(), d.getMonth()-1, d.getDate(), 12); if (p.getMonth() === (d.getMonth()+11)%12){ const k = p.toISOString().slice(0,10); return {from:k, to:k}; } return null; }
   return null;
 }
+let dChartMode = "run", dChart = null;
+const moneyK = v => { const a = Math.abs(v), sym = money(0).replace(/[\d.,\s]/g, ""); if (a < 1000) return money(Math.round(v)); return (v < 0 ? "−" : "") + sym + (a < 10000 ? (a/1000).toFixed(1).replace(/\.0$/, "") : Math.round(a/1000)) + "k"; };
 function areaChart(M){
-  const bk = chartBuckets(tperiod), pr = prevRange(tperiod);
+  const bk = chartBuckets(tperiod), pr = prevRange(tperiod), each = dChartMode === "each";
+  const per = bk.map(x => M.val(soldIn(x.from, x.to)));
   let run = 0, prun = 0;
-  const cur = bk.map(x => (run += M.val(soldIn(x.from, x.to))));
-  const prev = pr ? bk.map(x => { const p = bucketPrev(x); if (p) prun += M.val(soldIn(p.from, p.to)); return prun; }) : null;
-  const W = 340, H = 196, L = 10, R = 10, T = 16, B = 164, n = cur.length;
-  const nice = v => { if (v <= 0) return 1; const m = Math.pow(10, Math.floor(Math.log10(v))); return Math.ceil(v / m) * m; };
-  const top = nice(Math.max(...cur, ...(prev||[0]), M === METRICS.sold ? 2 : 10));
-  const X = i => n === 1 ? L + (W-L-R)/2 : L + i * (W-L-R) / (n-1), Y = v => B - v / top * (B - T);
-  const line = arr => arr.map((v,i) => `${i?"L":"M"}${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join("");
-  let g = `<defs><linearGradient id="gArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".38"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>`;
-  const sp = smoothPath(cur.map((v,i) => [X(i), Y(v)]));
-  g += `<line x1="${L}" x2="${W-R}" y1="${B}" y2="${B}" stroke="var(--line)"/>`;
-  g += `<path d="${sp}L${X(n-1)},${B}L${X(0)},${B}Z" fill="url(#gArea)"/>`;
-  g += `<path d="${sp}" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
-  g += `<circle cx="${X(n-1)}" cy="${Y(cur[n-1])}" r="4.5" fill="var(--accent)" stroke="var(--bg)" stroke-width="2"/>`;
-  (n > 1 ? [0, n-1] : [0]).forEach(i => g += `<text x="${X(i)}" y="${B+20}" text-anchor="${n===1?"middle":i===0?"start":"end"}" font-size="11" fill="var(--muted)">${bk[i].lab}</text>`);
-  return `<div class="panel"><div class="phead"><h3 class="ph">Running total</h3></div>
-    <div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${M.title} running total">${g}</svg></div></div>`;
+  const cur = each ? per : per.map(v => (run += v));
+  const prev = pr && !each ? bk.map(x => { const p = bucketPrev(x); if (p) prun += M.val(soldIn(p.from, p.to)); return prun; }) : null;
+  const fmt = M === METRICS.sold ? (v => String(Math.round(v))) : moneyK;
+  const W = 340, H = 214, L = 4, R = 4, T = 22, B = 180, n = cur.length;
+  const nice = v => { if (v <= 0) return 1; const m = Math.pow(10, Math.floor(Math.log10(v))), f = v / m; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * m; };
+  const lo = Math.min(0, ...cur), top = nice(Math.max(...cur, ...(prev||[0]), M === METRICS.sold ? 2 : 10));
+  const Y = v => B - (v - lo) / (top - lo) * (B - T);
+  const slot = (W - L - R) / n, X = i => each ? L + slot * (i + .5) : (n === 1 ? L + (W-L-R)/2 : L + i * (W-L-R) / (n-1));
+  let g = `<defs><linearGradient id="gArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".32"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>`;
+  [0, .5, 1].forEach(f => { const v = lo + (top - lo) * f, y = Y(v); g += `<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)" ${f ? 'stroke-dasharray="2 4"' : ""}/>` + (f ? `<text x="${L}" y="${y - 6}" font-size="10.5" fill="var(--muted)">${fmt(v)}</text>` : ""); });
+  if (each){
+    const bw = Math.max(2, Math.min(26, slot * .62));
+    cur.forEach((v, i) => { const y0 = Y(0), y1 = Y(v), h = Math.max(v ? 2 : 0, Math.abs(y0 - y1)); g += `<rect class="cbar" data-i="${i}" x="${(X(i) - bw/2).toFixed(1)}" y="${(v >= 0 ? y0 - h : y0).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="${Math.min(4, bw/3).toFixed(1)}" fill="${v < 0 ? "var(--bad,#FF3B30)" : "var(--accent)"}"/>`; });
+  } else {
+    if (prev) g += `<path d="${smoothPath(prev.map((v,i) => [X(i), Y(v)]))}" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="4 4" opacity=".7"/>`;
+    const sp = smoothPath(cur.map((v,i) => [X(i), Y(v)]));
+    g += `<path d="${sp}L${X(n-1)},${Y(lo)}L${X(0)},${Y(lo)}Z" fill="url(#gArea)"/>`;
+    g += `<path d="${sp}" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+    g += `<circle cx="${X(n-1)}" cy="${Y(cur[n-1])}" r="4.5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>`;
+  }
+  const ticks = n <= 1 ? [0] : n <= 6 ? bk.map((_, i) => i) : [0, Math.round((n-1)/3), Math.round((n-1)*2/3), n-1];
+  ticks.forEach((i, k) => g += `<text x="${X(i)}" y="${B+20}" text-anchor="${n===1 || each ? "middle" : k===0 ? "start" : k===ticks.length-1 ? "end" : "middle"}" font-size="11" fill="var(--muted)">${bk[i].lab}</text>`);
+  g += `<g class="cx" visibility="hidden"><line x1="0" x2="0" y1="${T-8}" y2="${B}" stroke="var(--ink)" stroke-opacity=".35" stroke-width="1"/><circle r="5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></g>`;
+  g += `<rect class="chit" x="0" y="0" width="${W}" height="${H}" fill="transparent"/>`;
+  dChart = {n, X, Y, cur, prev, bk, fmt: M === METRICS.sold ? (v => String(Math.round(v))) : (v => money(v)), each, W, prevLab: pr ? pr[2] : ""};
+  const daily = bk[0] && bk[0].from === bk[0].to;
+  const head = each ? (daily ? "Each day" : "Each month") : "Running total";
+  return `<div class="panel"><div class="phead"><h3 class="ph">${head}</h3><div class="seg cseg" id="dMode"><button type="button" data-v="run" aria-pressed="${!each}">Total</button><button type="button" data-v="each" aria-pressed="${each}">${daily ? "Daily" : "Monthly"}</button></div></div>
+    <div class="ctip" id="dTip"><b id="dTipV">${dChart.fmt(cur[n-1])}</b><span id="dTipL">${each ? (bk[n-1].full || bk[n-1].lab) : "So far"}</span></div>
+    <div class="chart dchart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${M.title} ${head.toLowerCase()}">${g}</svg></div>
+    ${prev ? `<div class="clegend"><span><i class="lk"></i>This period</span><span><i class="lk dash"></i>${esc(pr[2].replace(/^./, c => c.toUpperCase()))}</span></div>` : ""}</div>`;
+}
+function bindChart(){
+  const svg = document.querySelector("#dBody .dchart svg"); if (!svg || !dChart) return;
+  const cx = svg.querySelector(".cx"), line = cx.querySelector("line"), dot = cx.querySelector("circle"), C = dChart;
+  const reset = () => { cx.setAttribute("visibility", "hidden"); svg.querySelectorAll(".cbar").forEach(b => b.style.opacity = ""); $("dTipV").textContent = C.fmt(C.cur[C.n-1]); $("dTipL").textContent = C.each ? (C.bk[C.n-1].full || C.bk[C.n-1].lab) : "So far"; };
+  const at = e => {
+    const r = svg.getBoundingClientRect(), x = (e.clientX - r.left) / r.width * C.W;
+    let i = 0, best = 1e9; for (let k = 0; k < C.n; k++){ const d = Math.abs(C.X(k) - x); if (d < best){ best = d; i = k; } }
+    const b = C.bk[i], when = b.full || (b.from === b.to ? fmtDate(b.from) : b.lab);
+    $("dTipV").textContent = C.fmt(C.cur[i]);
+    $("dTipL").textContent = C.each ? when : `by ${when}` + (C.prev ? ` · ${C.prevLab}: ${C.fmt(C.prev[i])}` : "");
+    if (C.each){ svg.querySelectorAll(".cbar").forEach(el => el.style.opacity = +el.dataset.i === i ? "1" : ".35"); }
+    else { cx.setAttribute("visibility", "visible"); line.setAttribute("x1", C.X(i)); line.setAttribute("x2", C.X(i)); dot.setAttribute("cx", C.X(i)); dot.setAttribute("cy", C.Y(C.cur[i])); }
+  };
+  svg.addEventListener("pointerdown", e => { at(e); try { svg.setPointerCapture(e.pointerId); } catch(_){} });
+  svg.addEventListener("pointermove", e => { if (e.pointerType === "mouse" || e.buttons) at(e); });
+  svg.addEventListener("pointerup", e => { if (e.pointerType !== "mouse") setTimeout(reset, 1200); });
+  svg.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") reset(); });
 }
 function barList(title, rows, fmt, sub){
   if (!rows.length) return "";
@@ -1633,9 +2160,9 @@ function txnList(title, list, valFn, clsFn){
 }
 function renderDetail(){
   const M = METRICS[dMetric]; if (!M) return;
-  const pr = prevRange(tperiod), label = {"7":"Last 7 days","30":"Last 30 days",month:"This month",year:"This year",all:"All time"}[tperiod];
+  const pr = prevRange(tperiod), label = periodLabel(tperiod);
   $("dPeriod").textContent = label;
-  const chips = `<div class="chips" id="dChips">${["7","30","month","year","all"].map(v => `<button data-v="${v}" aria-pressed="${v===tperiod}">${{"7":"7D","30":"30D",month:"Month",year:"Year",all:"All"}[v]}</button>`).join("")}</div>`;
+  const chips = `<div class="chips" id="dChips">${["7","30","month","year","all"].map(v => `<button data-v="${v}" aria-pressed="${v===tperiod || (v==="month" && isMon(tperiod))}">${v==="month" ? monthChipLabel() : {"7":"7D","30":"30D",year:"Year",all:"All"}[v]}</button>`).join("")}</div>`;
   let html = chips;
   if (dMetric === "stock"){
     const stock = phones.filter(f => f.status !== "sold").sort((a,b) => a.boughtOn.localeCompare(b.boughtOn));
@@ -1643,14 +2170,14 @@ function renderDetail(){
     const listed = stock.filter(f => f.status === "listed" && f.list);
     const pot = listed.reduce((s,f) => s + f.list - f.buy - (f.cost||0), 0);
     const oldest = stock[0] ? daysBetween(stock[0].boughtOn, today()) : 0;
-    html = `<div class="d-hero"><span class="d-lab"><i class="kico ${M.cls}">${ICON[M.icon]}</i>${M.title}</span><b class="d-big">${money(tied)}</b><span class="d-sub">${stock.length} phone${stock.length===1?"":"s"} waiting to sell · right now</span><p class="d-about">${M.about}</p></div>`
-      + miniKpis([["Listed", `${listed.length} of ${stock.length}`, "phones online"], ["Profit if they sell", money(pot), "at your listed prices"], ["Oldest", `${oldest} day${oldest===1?"":"s"}`, stock[0] ? esc(nameOf(stock[0])) : "–"]]);
+    html = `<div class="d-hero"><span class="d-lab"><i class="kico ${M.cls}">${ICON[M.icon]}</i>${M.title}</span><b class="d-big">${money(tied)}</b><span class="d-sub">${stock.length} item${stock.length===1?"":"s"} waiting to sell</span></div>`
+      + miniKpis([["Listed", `${listed.length} of ${stock.length}`, "online now"], ["Profit if they sell", money(pot), "at your listed prices"], ["Oldest", `${oldest} day${oldest===1?"":"s"}`, stock[0] ? esc(nameOf(stock[0])) : "–"]]);
     const ages = [["0–7 days",0,7],["8–14 days",8,14],["15–30 days",15,30],["30+ days",31,1e9]].map(([k,a,b]) => { const l = stock.filter(f => { const d = daysBetween(f.boughtOn, today()); return d >= a && d <= b; }); return {k, n:l.length, v:l.reduce((s,f) => s + f.buy + (f.cost||0), 0)}; }).filter(r => r.n);
-    html += barList("Money by how long it's been in stock", ages, v => money(v), r => `${r.n} phone${r.n===1?"":"s"}`);
+    html += barList("Money by how long it's been in stock", ages, v => money(v), r => `${r.n} item${r.n===1?"":"s"}`);
     html += txnList("Your stock, oldest first", stock, f => `${daysBetween(f.boughtOn, today())}d · ${money(f.buy + (f.cost||0))}`, f => daysBetween(f.boughtOn, today()) >= 14 ? "warn" : "");
     $("dBody").innerHTML = html; return;
   }
-  const sold = soldIn(periodStart(tperiod), "9999"), cur = M.val(sold);
+  const sold = soldIn(periodStart(tperiod), periodEnd(tperiod)), cur = M.val(sold);
   let chg = "";
   if (pr){
     const prevList = soldIn(pr[0], pr[1]), prev = M.val(prevList);
@@ -1661,35 +2188,38 @@ function renderDetail(){
         `<span class="chg ${good?"up":"down"}">${diff>0?"▲":"▼"} ${pct!==null?pct+"%":dMetric==="roi"?Math.round(Math.abs(diff))+" pts":M.fmt(Math.abs(diff))}</span> vs ${pr[2]} (${M.fmt(prev)})`;
     }
   }
-  html += `<div class="d-hero"><span class="d-lab"><i class="kico ${M.cls}">${ICON[M.icon]}</i>${M.title}</span><b class="d-big">${M.fmt(cur)}</b><span class="d-sub">${chg || `${sold.length} phone${sold.length===1?"":"s"} sold · ${label.toLowerCase()}`}</span><p class="d-about">${M.about}</p></div>`;
-  if (!sold.length){ $("dBody").innerHTML = html + `<div class="panel"><p class="empty-note">No sales in this period yet. Try a longer period, or mark a phone as sold from your Stock list.</p></div>`; return; }
+  html += `<div class="d-hero"><span class="d-lab"><i class="kico ${M.cls}">${ICON[M.icon]}</i>${M.title}</span><b class="d-big">${M.fmt(cur)}</b><span class="d-sub">${chg || `${sold.length} sale${sold.length===1?"":"s"} · ${isMon(tperiod) ? "in " + label : label.toLowerCase()}`}</span>${dMetric === "roi" || dMetric === "days" ? `<p class="d-about">${M.about}</p>` : ""}</div>`;
+  if (!sold.length){ $("dBody").innerHTML = html + `<div class="panel"><p class="empty-note">No sales in this period yet. Try a longer period, or mark something as sold from your Stock list.</p></div>`; return; }
   const rev = METRICS.sales.val(sold), prof = sumProfit(sold);
   const best = sold.slice().sort((a,b) => profitOf(b) - profitOf(a))[0];
-  const weeks = Math.max(1, daysBetween(tperiod === "all" ? sold.reduce((m,f) => f.soldOn < m ? f.soldOn : m, today()) : periodStart(tperiod), today()) / 7);
+  const weeks = Math.max(1, daysBetween(tperiod === "all" ? sold.reduce((m,f) => f.soldOn < m ? f.soldOn : m, today()) : periodStart(tperiod), periodEnd(tperiod) < today() ? periodEnd(tperiod) : today()) / 7);
   if (dMetric === "profit"){
-    html += miniKpis([["Per phone", money(prof/sold.length), "average"], ["Margin", `${rev?Math.round(prof/rev*100):0}%`, "of each sale"], ["Best flip", signed(profitOf(best)), esc(nameOf(best))]]);
+    html += miniKpis([["Per sale", money(prof/sold.length), "average"], ["Margin", `${rev?Math.round(prof/rev*100):0}%`, "of each sale"], ["Best flip", signed(profitOf(best)), esc(nameOf(best))]]);
     html += areaChart(M);
+    if (new Set(sold.map(kindOf)).size > 1) html += barList("Profit by type", groupBy(sold, f => KIND_LABEL[kindOf(f)], M), v => signed(v), r => `${r.n} sold`);
     html += barList("Profit by platform", groupBy(sold, f => f.soldVia, M), v => signed(v), r => `${r.n} sold`);
     html += barList("Profit by model", groupBy(sold, f => f.model, M), v => signed(v), r => `${r.n} sold`);
     html += txnList("Sales, most profitable first", sold.slice().sort((a,b) => profitOf(b) - profitOf(a)), f => signed(profitOf(f)), f => profitOf(f) >= 0 ? "pos" : "neg");
   } else if (dMetric === "sold"){
     const topModel = groupBy(sold, f => f.model, METRICS.sold)[0];
-    html += miniKpis([["Per week", (sold.length/weeks).toFixed(1), "average"], ["Top model", esc(topModel.k), `${topModel.n} sold`], ["Avg sale", money(rev/sold.length), "per phone"]]);
+    html += miniKpis([["Per week", (sold.length/weeks).toFixed(1), "average"], ["Top model", esc(topModel.k), `${topModel.n} sold`], ["Avg sale", money(rev/sold.length), "each"]]);
     html += areaChart(M);
+    if (new Set(sold.map(kindOf)).size > 1) html += barList("Sold by type", groupBy(sold, f => KIND_LABEL[kindOf(f)], M), v => String(v), r => "");
     html += barList("Sold by model", groupBy(sold, f => f.model, M), v => String(v), r => "");
     html += barList("Sold by platform", groupBy(sold, f => f.soldVia, M), v => String(v), r => "");
     html += txnList("Every sale, newest first", sold.slice().sort((a,b) => b.soldOn.localeCompare(a.soldOn)), f => money(f.sold), null);
   } else if (dMetric === "sales"){
     const big = sold.slice().sort((a,b) => b.sold - a.sold)[0], fees = sold.reduce((s,f) => s + (f.fees||0), 0);
-    html += miniKpis([["Avg sale", money(rev/sold.length), "per phone"], ["Biggest sale", money(big.sold), esc(nameOf(big))], ["Fees & postage", money(fees), `${rev?Math.round(fees/rev*100):0}% of sales`]]);
+    html += miniKpis([["Avg sale", money(rev/sold.length), "each"], ["Biggest sale", money(big.sold), esc(nameOf(big))], ["Fees & postage", money(fees), `${rev?Math.round(fees/rev*100):0}% of sales`]]);
     html += areaChart(M);
+    if (new Set(sold.map(kindOf)).size > 1) html += barList("Sales by type", groupBy(sold, f => KIND_LABEL[kindOf(f)], M), v => money(v), r => `${r.n} sold`);
     html += barList("Sales by platform", groupBy(sold, f => f.soldVia, M), v => money(v), r => `${r.n} sold`);
     html += txnList("Biggest sales first", sold.slice().sort((a,b) => b.sold - a.sold), f => money(f.sold), null);
   } else if (dMetric === "roi"){
     const buy = sold.reduce((s,f) => s + f.buy, 0), rep = sold.reduce((s,f) => s + (f.cost||0), 0), fees = sold.reduce((s,f) => s + (f.fees||0), 0);
-    const parts = [["Phones", buy, "#6FB6E8"], ["Repairs & fuel", rep, "#8F7BFF"], ["Fees & postage", fees, "#9C978D"], ["Profit", Math.max(0,prof), "#D8BF8E"]].filter(p => p[1] > 0);
+    const parts = [["Buying", buy, "#6FB6E8"], ["Repairs & fuel", rep, "#8F7BFF"], ["Fees & postage", fees, "#9C978D"], ["Profit", Math.max(0,prof), "#D8BF8E"]].filter(p => p[1] > 0);
     const tot = parts.reduce((s,p) => s + p[1], 0) || 1;
-    html += miniKpis([["Money in", money(buy+rep+fees), "phones, repairs, fees"], ["Money out", money(rev), "what buyers paid"], ["Profit", signed(prof), `${sold.length} phones`]]);
+    html += miniKpis([["Money in", money(buy+rep+fees), "buying, repairs, fees"], ["Money out", money(rev), "what buyers paid"], ["Profit", signed(prof), `${sold.length} sales`]]);
     html += `<div class="panel"><h3 class="ph">Where every ${money(100)} of sales went</h3><div class="stack">${parts.map(p => `<i style="width:${p[1]/tot*100}%;background:${p[2]}"></i>`).join("")}</div>
       <div class="dleg">${parts.map(p => `<div><i style="background:${p[2]}"></i><span>${p[0]}</span><b>${money(p[1]/tot*100)}</b></div>`).join("")}</div></div>`;
     html += barList("Return by model", groupBy(sold, f => f.model, M), v => `${Math.round(v)}%`, r => `${r.n} sold`);
@@ -1698,14 +2228,14 @@ function renderDetail(){
   } else if (dMetric === "days"){
     const ds = sold.map(f => daysBetween(f.boughtOn, f.soldOn)), fast = Math.min(...ds), slow = Math.max(...ds);
     const within = Math.round(ds.filter(d => d <= 7).length / ds.length * 100);
-    html += miniKpis([["Fastest", `${fast} day${fast===1?"":"s"}`, ""], ["Slowest", `${slow} day${slow===1?"":"s"}`, ""], ["Sold in a week", `${within}%`, "of phones"]]);
+    html += miniKpis([["Fastest", `${fast} day${fast===1?"":"s"}`, ""], ["Slowest", `${slow} day${slow===1?"":"s"}`, ""], ["Sold in a week", `${within}%`, "of sales"]]);
     const hist = [["0–3 days",0,3],["4–7 days",4,7],["8–14 days",8,14],["15+ days",15,1e9]].map(([k,a,b]) => ({k, v:ds.filter(d => d >= a && d <= b).length}));
-    html += barList("How long phones took to sell", hist, v => `${v} phone${v===1?"":"s"}`, null);
+    html += barList("How long things took to sell", hist, v => `${v} sold`, null);
     html += barList("Days to sell by model", groupBy(sold, f => f.model, M), v => METRICS.days.fmt(v), r => `${r.n} sold`);
     html += barList("Days to sell by platform", groupBy(sold, f => f.soldVia, M), v => METRICS.days.fmt(v), r => `${r.n} sold`);
     html += txnList("Quickest sales first", sold.slice().sort((a,b) => daysBetween(a.boughtOn,a.soldOn) - daysBetween(b.boughtOn,b.soldOn)), f => `${daysBetween(f.boughtOn, f.soldOn)} days`, null);
   }
-  $("dBody").innerHTML = html;
+  $("dBody").innerHTML = html; bindChart();
 }
 $("dBack").addEventListener("click", closeDetail);
 document.addEventListener("keydown", e => { if (e.key === "Escape" && dMetric && $("sheet").hidden) closeDetail(); });
@@ -1713,15 +2243,16 @@ $("kpis").addEventListener("click", e => { const t = e.target.closest("[data-met
 $("detail").addEventListener("click", e => {
   const c = e.target.closest("#dChips button"); if (c) return setPeriod(c.dataset.v);
   if (e.target.closest("#dMore")){ dShowAll = true; renderDetail(); return; }
+  const mb = e.target.closest("#dMode button"); if (mb){ dChartMode = mb.dataset.v; renderDetail(); return; }
   const t = e.target.closest(".txn"); if (t) openSheet(t.dataset.id);
 });
 
 /* ---- live chart (Shopify-style) ---- */
 let liveMetric = "profit";
 const LIVE = ["profit","sales","sold","roi","days"];
-const LIVE_NAME = {profit:"Net profit", sales:"Total sales", sold:"Phones sold", roi:"Return", days:"Time to sell"};
+const LIVE_NAME = {profit:"Net profit", sales:"Total sales", sold:"Items sold", roi:"Return", days:"Time to sell"};
 function changeOf(m){
-  const M = METRICS[m], pr = prevRange(tperiod), cur = M.val(soldIn(periodStart(tperiod), "9999"));
+  const M = METRICS[m], pr = prevRange(tperiod), cur = M.val(soldIn(periodStart(tperiod), periodEnd(tperiod)));
   if (!pr) return {cur, txt:"", cls:""};
   const prevL = soldIn(pr[0], pr[1]), prev = M.val(prevL);
   if (!prevL.length && (m === "roi" || m === "days")) return {cur, txt:"", cls:""};
@@ -1752,6 +2283,11 @@ function renderLive(){
     <span class="mt-l">${LIVE_NAME[m]}</span><b class="mt-v">${METRICS[m].fmt(c.cur)}</b><span class="mt-c ${c.cls}">${c.txt || "&nbsp;"}</span></button>`; }).join("");
   // series: running value to date, this period vs previous
   const M = METRICS[liveMetric], bk = chartBuckets(tperiod), start = periodStart(tperiod), pr = prevRange(tperiod);
+  if (!soldIn(start, periodEnd(tperiod)).length){
+    liveData = null;
+    $("lchart").innerHTML = `<div class="lv-empty"><b>No sales ${isMon(tperiod) ? "in " + periodLabel(tperiod) : periodLabel(tperiod).replace(/^This/, "this").replace(/^Last/, "in the last").replace(/^All time$/, "yet")}</b><span>Mark a phone as sold and your chart starts here.</span></div>`;
+    $("lprevKey").hidden = true; return;
+  }
   const cur = bk.map(x => M.val(soldIn(start, x.to)));
   const prev = pr ? bk.map(x => { const p = bucketPrev(x); return p ? M.val(soldIn(pr[0], p.to)) : null; }) : null;
   const W = 340, H = 196, L = 10, R = 10, T = 14, B = 166, n = cur.length;
@@ -1827,36 +2363,63 @@ $("atiles").addEventListener("click", e => {
 });
 
 function renderFlips(){
+  fillListPick();
   const month = today().slice(0,7);
   const got = phones.filter(f => f.status === "sold" && f.soldOn && f.soldOn.slice(0,7) === month).reduce((a,f) => a + profitOf(f), 0);
-  const inStock = phones.filter(f => f.status !== "sold"), listedN = inStock.filter(f => f.status === "listed").length;
+  const inStock = phones.filter(f => f.status !== "sold");
   const soldM = phones.filter(f => f.status === "sold" && f.soldOn && f.soldOn.slice(0,7) === month);
-  const now = new Date(), dim = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate(), dNow = now.getDate(), dLeft = dim - dNow;
-  const pace = goal * dNow / dim, gap = got - pace;
-  $("gtext").textContent = money(got); $("ggoal").textContent = ` / ${money(goal)}`;
-  $("gpace").className = got >= goal ? "pos" : gap >= 0 ? "pos" : "neg";
-  $("gpace").textContent = got >= goal ? "Goal hit" : Math.abs(gap) < 1 ? "Right on pace" : `${money(Math.abs(gap))} ${gap >= 0 ? "ahead of" : "behind"} pace`;
-  $("gdays").textContent = ` · ${dLeft} day${dLeft===1?"":"s"} left`;
-  $("gleft").textContent = `${soldM.length} sold · ${listedN} of ${inStock.length} listed`;
-  // running profit by day vs straight-line pace to the goal
-  const cum = [0]; let run = 0;
-  for (let d = 1; d <= dNow; d++){ const k = `${month}-${String(d).padStart(2,"0")}`; run += soldM.filter(f => f.soldOn === k).reduce((a,f) => a + profitOf(f), 0); cum.push(run); }
-  const W = 320, H = 116, L = 4, R = 4, T = 8, B = 96;
-  const top = Math.max(goal, ...cum, 1), bot = Math.min(0, ...cum);
-  const X = d => L + d / dim * (W - L - R), Y = v => B - (v - bot) / (top - bot) * (B - T);
-  const pts = cum.map((v, d) => [X(d), Y(v)]), line = smoothPath(pts), tx = X(dNow);
-  const lab = d => new Date(now.getFullYear(), now.getMonth(), d).toLocaleDateString(undefined, {day:"numeric", month:"short"});
-  let g = `<defs><linearGradient id="pcFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".25"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>`;
-  g += `<line x1="${tx}" y1="${T}" x2="${tx}" y2="${B}" stroke="var(--line)"/>`;
-  g += `<line x1="${X(0)}" y1="${Y(0)}" x2="${X(dim)}" y2="${Y(goal)}" stroke="var(--muted)" stroke-opacity=".6" stroke-width="2" stroke-dasharray="5 5"/>`;
-  g += `<path class="lv-area" d="${line}L${tx},${Y(bot)}L${X(0)},${Y(bot)}Z" fill="url(#pcFill)"/>`;
-  g += `<path class="lv-line" d="${line}" pathLength="1" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>`;
-  g += `<circle cx="${tx}" cy="${Y(run)}" r="4.5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>`;
-  const t = (x, txt, anchor, ink) => `<text x="${x}" y="${H-4}" font-size="10.5" fill="var(--${ink?"ink":"muted"})" text-anchor="${anchor}" ${ink?'font-weight="600"':""}>${txt}</text>`;
-  if (tx > 60) g += t(L, lab(1), "start");
-  if (W - R - tx > 60) g += t(W - R, lab(dim), "end");
-  g += t(Math.max(L + 18, Math.min(W - R - 18, tx)), "Today", "middle", true);
-  $("gchart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Profit so far this month ${money(got)}, against the pace needed to reach ${money(goal)}">${g}</svg>`;
+  const mName = new Date(month + "-15T12:00:00").toLocaleDateString(undefined, {month:"long"});
+  // member card (period you pick on the card)
+  const cp = cardRange();
+  const soldP = soldIn(cp.a, cp.b), profP = sumProfit(soldP);
+  countTo($("gtext"), profP);
+  $("mcSub").textContent = profP < 0 ? "Loss" : "Profit";
+  $("mcPerLab").textContent = cp.label;
+  $("mcName").textContent = (lsGet("iflipper-name") || "Member").toUpperCase();
+  $("mcHint").hidden = !!lsGet("iflipper-flipped");
+  $("mcard").classList.toggle("hit", cardPer === "all" || (goal > 0 && got >= goal));
+  const allSold = phones.filter(f => f.status === "sold");
+  const best = allSold.slice().sort((x,y) => profitOf(y) - profitOf(x))[0];
+  const since = phones.reduce((m,f) => f.boughtOn && f.boughtOn < m ? f.boughtOn : m, today());
+  $("mcLife").innerHTML = [["Flips", allSold.length], ["Profit", money(sumProfit(allSold))], ["Sales", money(allSold.reduce((a,f) => a + (f.sold||0), 0))], ["Best flip", best ? signed(profitOf(best)) : "–"], ["Avg flip", allSold.length ? money(sumProfit(allSold) / allSold.length) : "–"], ["Since", new Date(since + "T12:00:00").toLocaleDateString(undefined, {month:"short", year:"numeric"})]]
+    .map(([l, v]) => `<div><span>${l}</span><b>${v}</b></div>`).join("");
+  // to do
+  const todos = [];
+  inStock.filter(f => f.status !== "listed" && !snoozed("list:" + f.id)).map(f => [f, daysBetween(f.boughtOn, today())]).filter(([, d]) => d >= 3).sort((x,y) => y[1] - x[1])
+    .forEach(([f, d]) => todos.push({key:"list:" + f.id, ic:"listed", tone:"blue", t:`List your ${nameOf(f)}`, s: d >= 180 ? `In stock ${d} days. Sold already? Tap to update` : `In stock ${d} days, not listed yet`, go:() => openSheet(f.id, d >= 180 ? "sold" : "listed")}));
+  inStock.filter(f => f.status === "listed" && f.list && !snoozed("drop:" + f.id)).map(f => [f, daysBetween(f.priceOn || f.listedOn || f.boughtOn, today())]).filter(([, d]) => d >= 14).sort((x,y) => y[1] - x[1])
+    .forEach(([f, d]) => { const drop = Math.floor(f.list * 0.95 / 5) * 5; todos.push({key:"drop:" + f.id, ic:"clock", tone:"warn", t:`Drop ${nameOf(f)} to ${money(drop)}`, s:`${d} days at ${money(f.list)} with no sale`, go:() => openSheet(f.id, "listed")}); });
+  const noPlat = allSold.filter(f => f.soldVia === "Not recorded").length;
+  if (noPlat && !snoozed("plat")) todos.push({key:"plat", ic:"box", tone:"grey", t:`${noPlat} sale${noPlat===1?"":"s"} missing a platform`, s:"Tap to add where they sold", go:() => { go("stock"); tview = "sold"; [...$("tview").children].forEach(x => x.setAttribute("aria-pressed", x.dataset.v === "sold")); ["dash","stock","sold"].forEach(k => $("v-"+k).hidden = k !== "sold"); renderFlips(); }});
+  if (todos.length <= 3) todoAll = false;
+  let hiddenN = 0; try { const m = JSON.parse(localStorage.getItem(SNKEY)) || {}; const live = new Set(phones.map(f => f.id)); hiddenN = Object.entries(m).filter(([k, v]) => v > today() && (k === "plat" || live.has(k.split(":")[1]))).length; } catch(_){}
+  const showN = todoAll ? todos.length : 3;
+  todoActions = todos.slice(0, showN);
+  $("todoCount").textContent = todos.length ? `${todos.length} thing${todos.length===1?"":"s"}` : "";
+  $("todoList").innerHTML = todos.length ? todos.slice(0, showN).map((t, i) => `<div class="todo-row"><button type="button" class="todo" data-todo="${i}"><i class="td-ic ${t.tone}" aria-hidden="true">${ICON[t.ic]}</i><span><b>${esc(t.t)}</b><small>${esc(t.s)}</small></span></button><button type="button" class="td-skip" data-skip="${i}" aria-label="Not now">Not now</button></div>`).join("")
+      + (todos.length > 3 ? `<button type="button" class="td-more" id="todoMore">${todoAll ? "Show less" : `Show all ${todos.length}`}</button>` : "")
+      + (hiddenN && (todoAll || todos.length <= 3) ? `<button type="button" class="td-unhide" id="todoUnhide">Show ${hiddenN} hidden</button>` : "")
+    : `<div class="todo-done"><i aria-hidden="true">✓</i><span><b>All caught up</b><small>Everything's listed and up to date</small></span></div>${hiddenN ? `<button type="button" class="td-unhide" id="todoUnhide">Show ${hiddenN} hidden</button>` : ""}`;
+  $("todoCard").classList.toggle("slim", !todos.length);
+  // cash for the same period as the card
+  const boughtM = phones.filter(f => f.boughtOn && f.boughtOn >= cp.a && f.boughtOn <= cp.b);
+  const out = boughtM.reduce((a,f) => a + (f.buy||0) + (f.cost||0), 0), inn = soldP.reduce((a,f) => a + (f.sold||0) - (f.fees||0), 0);
+  const tied = inStock.reduce((a,f) => a + (f.buy||0) + (f.cost||0), 0), net = inn - out;
+  $("cashTitle").textContent = cardPer === "all" ? "All-time cash" : `${cp.short} cash`;
+  if (homeStyle() === "classic") renderPace();
+  $("cashCard").querySelector(".goal-line").hidden = cardPer !== "month" || homeStyle() === "classic"; if (cardPer !== "month") $("gform").hidden = true;
+  $("cashOut").textContent = money(out); $("cashIn").textContent = money(inn);
+  const tot = Math.max(1, out + inn); $("cashBarOut").style.flex = String(out / tot || .001); $("cashBarIn").style.flex = String(inn / tot || .001);
+  const sg = v => `${v >= 0 ? "+" : "−"}${money(Math.abs(v))}`;
+  if (cardPer === "all" && tied){
+    $("cashTied").innerHTML = `Cash ${sg(net)} + stock ${money(tied)}`;
+    $("cashNet").className = net + tied >= 0 ? "pos" : "neg"; $("cashNet").textContent = `= ${sg(net + tied)}`;
+  } else {
+    $("cashTied").textContent = tied ? `${money(tied)} tied up in ${inStock.length} phone${inStock.length===1?"":"s"}` : "Nothing tied up in stock";
+    $("cashNet").className = net >= 0 ? "pos" : "neg"; $("cashNet").textContent = `${sg(net)} cash`;
+  }
+  $("gleft").innerHTML = `Goal: <b>${money(got)}</b> of ${money(goal)} profit`;
+  $("gbar2").style.width = Math.max(0, Math.min(100, goal ? got / goal * 100 : 0)) + "%";
   $("cStock").textContent = phones.filter(f => f.status !== "sold").length || "";
   $("cSold").textContent = phones.filter(f => f.status === "sold").length || "";
   $("fclear").hidden = !phones.some(f => f.ex);
@@ -1865,6 +2428,91 @@ function renderFlips(){
   if (typeof renderBackup === "function") renderBackup();
 }
 
+/* member card helpers */
+let todoActions = [], todoAll = false, lastHidden = null, lastCount = null, cardPer = "month";
+try { const cpv = localStorage.getItem("iflipper-cardper"); if (cpv === "all" || cpv === "month" || /^m:\d{4}-\d{2}$/.test(cpv || "")) cardPer = cpv; } catch(e){}
+function cardRange(){
+  const cur = today().slice(0,7);
+  if (cardPer === "all") return {a:"0000", b:"9999", label:"All time", short:"All time"};
+  const ym = cardPer === "month" ? cur : cardPer.slice(2);
+  return {a: ym + "-01", b: monLast(ym), label: ym === cur ? "This month" : monName(ym, {month:"short", year:"numeric"}), short: monName(ym, {month:"long"})};
+}
+const SNKEY = "iflipper-snooze-v1";
+function snoozed(k){ try { const m = JSON.parse(localStorage.getItem(SNKEY)) || {}; return m[k] && m[k] > today(); } catch(e){ return false; } }
+function snooze(k, days){ try { const m = JSON.parse(localStorage.getItem(SNKEY)) || {}; m[k] = addDays(today(), days); localStorage.setItem(SNKEY, JSON.stringify(m)); } catch(e){} }
+const CARD_SKINS = [["midnight","Midnight"],["black","Black"],["titanium","Titanium"],["gold","Gold"],["rose","Rose gold"],["ocean","Ocean"],["emerald","Emerald"],["aurora","Aurora"]];
+function applyCardSkin(){ const k = lsGet("iflipper-cardskin"); $("mcard").dataset.card = CARD_SKINS.some(c => c[0] === k) ? k : "midnight"; }
+function openCardDesign(){
+  const cur = $("mcard").dataset.card, amt = $("gtext").textContent;
+  $("cdList").innerHTML = CARD_SKINS.map(([k, l]) => `<button type="button" class="cd-opt" data-k="${k}" aria-pressed="${k===cur}"><div class="cd-mini" data-card="${k}"><b>IFLIPPER PRO</b><i>${esc(amt)}</i></div><span>${l}</span></button>`).join("");
+  $("cdpick").hidden = false; document.body.style.overflow = "hidden";
+}
+function closeCardDesign(){ $("cdpick").hidden = true; document.body.style.overflow = (dMetric || !$("sheet").hidden) ? "hidden" : ""; }
+$("mcDesign").addEventListener("click", e => { e.stopPropagation(); openCardDesign(); });
+$("cdClose").addEventListener("click", closeCardDesign);
+$("cdpick").addEventListener("click", e => {
+  if (e.target === $("cdpick")) return closeCardDesign();
+  const b = e.target.closest("[data-k]"); if (!b) return;
+  lsSet("iflipper-cardskin", b.dataset.k); applyCardSkin(); applyHomeStyle();
+  [...$("cdList").children].forEach(x => x.setAttribute("aria-pressed", x === b));
+  setTimeout(() => { closeCardDesign(); flipCard(false); }, 260);
+});
+function homeStyle(){ return lsGet("iflipper-home") === "classic" ? "classic" : "card"; }
+function applyHomeStyle(){
+  const h = homeStyle();
+  $("paceCard").hidden = h !== "classic"; $("mcard").hidden = h === "classic";
+  [...$("homeSeg").children].forEach(b => b.setAttribute("aria-pressed", b.dataset.v === h));
+  $("setCard").hidden = h === "classic";
+  $("setCardName").firstChild.textContent = (CARD_SKINS.find(c => c[0] === $("mcard").dataset.card) || CARD_SKINS[0])[1] + " ";
+}
+segPick("homeSeg", v => { lsSet("iflipper-home", v); applyHomeStyle(); renderFlips(); toast(v === "classic" ? "Home now shows the classic goal chart" : "Home now shows your member card"); });
+$("setCard").addEventListener("click", openCardDesign);
+function renderPace(){
+  const month = today().slice(0,7);
+  const soldM = phones.filter(f => f.status === "sold" && f.soldOn && f.soldOn.slice(0,7) === month);
+  const got = soldM.reduce((a,f) => a + profitOf(f), 0);
+  const inStock = phones.filter(f => f.status !== "sold"), listedN = inStock.filter(f => f.status === "listed").length;
+  const now = new Date(), dim = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate(), dNow = now.getDate(), dLeft = dim - dNow;
+  const pace = goal * dNow / dim, gap = got - pace;
+  $("pgtext").textContent = money(got); $("pggoal").textContent = ` / ${money(goal)}`;
+  $("pgpace").className = got >= goal ? "pos" : gap >= 0 ? "pos" : "neg";
+  $("pgpace").textContent = got >= goal ? "Goal hit" : Math.abs(gap) < 1 ? "Right on pace" : `${money(Math.abs(gap))} ${gap >= 0 ? "ahead of" : "behind"} pace`;
+  $("pgdays").textContent = ` · ${dLeft} day${dLeft===1?"":"s"} left`;
+  $("pgleft").textContent = `${soldM.length} sold · ${listedN} of ${inStock.length} listed`;
+  const cum = [0]; let run = 0;
+  for (let d = 1; d <= dNow; d++){ const k = `${month}-${String(d).padStart(2,"0")}`; run += soldM.filter(f => f.soldOn === k).reduce((a,f) => a + profitOf(f), 0); cum.push(run); }
+  const W = 320, H = 116, L = 4, R = 4, T = 8, B = 96;
+  const top = Math.max(goal, ...cum, 1), bot = Math.min(0, ...cum);
+  const X = d => L + d / dim * (W - L - R), Y = v => B - (v - bot) / (top - bot) * (B - T);
+  const line = smoothPath(cum.map((v, d) => [X(d), Y(v)])), tx = X(dNow);
+  const lab = d => new Date(now.getFullYear(), now.getMonth(), d).toLocaleDateString(undefined, {day:"numeric", month:"short"});
+  let g = `<defs><linearGradient id="pcFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".25"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>`;
+  g += `<line x1="${tx}" y1="${T}" x2="${tx}" y2="${B}" stroke="var(--line)"/>`;
+  g += `<line x1="${X(0)}" y1="${Y(0)}" x2="${X(dim)}" y2="${Y(goal)}" stroke="var(--muted)" stroke-opacity=".6" stroke-width="2" stroke-dasharray="5 5"/>`;
+  g += `<path d="${line}L${tx},${Y(bot)}L${X(0)},${Y(bot)}Z" fill="url(#pcFill)"/>`;
+  g += `<path d="${line}" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>`;
+  g += `<circle cx="${tx}" cy="${Y(run)}" r="4.5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>`;
+  const t = (x, txt, anchor, ink) => `<text x="${x}" y="${H-4}" font-size="10.5" fill="var(--${ink?"ink":"muted"})" text-anchor="${anchor}" ${ink?'font-weight="600"':""}>${txt}</text>`;
+  if (tx > 60) g += t(L, lab(1), "start");
+  if (W - R - tx > 60) g += t(W - R, lab(dim), "end");
+  g += t(Math.max(L + 18, Math.min(W - R - 18, tx)), "Today", "middle", true);
+  $("pgchart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Profit so far this month ${money(got)}, against the pace needed to reach ${money(goal)}">${g}</svg>`;
+}
+$("pgedit").addEventListener("click", () => { $("pgform").hidden = !$("pgform").hidden; $("pginput").value = goal; if (!$("pgform").hidden) $("pginput").focus(); });
+$("pgsave").addEventListener("click", () => { const v = parseFloat($("pginput").value); if (!(v > 0)) return; goal = v; lsSet(GKEY, String(v)); $("pgform").hidden = true; renderFlips(); });
+function flipCard(to){
+  const m = $("mcard");
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches){ m.classList.toggle("flipped", to); return; }
+  m.classList.add("squash");
+  setTimeout(() => { m.classList.toggle("flipped", to); m.classList.remove("squash"); }, 170);
+}
+function memberNo(){ let n = lsGet("iflipper-member"); if (!n){ n = String(Math.floor(1000 + Math.random() * 9000)); lsSet("iflipper-member", n); } return n; }
+function countTo(el, v){
+  const fmt = x => money(x);
+  if (lastCount === v || matchMedia("(prefers-reduced-motion: reduce)").matches){ el.textContent = fmt(v); lastCount = v; return; }
+  const from = lastCount ?? 0, t0 = performance.now(), dur = 1100; lastCount = v;
+  (function f(t){ const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmt(from + (v - from) * e); if (k < 1) requestAnimationFrame(f); })(t0);
+}
 /* add / edit sheet */
 let editing = null, pfStatus = "stock";
 const F = k => $("pf-"+k);
@@ -1885,10 +2533,26 @@ function updateProfitLine(){
 }
 ["buy","cost","sold","fees","list"].forEach(k => F(k).addEventListener("input", updateProfitLine));
 segPick("pf-status", setStatus);
+let pfKind = "phone", kindTouched = false;
+F("kind").innerHTML = KINDS.map(([k, l]) => `<button type="button" data-k="${k}" aria-pressed="false">${KIND_ICON[k]}${l}</button>`).join("");
+function setKind(k){
+  pfKind = k;
+  [...F("kind").children].forEach(b => b.setAttribute("aria-pressed", b.dataset.k === k));
+  F("battw").hidden = !HAS_BATT.has(k);
+  $("pf-imeil").textContent = k === "phone" ? "IMEI (optional)" : "Serial number (optional)";
+  F("imei").setAttribute("inputmode", k === "phone" ? "numeric" : "text");
+  F("model").placeholder = KIND_HINT[k];
+  if (!editing){ const noStore = ["audio","console","camera","other","watch"].includes(k); if (noStore && F("storage").value === "128GB") F("storage").value = ""; else if (!noStore && !F("storage").value) F("storage").value = "128GB"; }
+  F("storage").querySelector('option[value="825GB"]') || F("storage").insertAdjacentHTML("beforeend", '<option>825GB</option><option>8GB</option><option>16GB</option><option>32GB</option>');
+  const on = F("kind").querySelector(`[data-k="${k}"]`); on?.scrollIntoView?.({block: "nearest", inline: "nearest"});
+}
+F("kind").addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (!b) return; kindTouched = true; setKind(b.dataset.k); });
+F("model").addEventListener("input", () => { if (kindTouched) return; const g = guessKind(F("model").value); if (g && g !== pfKind) setKind(g); });
 function openSheet(id, status){
   editing = id ? phones.find(f => f.id === id) : null;
   const f = editing || {model:"", storage:"128GB", colour:"", grade:"Good", battery:"", imei:"", buy:"", boughtOn:today(), source:"Facebook Marketplace", cost:"", list:"", platform:"eBay", sold:"", soldOn:today(), soldVia:"eBay", fees:"", notes:"", status:"stock"};
-  $("shTitle").textContent = editing ? "Edit phone" : "Add a phone";
+  $("shTitle").textContent = editing ? `Edit ${KIND_LABEL[kindOf(editing)].toLowerCase()}` : "Add stock";
+  kindTouched = !!editing; setKind(editing ? kindOf(editing) : "phone");
   F("model").value = f.model||""; F("storage").value = f.storage||""; F("colour").value = f.colour||""; F("grade").value = f.grade||"Good";
   F("battery").value = f.battery ?? ""; F("imei").value = f.imei||""; F("buy").value = f.buy ?? ""; F("bought").value = f.boughtOn||today();
   F("source").value = f.source||"Other"; F("cost").value = f.cost || ""; F("list").value = f.list ?? ""; F("platform").value = f.platform||"eBay";
@@ -1918,6 +2582,7 @@ $("shClose").addEventListener("click", closeSheet);
   };
   sh.addEventListener("pointerup", end); sh.addEventListener("pointercancel", end);
 })();
+$("kindBar").addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (!b) return; stockKind = b.dataset.k; renderStock(); });
 /* large title collapses into the bar on scroll */
 addEventListener("scroll", () => $("navmini").classList.toggle("scrolled", scrollY > 38), {passive: true});
 $("sheet").addEventListener("click", e => { if (e.target === $("sheet")) closeSheet(); });
@@ -1927,22 +2592,28 @@ $("pform").addEventListener("submit", e => {
   const n = k => { const v = parseFloat(F(k).value); return isNaN(v) ? null : v; };
   const model = F("model").value.trim(), buy = n("buy");
   const err = t => { F("msg").hidden = false; F("msg").textContent = t; };
-  if (!model) return err("Add the phone model.");
+  if (!model) return err("Add the model.");
   if (buy === null) return err("Add what you paid for it.");
   if (pfStatus === "listed" && n("list") === null) return err("Add the price you listed it at.");
   if (pfStatus === "sold" && n("sold") === null) return err("Add what it sold for.");
   const wasSold = !!editing && editing.status === "sold";
   const rec = Object.assign(editing || {id:"p"+Date.now()}, {
-    model, storage:F("storage").value, colour:F("colour").value.trim(), grade:F("grade").value, battery:n("battery"), imei:F("imei").value.trim(),
+    kind: pfKind, model, storage:F("storage").value, colour:F("colour").value.trim(), grade:F("grade").value, battery: HAS_BATT.has(pfKind) ? n("battery") : null, imei:F("imei").value.trim(),
     buy, boughtOn:F("bought").value || today(), source:F("source").value, cost:n("cost") || 0, status:pfStatus,
     list: pfStatus !== "stock" ? n("list") ?? (editing?.list ?? null) : null, platform: F("platform").value,
     listedOn: pfStatus === "stock" ? null : (editing?.listedOn || today()),
+    priceOn: pfStatus === "listed" ? (editing && editing.status === "listed" && editing.list === n("list") ? (editing.priceOn || editing.listedOn || today()) : today()) : null,
     sold: pfStatus === "sold" ? n("sold") : null, soldOn: pfStatus === "sold" ? (F("soldon").value || today()) : null,
     soldVia: pfStatus === "sold" ? F("soldvia").value : "", fees: pfStatus === "sold" ? (n("fees") || 0) : 0, notes:F("notes").value.trim()
   });
-  if (!editing) phones.push(rec);
-  saveFlips(); closeSheet(); renderFlips();
+  const isNew = !editing;
+  if (isNew) phones.push(rec);
+  saveFlips(); closeSheet();
+  if (isNew && pfStatus !== "sold" && tview === "sold"){ tview = "stock"; [...$("tview").children].forEach(x => x.setAttribute("aria-pressed", x.dataset.v === "stock")); ["dash","stock","sold"].forEach(k => $("v-"+k).hidden = k !== "stock"); }
+  renderFlips();
   if (pfStatus === "sold" && !wasSold) celebrate(profitOf(rec), nameOf(rec));
+  else if (isNew) toast(`Added ${esc(nameOf(rec))} to your stock`);
+  else toast("Saved");
 });
 F("del").addEventListener("click", () => { F("delconfirm").hidden = false; });
 F("delyes").addEventListener("click", () => { if (!editing) return; phones = phones.filter(f => f !== editing); saveFlips(); closeSheet(); renderFlips(); });
@@ -2001,6 +2672,37 @@ $("otrack").addEventListener("click", () => {
   $("otmsg").hidden = false; $("otmsg").textContent = `Added ${model} at ${money(buy)} to your tracker as in stock.`;
 });
 $("fclear").addEventListener("click", () => { phones = phones.filter(f => !f.ex); saveFlips(); renderFlips(); dmsg("Example phones removed."); });
+/* delete phones: two taps to confirm, then 10 seconds to undo */
+let undoPhones = null;
+function delReset(){ document.querySelectorAll(".del-opt").forEach(b => { b.classList.remove("arm"); b.querySelector("b").textContent = b.dataset.del === "stock" ? "Delete stock only" : "Delete everything"; }); }
+$("delAllBtn").addEventListener("click", () => {
+  const st = phones.filter(f => f.status !== "sold").length;
+  $("delStockSub").textContent = `${st} phone${st===1?"":"s"} not sold yet. Your sales history stays.`;
+  $("delAllSub").textContent = `All ${phones.length} phone${phones.length===1?"":"s"}: stock and sales. Your dashboard starts from zero.`;
+  delReset(); $("delBox").hidden = false; $("delAllBtn").hidden = true;
+});
+$("delCancel").addEventListener("click", () => { $("delBox").hidden = true; $("delAllBtn").hidden = false; delReset(); });
+$("delBackup").addEventListener("click", () => doBackup());
+document.querySelectorAll(".del-opt").forEach(b => b.addEventListener("click", () => {
+  if (!b.classList.contains("arm")){ delReset(); b.classList.add("arm"); b.querySelector("b").textContent = "Tap again to delete"; return; }
+  undoPhones = phones.slice();
+  const n = b.dataset.del === "stock" ? phones.filter(f => f.status !== "sold").length : phones.length;
+  phones = b.dataset.del === "stock" ? phones.filter(f => f.status === "sold") : [];
+  saveFlips(); renderFlips(); $("delBox").hidden = true; $("delAllBtn").hidden = false; delReset();
+  toast(`Deleted ${n} phone${n===1?"":"s"} <button type="button" class="toast-undo" id="undoDel">Undo</button>`, 10000);
+  $("toast").classList.add("act");
+  setTimeout(() => { undoPhones = null; $("toast")?.classList.remove("act"); }, 10000);
+}));
+document.addEventListener("click", e => {
+  if (!e.target.closest("#hideGood") || !lastHidden) return;
+  snooze(lastHidden, 36500); lastHidden = null; renderFlips();
+  $("toast").classList.remove("act"); toast("Removed from your to do");
+});
+document.addEventListener("click", e => {
+  if (!e.target.closest("#undoDel") || !undoPhones) return;
+  phones = undoPhones; undoPhones = null; saveFlips(); renderFlips();
+  $("toast").classList.remove("act"); toast("Phones restored");
+});
 $("cur").addEventListener("change", renderFlips);
 
 /* export, backup, restore */
@@ -2033,6 +2735,7 @@ $("bExport").addEventListener("click", async () => {
 const BKEY = "iflipper-lastbackup", SNOOZE = "iflipper-backup-snooze";
 const lsGet = k => { try { return localStorage.getItem(k); } catch(e){ return null; } };
 const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch(e){} };
+applyCardSkin(); applyHomeStyle();
 async function doBackup(){
   const ok = await saveFile(`iflipper-backup-${today()}.json`, JSON.stringify({app:"iFlipper", version:2, saved:today(), goal, cur:$("cur").value, phones}, null, 1), "application/json");
   if (ok){ lsSet(BKEY, today()); renderBackup(); }
@@ -2081,6 +2784,131 @@ function renderMeet(){
 mboxes.forEach(b => b.addEventListener("change", renderMeet));
 $("mreset").addEventListener("click", () => { mboxes.forEach(b => b.checked = false); renderMeet(); window.scrollTo({top:0,behavior:"smooth"}); });
 renderMeet();
+
+/* IS IT REAL? */
+const LG = [
+  {id:"model", crit:true, t:"Model and storage match the ad", h:"Settings → General → About. Check the Model Name and Capacity are what you're paying for.",
+   no:"The model or storage doesn't match what was advertised.", ask:"Why doesn't the model or storage match the listing?"},
+  {id:"letter", t:"Model number", h:"Same screen, tap Model Number once and type what it shows (e.g. MQ9X3B/A).", input:true},
+  {id:"parts", warn:true, t:"Genuine parts", h:"Settings → General → About → Parts and Service History. On newer iPhones it lists any replaced parts. If you don't see it, nothing has been flagged.",
+   yes:"No unknown parts", no:"Shows an Unknown Part", no2:"Has a non-genuine or unknown part (screen, battery or camera). It's worth less.", ask:"Which part was replaced, and who did it?"},
+  {id:"ios", crit:true, t:"It's running real iOS", h:"Open the App Store and search for an app. Hold the side button for Siri. Fakes run Android made to look like an iPhone and fail these.",
+   no:"The App Store or Siri doesn't work properly. It's very likely a fake.", ask:null},
+  {id:"port", crit:true, t:"Right charging port", h:"iPhone 15 and newer have USB-C. iPhone 14 and older have Lightning.",
+   no:"The charging port is wrong for that model. It's likely a fake.", ask:null},
+  {id:"apple", crit:true, t:"Apple confirms the model", h:"Go to checkcoverage.apple.com and enter the Serial Number from Settings → General → About. Apple should show the same model.",
+   no:"Apple's own check doesn't match the phone.", ask:null, link:"https://checkcoverage.apple.com/"},
+  {id:"works", warn:true, t:"Face ID, cameras and speakers work", h:"Set up Face ID (or Touch ID), take a photo on the front and back camera, and play a sound.",
+   no2:"Something doesn't work properly. Factor the repair into your price.", ask:"Is there anything else that doesn't work?"},
+  {id:"unlock", crit:true, t:"Signed out and erased in front of you", h:"Watch them sign out of Apple ID and Find My, then erase it: Settings → General → Transfer or Reset.",
+   no:"It isn't signed out of iCloud or Find My. A locked phone is worthless.", ask:null}
+];
+const LETTERS = {M:["Sold new","Bought new from Apple or a shop. The best kind.","good"], F:["Refurbished","Refurbished by Apple or a network. Usually worth a bit less.","warn"],
+  N:["Apple replacement","A replacement phone Apple gave out under warranty. Fine, but often worth slightly less.","warn"], P:["Personalised","Engraved when bought new. Engraving can put some buyers off.","warn"]};
+let lg = {};
+try { lg = JSON.parse(localStorage.getItem("iflipper-legit-v1")) || {}; } catch(e){}
+const lgSave = () => { try { localStorage.setItem("iflipper-legit-v1", JSON.stringify(lg)); } catch(e){} };
+function letterInfo(v){ const c = String(v||"").trim().toUpperCase(); if (!c) return null; const k = c[0]; return LETTERS[k] ? {code:c, k, info:LETTERS[k]} : {code:c, k, info:null}; }
+function renderLegit(){
+  $("lgSteps").innerHTML = LG.map((st, i) => {
+    const a = lg[st.id];
+    let ctrl;
+    if (st.input){
+      const li = letterInfo(lg.letterCode);
+      ctrl = `<input id="lgLetter" value="${esc(lg.letterCode||"")}" placeholder="Model number" autocapitalize="characters" autocomplete="off" spellcheck="false">
+        ${li ? (li.info ? `<div class="lg-letter ${li.info[2]}"><b>${esc(li.k)} = ${li.info[0]}</b><span>${li.info[1]}</span></div>` : `<div class="lg-letter bad"><b>That doesn't look right</b><span>Real model numbers start with M, F, N or P. Check it again. A strange model number is a warning sign.</span></div>`) : ""}`;
+    } else {
+      ctrl = `<div class="seg lg-seg" data-step="${st.id}" role="group" aria-label="${esc(st.t)}">${[["yes", st.yes || "Yes"],["no", st.no && st.no.length < 30 ? st.no : "No"],["unsure","Not sure"]].map(([v, l]) => `<button type="button" data-a="${v}" aria-pressed="${a===v}">${esc(v==="no" && st.id==="parts" ? "Unknown part" : l)}</button>`).join("")}</div>
+        ${st.link ? `<a class="linkbtn" href="${st.link}" target="_blank" rel="noopener">Open Apple Check Coverage ↗</a>` : ""}`;
+    }
+    const done = st.input ? !!lg.letterCode : !!a;
+    const state = st.input ? (letterInfo(lg.letterCode)?.info?.[2] || (lg.letterCode ? "bad" : "")) : a === "yes" ? "good" : a === "no" ? (st.crit ? "bad" : "warn") : a === "unsure" ? "warn" : "";
+    return `<div class="panel lg-step ${state}"><div class="lg-head"><span class="lg-n ${done?"done":""}">${done ? "✓" : i+1}</span><div><h3>${esc(st.t)}</h3><p>${esc(st.h)}</p></div></div>${ctrl}</div>`;
+  }).join("");
+  const lgIn = $("lgLetter");
+  if (lgIn) lgIn.addEventListener("change", () => { lg.letterCode = lgIn.value.trim().toUpperCase(); lgSave(); renderLegit(); });
+  legitVerdict();
+}
+function legitVerdict(){
+  const answered = LG.filter(st => st.input ? !!lg.letterCode : !!lg[st.id]).length;
+  $("lgCount").textContent = `${answered} of ${LG.length} checked`;
+  const stop = [], care = [], ask = new Set();
+  LG.forEach(st => {
+    if (st.input){ const li = letterInfo(lg.letterCode); if (li && !li.info){ care.push("The model number doesn't look like a real Apple one."); ask.add("Can you show me the model number in Settings → General → About?"); } else if (li && li.info[2] === "warn") care.push(`It's ${li.info[0].toLowerCase()} (${li.k}), not sold new. Price it accordingly.`); return; }
+    const a = lg[st.id];
+    if (a === "no"){ if (st.crit) stop.push(st.no); else { care.push(st.no2); if (st.ask) ask.add(st.ask); } }
+    if (a === "unsure"){ care.push(`Not sure yet: ${st.t}.`); if (st.ask) ask.add(st.ask); }
+  });
+  let cls, word, why;
+  if (stop.length){ cls = "v-bad"; word = "Walk away"; why = "This phone failed a deal-breaker check. Don't hand over any money."; }
+  else if (answered < LG.length){ cls = "v-idle"; word = "Keep going"; why = `${LG.length - answered} step${LG.length - answered === 1 ? "" : "s"} left. Finish them all before you pay.`; }
+  else if (care.length){ cls = "v-fair"; word = "Ask first"; why = "Nothing says fake, but there are things to sort out or knock off the price."; }
+  else { cls = "v-good"; word = "Looks genuine"; why = "It passed every check. Still pay only once you're happy with the deal."; }
+  const list = (t, arr) => arr.length ? `<h3>${t}</h3><ul>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
+  $("lgCount").innerHTML = `${answered} of ${LG.length} checked · <b class="lg-mini ${cls}">${word}</b>`;
+  $("lgRes").innerHTML = `<div class="verdict ${cls}"><span class="tag">Is it real?</span><span class="word">${word}</span><p class="why">${why}</p></div>` +
+    ((stop.length || care.length || ask.size) ? `<div class="body">${list("Why", stop)}${list("Things to watch", care)}${list("Ask the seller", [...ask])}</div>` : "");
+}
+$("lgSteps").addEventListener("click", e => {
+  const b = e.target.closest(".lg-seg button"); if (!b) return;
+  const id = b.parentElement.dataset.step; lg[id] = lg[id] === b.dataset.a ? undefined : b.dataset.a; lgSave(); renderLegit();
+});
+$("lgReset").addEventListener("click", () => { lg = {}; lgSave(); renderLegit(); window.scrollTo({top:0, behavior:"smooth"}); });
+renderLegit();
+
+/* IMEI CHECK */
+const IMEI_SITES = [
+  ["Apple Check Coverage", "Confirms it's a real Apple device and shows the exact model. Free.", "https://checkcoverage.apple.com/", "#007AFF"],
+  ["IMEI.info", "Shows the model and basic details. Free.", "https://www.imei.info/", "#8E8E93"],
+  ["SICKW", "Blacklist, iCloud lock, network and finance checks. Small fee per check.", "https://sickw.com/", "#34C759"],
+  ["CheckMEND", "UK check for phones reported lost, stolen or blocked. Paid.", "https://www.checkmend.com/", "#FF9500"]
+];
+function luhnDigit(d14){ let sum = 0; for (let i = 0; i < 14; i++){ let n = +d14[i]; if (i % 2 === 1){ n *= 2; if (n > 9) n -= 9; } sum += n; } return (10 - sum % 10) % 10; }
+function imeiCheck(raw){
+  const clean = String(raw).replace(/[\s\-\/.]/g, "");
+  if (/^[A-Za-z0-9]{10,12}$/.test(clean) && /[A-Za-z]/.test(clean)) return {kind:"serial", value: clean.toUpperCase()};
+  const d = clean.replace(/\D/g, "");
+  if (d.length === 14) return {kind:"short", value: d + luhnDigit(d), check: luhnDigit(d)};
+  if (d.length !== 15) return {kind:"length", n: d.length};
+  if (/^(\d)\1+$/.test(d)) return {kind:"bad", value: d, reason:"repeat"};
+  const ok = luhnDigit(d.slice(0, 14)) === +d[14];
+  return {kind: ok ? "ok" : "bad", value: d, expected: luhnDigit(d.slice(0, 14))};
+}
+const fmtImei = d => `${d.slice(0,2)} ${d.slice(2,8)} ${d.slice(8,14)} ${d.slice(14)}`;
+let imeiVal = "";
+function renderImei(){
+  const r = imeiCheck($("imeiIn").value), box = $("imeiRes"); box.hidden = false;
+  const sites = v => `<div class="body"><h3>Next: check it's clean</h3><p class="small" style="margin-top:-4px">Tap one and the number is copied, ready to paste.</p>
+    <div class="ilist flat">${IMEI_SITES.map(([n, d, u, c], i) => `<button type="button" class="irow" data-site="${i}"><i class="iic" style="background:${c}" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></i><span><b>${n}</b><small>${d}</small></span><span class="chev">${CHEV_SVG}</span></button>`).join("")}</div>${saveBox(v)}</div>`;
+  if (r.kind === "length"){ imeiVal = ""; box.innerHTML = `<div class="verdict v-fair"><span class="tag">IMEI check</span><span class="word">${r.n ? `${r.n} digits` : "Add a number"}</span><p class="why">${r.n ? "An IMEI has 15 digits. Check you've copied the whole number." : "Type or paste the IMEI first."}</p></div>`; return; }
+  if (r.kind === "serial"){ imeiVal = r.value; box.innerHTML = `<div class="verdict v-idle"><span class="tag">Serial number</span><span class="word">${esc(r.value)}</span><p class="why">This looks like a serial number, not an IMEI. Apple Check Coverage takes serial numbers too. For blacklist checks you'll need the IMEI.</p></div>` + sites(r.value); return; }
+  imeiVal = r.value;
+  if (r.kind === "bad"){ box.innerHTML = `<div class="verdict v-bad"><span class="tag">IMEI check</span><span class="word">Not a real IMEI</span><p class="why">${r.reason === "repeat" ? "That's a dummy number, not a real IMEI." : "The last digit doesn't match the rest of the number. Either it's been mistyped, or the IMEI shown is fake."} Check it again in Settings → General → About before going any further.</p></div>
+    <div class="body"><div class="imei-num">${fmtImei(r.value)}</div><p class="small">${r.expected != null ? `For the first 14 digits, the last digit should be <b>${r.expected}</b>. ` : ""}If the IMEI in Settings doesn't match the box or what the seller sent you, walk away.</p></div>`; return; }
+  const note = r.kind === "short" ? `<p class="small">You entered 14 digits, so the 15th check digit (<b>${r.check}</b>) has been added.</p>` : "";
+  box.innerHTML = `<div class="verdict v-good"><span class="tag">IMEI check</span><span class="word">Valid number</span><p class="why">The number is real and correctly formed. Now check it isn't blacklisted, stolen or iCloud locked.</p></div>
+    <div class="body"><div class="imei-num">${fmtImei(r.value)}</div>${note}<p class="small">Make sure this matches the IMEI in Settings → General → About on the phone itself, and on the box if there is one.</p></div>` + sites(r.value);
+}
+function saveBox(v){
+  const opts = phones.filter(f => f.status !== "sold" && !f.ex).sort((a,b) => b.boughtOn.localeCompare(a.boughtOn));
+  if (!opts.length) return "";
+  return `<h3>Save it to a phone</h3><div class="imei-save"><select id="imeiPhone" aria-label="Phone in your stock">${opts.map(f => `<option value="${f.id}">${esc(nameOf(f))}${f.imei ? " (has IMEI)" : ""}</option>`).join("")}</select><button type="button" class="btn" id="imeiSave">Save</button></div>`;
+}
+async function copyText(t){ try { await navigator.clipboard.writeText(t); return true; } catch(e){ return false; } }
+$("imeiGo").addEventListener("click", renderImei);
+$("imeiIn").addEventListener("keydown", e => { if (e.key === "Enter") renderImei(); });
+$("imeiPaste").addEventListener("click", async () => {
+  try { const t = await navigator.clipboard.readText(); if (t){ $("imeiIn").value = t.trim(); renderImei(); } else toast("Nothing copied yet."); }
+  catch(e){ $("imeiIn").focus(); toast("Press and hold in the box and tap Paste."); }
+});
+$("imeiRes").addEventListener("click", async e => {
+  const s0 = e.target.closest("[data-site]");
+  if (s0){ const [n, , u] = IMEI_SITES[+s0.dataset.site]; const ok = await copyText(imeiVal); window.open(u, "_blank", "noopener"); if (ok) toast(`Number copied. Paste it into ${n}.`); return; }
+  if (e.target.closest("#imeiSave")){
+    const f = phones.find(x => x.id === $("imeiPhone").value); if (!f) return;
+    f.imei = imeiVal; saveFlips(); renderFlips(); toast(`IMEI saved to ${esc(nameOf(f))}.`); renderImei();
+  }
+});
 
 /* SCAM CHECK */
 $("spaste").addEventListener("click", async () => {
@@ -2150,27 +2978,183 @@ ${text.slice(0,6000) || "(see screenshot)"}`;
 });
 
 /* LISTING WRITER */
-let lctl;
+let lctl, lpickId = "";
+const COND_FROM_GRADE = {Excellent:"like new", Good:"light marks", OK:"visible scratches", Faulty:"faulty"};
+function fillListPick(){
+  const sel = $("lpick"); if (!sel) return; const cur = sel.value;
+  const stock = phones.filter(f => f.status !== "sold");
+  sel.innerHTML = `<option value="">Fill it in myself</option>` + stock.map(f => `<option value="${f.id}">${esc([nameOf(f), f.colour].filter(Boolean).join(" · "))}${f.ex ? " (example)" : ""}</option>`).join("");
+  sel.value = stock.some(f => f.id === cur) ? cur : "";
+}
+function listKindUI(){
+  const k = guessKind($("lmodel").value) || "phone";
+  $("lbattw").hidden = !HAS_BATT.has(k); $("llockw").hidden = !HAS_NET.has(k);
+}
+try { const a = localStorage.getItem("iflipper-area"); if (a) $("larea").value = a; } catch(e){}
+$("larea").addEventListener("change", () => { try { localStorage.setItem("iflipper-area", $("larea").value.trim()); } catch(e){} });
+$("lmodel").addEventListener("input", listKindUI);
+$("lpick").addEventListener("change", () => {
+  lpickId = $("lpick").value; const f = phones.find(x => x.id === lpickId); if (!f) return;
+  $("lmodel").value = f.model || ""; $("lstore").value = f.storage || ""; $("lcolour").value = f.colour || "";
+  $("lbatt").value = f.battery ?? ""; $("lcond").value = COND_FROM_GRADE[f.grade] || "light marks";
+  $("lprice").value = f.list ?? ""; if (f.platform && [...$("lplat").options].some(o => o.value === f.platform)) $("lplat").value = f.platform;
+  $("lextra").value = (f.notes || "").replace(/\b\d{2,3}\s*(%|bh)\b/gi, "").trim();
+  listKindUI(); renderChecks(); $("lres").hidden = true;
+});
+function listData(){
+  const kind = guessKind($("lmodel").value) || "phone";
+  return {kind, model:$("lmodel").value.trim(), storage:$("lstore").value.trim(), colour:$("lcolour").value.trim(),
+    battery: HAS_BATT.has(kind) && $("lbatt").value ? +$("lbatt").value : null, cond:$("lcond").value,
+    network: HAS_NET.has(kind) ? $("llock").value : "", platform:$("lplat").value, price: $("lprice").value ? +$("lprice").value : null,
+    deliv:$("ldeliv").value, area:$("larea").value.trim(), extras:$("lextra").value.trim(), language: $("llangw").hidden ? "English (UK)" : $("llang").value};
+}
+const cap = t => t ? t.charAt(0).toUpperCase() + t.slice(1) : t;
+function bioName(m, k){
+  m = String(m || "");
+  if (k === "laptop" || /\b(se|[5-8]( plus)?)\b/i.test(m.replace(/^.*iphone\s*/i, "")) && /iphone/i.test(m) || /ipad (air|mini|\d)/i.test(m)) return "Touch ID";
+  if (/iphone|ipad pro/i.test(m)) return "Face ID";
+  return "Face ID / Touch ID";
+}
+const LCHECKS = [
+  ["bio", m => bioName(m, guessKind(m)) + " works", ["phone","tablet","laptop"]],
+  ["screen", () => "Original screen", ["phone","tablet","laptop","watch"]],
+  ["norepair", () => "Never repaired", null],
+  ["account", m => /iphone|ipad|macbook|imac|apple|airpods|ipod/i.test(m) ? "Signed out of iCloud" : "Accounts removed", null],
+  ["imei", () => "IMEI clean, not blacklisted", ["phone","tablet","watch"]],
+  ["tested", () => "Fully tested", null],
+  ["receipt", () => "Receipt available", null],
+  ["warranty", () => "Under warranty", null]
+];
+let lchecked = new Set(["account","tested"]), lstyle = "full";
+function renderChecks(){
+  const k = guessKind($("lmodel").value) || "phone", m = $("lmodel").value;
+  $("lchecks").innerHTML = LCHECKS.filter(([, , ks]) => !ks || ks.includes(k)).map(([id, lab]) => `<button type="button" data-c="${id}" aria-pressed="${lchecked.has(id)}">${esc(lab(m))}</button>`).join("");
+}
+$("lchecks").addEventListener("click", e => { const b = e.target.closest("[data-c]"); if (!b) return; lchecked.has(b.dataset.c) ? lchecked.delete(b.dataset.c) : lchecked.add(b.dataset.c); b.setAttribute("aria-pressed", lchecked.has(b.dataset.c)); });
+segPick("lstyle", v => { lstyle = v; });
+$("lmodel").addEventListener("input", renderChecks); renderChecks();
+function checkLines(d){
+  const k = d.kind;
+  return LCHECKS.filter(([id, , ks]) => lchecked.has(id) && (!ks || ks.includes(k))).map(([id, lab]) => {
+    if (id === "account") return /iphone|ipad|macbook|imac|apple|airpods|ipod/i.test(d.model) ? "Signed out of iCloud and reset, ready to set up" : "Accounts removed and reset, ready to use";
+    if (id === "tested") return d.cond === "faulty" ? "" : "Fully tested and working";
+    if (id === "screen") return "Original screen";
+    if (id === "norepair") return "Never been repaired or opened";
+    if (id === "imei") return "IMEI checked, clean and not blacklisted";
+    if (id === "receipt") return "Receipt available";
+    if (id === "warranty") return "Still under warranty";
+    if (id === "bio") return bioName(d.model, k) + " working";
+    return lab(d.model);
+  }).filter(Boolean);
+}
+// split the seller's notes into "in the box" and condition notes
+function splitExtras(t){
+  const box = [], other = [];
+  String(t || "").split(/(?<=[.!?])\s+|\n+/).map(x => x.trim()).filter(Boolean).forEach(x => {
+    const y = x.replace(/[.!]+$/, "");
+    if (/^(comes with|includes?|including|with|boxed|original box|box|charger|cable|case|plug|receipt)\b/i.test(y) && /\b(box|boxed|cable|charger|lead|plug|case|adapter|receipt|earphones|headphones|controller|pad|strap|band|manual)\b/i.test(y))
+      box.push(y.replace(/^(comes with|includes?|including|with)\s+(the\s+)?/i, "").replace(/^./, c => c.toUpperCase()));
+    else other.push(x.match(/[.!?]$/) ? x : x + ".");
+  });
+  return {box, other};
+}
+// Plain-English listing built from the details, no AI needed
+function templateListing(d){
+  const what = [d.model, d.storage, d.colour].filter(Boolean);
+  const condWord = {"like new":"Like New", "light marks":"Good Condition", "visible scratches":"Used", "faulty":"Faulty / Spares"}[d.cond];
+  let title = [...what, d.network === "Unlocked" ? "Unlocked" : ""].filter(Boolean).join(" ");
+  if (d.battery && d.battery >= 85 && (title + ` ${d.battery}% Battery`).length <= 62) title += ` ${d.battery}% Battery`;
+  if ((title + " - " + condWord).length <= 80) title += " - " + condWord;
+  title = title.slice(0, 80);
+  const {box, other} = splitExtras(d.extras);
+  const condLine = {
+    "like new": "Like new, no marks or scratches.",
+    "light marks": "Good condition with light marks from normal use.",
+    "visible scratches": "Some visible scratches from use, shown in the photos.",
+    "faulty": "Sold as faulty for repair or parts."}[d.cond];
+  const net = d.network === "Unlocked" ? ", unlocked to any network" : d.network === "Network locked" ? " (network locked)" : "";
+  const checks = checkLines(d);
+  if (d.battery) checks.unshift(`Battery health ${d.battery}%`);
+  const where = d.area ? ` from ${d.area}` : "";
+  const deliv = {both:`Collection${where} or tracked postage.`, collect:`Collection only${where}.`, post:"Sent tracked and well packed."}[d.deliv];
+  const price = d.price && d.platform !== "eBay" ? ` ${money(d.price)}.` : "";
+  if (lstyle === "short"){
+    const L = [`${what.join(" ")}${net}.`, [condLine, ...other].join(" ")];
+    if (checks.length) L.push(checks.join(". ") + ".");
+    if (box.length) L.push(`Comes with ${box.join(", ").replace(/^./, c => c.toLowerCase())}.`);
+    L.push(deliv + price);
+    return {title, body: L.join("\n")};
+  }
+  const L = [`${what.join(", ")}${net}.`, "", "Condition", [condLine, ...other].join(" ")];
+  if (checks.length) L.push("", ...checks.map(c => `✓ ${c}`));
+  L.push("", "In the box", box.length ? box.join("\n") : (d.kind === "phone" ? "Phone only" : `${KIND_LABEL[d.kind]} only`));
+  if (d.platform === "eBay"){
+    const specs = [["Model", d.model], ["Storage", d.storage], ["Colour", d.colour], ["Network", d.network]].filter(([, v]) => v);
+    if (specs.length > 1) L.push("", "Details", ...specs.map(([k, v]) => `${k}: ${v}`));
+  }
+  L.push("", deliv + price + (d.platform !== "eBay" ? " Happy to answer any questions." : " Any questions, just ask."));
+  return {title, body: L.join("\n").replace(/\n{3,}/g, "\n\n").trim()};
+}
+function showListing(t, body, d, note){
+  const lim = d.platform === "eBay" ? 80 : 0, n = t.length;
+  const f = phones.find(x => x.id === lpickId);
+  $("lres").hidden = false;
+  $("lres").innerHTML = `<div class="body">
+    <div class="lhead"><span>Title</span><small class="${lim && n > lim ? "over" : ""}">${lim ? `${n}/${lim}` : `${n} characters`}</small></div>
+    <div class="listing ltitle" id="ltitle"></div>
+    <div class="row-btns"><button class="btn" id="lcopyT">Copy title</button></div>
+    <div class="lhead"><span>Description</span></div>
+    <div class="listing" id="lout"></div>
+    <div class="row-btns"><button class="btn" id="lcopy">Copy description</button><button class="btn" id="lcopyAll">Copy both</button>${f && d.price && f.status !== "listed" ? `<button class="btn" id="lmark">Mark as listed at ${money(d.price)}</button>` : ""}</div>
+    ${note ? `<p class="small">${note}</p>` : ""}
+  </div>`;
+  $("ltitle").textContent = t; $("lout").textContent = body;
+  copyBtn($("lcopyT"), $("ltitle"), t); copyBtn($("lcopy"), $("lout"), body); copyBtn($("lcopyAll"), $("lout"), t + "\n\n" + body);
+  $("lmark")?.addEventListener("click", () => { openSheet(f.id, "listed"); F("list").value = d.price; if ([...F("platform").options].some(o => o.value === d.platform)) F("platform").value = d.platform; updateProfitLine(); });
+  $("lres").scrollIntoView({behavior: "smooth", block: "start"});
+}
 $("lgo").addEventListener("click", async () => {
-  if (!sample) return hideAI();
+  const d = listData();
+  if (!d.model){ $("lmodel").focus(); return; }
+  if (!sample){ const r = templateListing(d); showListing(r.title, r.body, d, "Check it over and add anything only you know before you post."); return; }
   lctl?.abort(); lctl = new AbortController();
   $("lgo").disabled = true; $("lres").hidden = false;
-  $("lres").innerHTML = `<div class="body"><div class="listing thinking" id="lout">Writing…</div><div class="row-btns"><button class="btn" id="lcopy" disabled>Copy listing</button></div></div>`;
-  const d = {model:$("lmodel").value, storage:$("lstore").value, colour:$("lcolour").value, battery:$("lbatt").value+"%", condition:$("lcond").value, network:$("llock").value, platform:$("lplat").value, language:$("llang").value, extras:$("lextra").value};
-  const prompt = `Write a second-hand phone listing for ${d.platform}, in ${d.language}. It should sell quickly and build trust.
-Format: a title line (under 80 characters, with model, storage, colour and "Unlocked" if unlocked), a blank line, then a short honest description (3-5 short lines), then a bullet list of key specs and what's included. Mention any flaws plainly. No emoji, no hype words, no price, no contact details. Output only the listing text.
+  $("lres").innerHTML = `<div class="body"><div class="listing thinking" id="lout">Writing…</div></div>`;
+  const checks = checkLines(d), {box, other} = splitExtras(d.extras);
+  const prompt = `Write a second-hand ${KIND_LABEL[d.kind].toLowerCase()} listing for ${d.platform}, in ${d.language}. It should sell quickly and build trust. Write like a careful private seller: plain, honest, specific. No emoji, no hype words ("stunning", "amazing", "mint"), no contact details, and never invent anything that isn't in the details below.
+${lstyle === "short" ? `Output exactly:
+TITLE: one line under 80 characters (model, storage, colour${d.network === "Unlocked" ? ', "Unlocked"' : ""}, condition)
+(blank line)
+4-5 short lines: what it is, the condition and any flaws, the checks done, what's included, then ${d.deliv === "both" ? "collection or tracked postage" : d.deliv === "collect" ? "collection only" : "tracked postage"}${d.area ? ` (from ${d.area})` : ""}${d.price && d.platform !== "eBay" ? ` and the price ${money(d.price)}` : ""}.` : `Output exactly this layout:
+TITLE: one line under 80 characters (model, storage, colour${d.network === "Unlocked" ? ', "Unlocked"' : ""}, condition)
+(blank line)
+One opening line saying what it is${d.network ? " and its network status" : ""}.
+(blank line)
+Condition
+1-2 sentences, flaws stated plainly.
+(blank line)
+One line per check, each starting with "✓ " (battery health first if given). Only the checks listed below.
+(blank line)
+In the box
+One item per line.${d.platform === "eBay" ? `
+(blank line)
+Details
+Model / Storage / Colour / Network, one per line as "Label: value".` : ""}
+(blank line)
+One closing line: ${d.deliv === "both" ? "collection or tracked postage" : d.deliv === "collect" ? "collection only" : "tracked postage"}${d.area ? ` (from ${d.area})` : ""}${d.price && d.platform !== "eBay" ? `, the price ${money(d.price)}` : ""}, happy to answer questions.`}
 
-Phone: ${d.model}, ${d.storage}, ${d.colour}
-Battery health: ${d.battery}
-Condition: ${d.condition}
-Network: ${d.network}
-Notes from seller: ${d.extras.slice(0,1500)}`;
+Item: ${[d.model, d.storage, d.colour].filter(Boolean).join(", ")}
+${d.network ? `Network: ${d.network}\n` : ""}${d.battery ? `Battery health: ${d.battery}%\n` : ""}Condition: ${d.cond}
+Checks done: ${checks.join("; ") || "none stated"}
+Included: ${box.join(", ") || "not stated"}
+Other notes from seller: ${other.join(" ").slice(0,1200) || "none"}`;
   try {
-    const {text} = await sample(prompt, {signal:lctl.signal, cache:false, modelTier:"quick", onText:({text}) => { const o=$("lout"); o.classList.remove("thinking"); o.textContent = text; }});
-    $("lout").textContent = text; copyBtn($("lcopy"), $("lout"), text);
+    const {text} = await sample(prompt, {signal:lctl.signal, cache:false, modelTier:"quick", onText:({text}) => { const o=$("lout"); if (o){ o.classList.remove("thinking"); o.textContent = text; } }});
+    const m = text.trim().match(/^TITLE:\s*(.+)\n+([\s\S]*)$/i);
+    if (m) showListing(m[1].trim(), m[2].trim(), d); else { const [t, ...rest] = text.trim().split("\n"); showListing(t.trim(), rest.join("\n").trim(), d); }
   } catch(e){
     if (e?.code === "cancelled") return;
-    if (["not_granted","sampling_disabled","capability_disabled","not_declared"].includes(e?.code)) hideAI();
+    if (["not_granted","sampling_disabled","capability_disabled","not_declared"].includes(e?.code)){ sample = null; hideAI(); const r = templateListing(listData()); showListing(r.title, r.body, d, "Check it over and add anything only you know before you post."); return; }
     $("lres").innerHTML = `<div class="body"><p>${errCopy(e?.code)}</p></div>`;
   } finally { $("lgo").disabled = false; }
 });
@@ -2189,94 +3173,174 @@ function splitColour(model){
   return {model: words.join(" "), colour: col.map(cap).join(" ")};
 }
 function headerMap(cells){
-  const m = {}, tests = {date:/date/i, model:/model|phone|device|item/i, storage:/storage|gb|size/i, condition:/condition|grade/i, buy:/purchase|bought|buy|cost|paid/i, sale:/sale|sold|sell/i, profit:/profit/i, notes:/note/i};
+  const m = {}, tests = {num:/^(#|no\.?|num|number)$/i, date:/date/i, model:/model|phone|device|item/i, storage:/storage|gb|size/i, condition:/condition|grade/i, buy:/purchase|bought|buy|cost|paid/i, sale:/sale|sold|sell/i, colour:/colou?r/i, profit:/profit/i, notes:/note/i};
   cells.forEach((c,i) => { for (const k in tests) if (m[k] == null && tests[k].test(c)) { m[k] = i; break; } });
   return m;
 }
+const DEVICE = /\b(iphone|ipad|samsung|galaxy|pixel|airpods|macbook|apple\s*watch|watch\s*(se|series|ultra)|oneplus|xiaomi|huawei|nokia|motorola|nintendo|switch|ps5|ps4|playstation|xbox|steam\s*deck|gopro|kindle|ipod|imac|mac\s*mini|surface|beats|dji|homepod)\b|\bi(?=\d{1,2}\b)/i;
+const NOTPHONE = /\b(total|totals|subtotal|sub total|grand total|paid|owed|owe|owes|spent|profit|profits|cash|bank|wages|fuel|petrol|diesel|deposit|balance|float|loan|tax|expenses?|running|summary|month|week|turnover|revenue|income)\b/i;
+// Return a clean device name, or null if the text isn't a phone/device (totals, names, notes...)
+function deviceName(raw){
+  const t = String(raw || "").replace(/\s+/g, " ").trim();
+  if (!t || t.length > 60) return null;
+  if (/\b(iphones|phones|ipads|devices|items|laptops|consoles)\b/i.test(t)) return null;
+  if (NOTPHONE.test(t) && !DEVICE.test(t)) return null;
+  if (DEVICE.test(t)) return t.replace(/\bi(\d{1,2})\b/i, "iPhone $1");
+  if (/^(\d{1,2}|x|xr|xs|se)(\s+(pro|max|plus|mini|e))*(\s+\d+\s*(gb|tb))?(\s+[a-z]+){0,3}$/i.test(t) && !/^\d{1,2}$/.test(t)) return "iPhone " + t;
+  if (/^(s|a|z\s*(flip|fold))\s*\d{1,2}\b/i.test(t)) return "Samsung Galaxy " + t;
+  return null;
+}
+const MON = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,sept:9,oct:10,nov:11,dec:12};
 const MONTHS = /^(january|february|march|april|may|june|july|august|september|october|november|december)\b/i;
-const HEADWORD = /^(date|model|phone|device|storage|condition|purchase( price)?|sale( price)?|sold|profit|notes?)$/i;
-// Notes can copy a table as one row per line (cells split by tabs) or one cell per line.
-// Turn the one-cell-per-line shape into rows: a date line starts a row, the lines after it are its cells.
-function normaliseLines(text){
-  const out = []; let cur = null;
-  const dateOnly = /^\s*\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4}\s*$/;
-  for (const raw of text.replace(/\u00a0/g, " ").split(/\r?\n/)){
-    const t = raw.trim();
-    if (dateOnly.test(raw)){ if (cur !== null) out.push(cur); cur = t; continue; }
-    if (cur !== null){
-      if (!t) continue;
-      if (MONTHS.test(t) || /\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4}/.test(t) || HEADWORD.test(t)){ out.push(cur); cur = null; out.push(raw); continue; }
-      cur += "\t" + t; continue;
+const HEADWORD = /^(#|no\.?|num|number|date|model|phone|device|item|storage|gb|size|colou?r|condition|grade|purchase( price)?|buy( price)?|bought( for)?|bought price|price paid|paid|cost|sale( price)?|sold( for)?|sold price|sell( price)?|profit|notes?)\s*(£|\(£\))?$/i;
+const ROWNUM = /^#?\s*\d{1,3}\s*[.):\-]?$/;
+const FULLDATE = /(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})/;
+const SHORTDATE = /(?:^|\s)(\d{1,2})[\/.](\d{1,2})(?=\s|$)/;
+const WORDDATE = /\b(\d{1,2})(?:st|nd|rd|th)?\s+(jan|feb|mar|apr|may|jun|jul|aug|sept?|oct|nov|dec)[a-z]*\.?(?:\s+(\d{4}))?\b/i;
+function isoOf(y, m, d){ return `${y}-${String(m).padStart(2,"0")}-${String(d).padStart(2,"0")}`; }
+function findDate(s, ctx){
+  let m = s.match(FULLDATE);
+  if (m){ const y = m[3].length === 2 ? 2000 + +m[3] : +m[3]; if (+m[2] >= 1 && +m[2] <= 12) return {iso: isoOf(y, +m[2], +m[1]), at: m.index, len: m[0].length}; }
+  m = s.match(WORDDATE);
+  if (m){ const mo = MON[m[2].toLowerCase()]; let y = m[3] ? +m[3] : (ctx.year || new Date().getFullYear()); let iso = isoOf(y, mo, +m[1]); if (!m[3] && !ctx.year && iso > today()) iso = isoOf(y - 1, mo, +m[1]); return {iso, at: m.index, len: m[0].length}; }
+  m = s.match(SHORTDATE);
+  if (m && +m[2] >= 1 && +m[2] <= 12 && +m[1] >= 1 && +m[1] <= 31){ let y = ctx.year || new Date().getFullYear(); let iso = isoOf(y, +m[2], +m[1]); if (!ctx.year && iso > today()) iso = isoOf(y - 1, +m[2], +m[1]); return {iso, at: m.index + (m[0].length - m[0].trimStart().length), len: m[0].trim().length}; }
+  return null;
+}
+const isPrice = c => /^£?\s*\d[\d,]*(\.\d{1,2})?\s*$/.test(c.trim()) && !/^\d{4}$/.test(c.trim().replace(/[£\s,]/g, "")) || /^£\s*\d/.test(c.trim());
+const numOf = c => { const m = String(c||"").replace(/,/g,"").match(/(\d+(?:\.\d+)?)/); return m ? +m[1] : null; };
+// Split pasted text into rows. Notes copies tables either one row per line (cells split by tabs)
+// or one cell per line; plain notes are one phone per line.
+function noteRows(text){
+  const lines = text.replace(/ /g, " ").replace(/\r/g, "").split("\n");
+  const out = []; let cur = null, hdr = [];
+  const flush = () => { if (cur && cur.length){ out.push({cells: cur}); } cur = null; };
+  const flushHdr = () => { if (hdr.length){ out.push({header: hdr}); hdr = []; } };
+  const nextText = i => { for (let j = i + 1; j < lines.length; j++) if (lines[j].trim()) return lines[j].trim(); return ""; };
+  for (let li = 0; li < lines.length; li++){
+    const raw = lines[li], t = raw.trim();
+    if (!t){ continue; }
+    // a lone row number ("1", "2.", "#3") just before a phone starts a new row and isn't a price
+    if (!raw.includes("\t") && ROWNUM.test(t) && !/£/.test(t)){ const nx = nextText(li); if (DEVICE.test(nx) || deviceName(nx.split(/£|\t/)[0])){ flush(); continue; } }
+    if (raw.includes("\t")){ flush(); flushHdr(); const cells = raw.split("\t").map(c => c.trim());
+      if (cells.filter(c => HEADWORD.test(c)).length >= 2) out.push({header: cells}); else out.push({cells, tab: true}); continue; }
+    if (HEADWORD.test(t)){ flush(); hdr.push(t); continue; }
+    flushHdr();
+    if (MONTHS.test(t) && t.split(/\s+/).length <= 2 && !/£|\d{1,2}[\/.]/.test(t)){ flush(); out.push({month: t}); continue; }
+    const d = findDate(t, {}), dateOnly = d && t.length - d.len <= 1, hasPrice = /£\s*\d/.test(t);
+    if (dateOnly){ flush(); cur = [t]; continue; }
+    const bareNums = DEVICE.test(t) && /(?:^|\s)\d{2,5}(?=\s|$)/.test(t.replace(/^\s*#?\d{1,3}[\s.):\-]+/, "").replace(/\b(iphone|ipad|galaxy|pixel|note|watch|series|gen|mini|air|xs|xr|se|i)\s*\d+\w*/gi, " ").replace(/\b\d+\s*(gb|tb|g|gig|%)/gi, " "));
+    if ((d && t.length > d.len + 3) || bareNums || (hasPrice && (DEVICE.test(t) || deviceName(t.split("£")[0])))){ flush(); out.push({cells: [t], plain: true}); continue; }
+    if (cur){
+      if (DEVICE.test(t) && cur.some(c => DEVICE.test(c))){ flush(); cur = [t]; continue; }
+      cur.push(t); continue;
     }
-    out.push(raw);
+    if (DEVICE.test(t)){ cur = [t]; continue; }
+    out.push({stray: t});
   }
-  if (cur !== null) out.push(cur);
+  flush(); flushHdr();
   return out;
 }
 function parseNotes(text){
-  const rows = []; let cols = null, skipped = 0;
-  for (const raw of normaliseLines(text)){
-    if (!raw.trim()) continue;
-    const cells = raw.split("\t").map(c => c.trim());
-    if (/\bdate\b/i.test(raw) && /\bmodel|phone|device\b/i.test(raw)){ cols = headerMap(cells); continue; }
-    const dm = raw.match(/(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})/);
-    if (!dm){
-      const last = rows[rows.length-1], t = raw.trim();
-      if (last && !/\d/.test(t) && t.split(/\s+/).length <= 3 && !/^(january|february|march|april|may|june|july|august|september|october|november|december)\b/i.test(t)) last.rawModel += " " + t;
-      else if (/[a-z]/i.test(t) && !MONTHS.test(t) && !HEADWORD.test(t) && !/^(sale price|profit|notes|condition|purchase)/i.test(t)) skipped++;
-      continue;
-    }
-    const y = dm[3].length === 2 ? "20" + dm[3] : dm[3];
-    const iso = `${y}-${dm[2].padStart(2,"0")}-${dm[1].padStart(2,"0")}`;
-    const tabbed = cells.length > 2;
-    const get = k => tabbed && cols && cols[k] != null ? (cells[cols[k]] || "") : null;
-    const rest = raw.slice(dm.index + dm[0].length);
-    const stM = (get("storage") ?? raw).match(/(\d+)\s*(GB|TB)/i);
-    const condTxt = get("condition") ?? raw;
-    const cond = (CONDS.find(([re]) => re.test(condTxt)) || [null, "Good"])[1];
-    let buy, sale, notes, model;
-    if (tabbed && cols){
-      buy = priceOf(get("buy")); sale = priceOf(get("sale")); notes = get("notes") || ""; model = get("model") || "";
-    } else if (tabbed){
-      model = cells[1] || ""; const money = cells.slice(2).filter(c => /£|^\d+(\.\d+)?$/.test(c) && !/gb|tb/i.test(c)).map(priceOf);
-      buy = money[0] ?? null; sale = money[1] ?? null; notes = cells.filter(c => c && !/£|\d{1,2}\/\d|gb|tb|condition/i.test(c) && c !== model).join(" ");
+  const rows = [], unread = []; let header = null, ctx = {}, lastDate = null, lastMonthOnly = false;
+  const thisYear = new Date().getFullYear();
+  for (const r of noteRows(text)){
+    if (r.header){ header = headerMap(r.header); header.n = r.header.length; continue; }
+    if (r.month){ const mo = MON[r.month.slice(0,3).toLowerCase()], y = (r.month.match(/\d{4}/) || [])[0]; ctx = {month: mo, year: y ? +y : (ctx.year || (mo > new Date().getMonth() + 1 ? thisYear - 1 : null))}; lastDate = null; lastMonthOnly = false; continue; }
+    if (r.stray){ if (/[a-z]/i.test(r.stray)) unread.push(r.stray); continue; }
+    let cells = r.cells, rec = {date: null, model: "", storage: "", grade: null, buy: null, sale: null, notes: []};
+    let whole = cells.join(" ");
+    const aligned = r.tab && header && cells.length >= header.n - 1 && header.model != null;
+    if (aligned){
+      const g = k => header[k] != null ? (cells[header[k]] || "") : "";
+      const d = findDate(g("date") || whole, ctx); rec.date = d && d.iso;
+      rec.model = g("model"); rec.storage = g("storage"); rec.grade = g("condition");
+      rec.buy = numOf(g("buy")); rec.sale = g("sale") ? numOf(g("sale")) : null; rec.notes = [g("notes")]; if (header.colour != null && g("colour")) rec.model += " " + g("colour");
+    } else if (r.plain){
+      whole = whole.replace(/^\s*#?\d{1,3}\s*[.):\-]\s+/, "").replace(/^\s*#?\d{1,3}\s+(?=[a-z])/i, m => DEVICE.test(whole.slice(m.length)) ? "" : m);
+      const d = findDate(whole, ctx); rec.date = d && d.iso;
+      let rest = d ? (whole.slice(0, d.at) + " " + whole.slice(d.at + d.len)) : whole;
+      let prices = [...rest.matchAll(/£\s?(\d[\d,]*(?:\.\d+)?)/g)].map(m => +m[1].replace(/,/g, ""));
+      if (!prices.length){
+        const bare = rest.replace(/\b(iphone|ipad|galaxy|pixel|note|watch|series|gen|mini|air|xs|xr|se)\s*\d+\w*/gi, " ").replace(/\b\d+\s*(gb|tb|g|gig|%)/gi, " ").replace(/\b\d+(st|nd|rd|th)\b/gi, " ");
+        prices = [...bare.matchAll(/(?:^|\s)(\d{2,5}(?:\.\d{1,2})?)(?=\s|$)/g)].map(m => +m[1]).filter(v => v >= 10);
+      }
+      rec.buy = prices[0] ?? null; rec.sale = prices[1] ?? null;
+      const cut = rest.search(/£|\b\d+\s*(gb|tb|g|gig)\b|excellent|good|\bok\b|okay|fair|faulty|cracked|condition/i);
+      rec.model = cut > 0 ? rest.slice(0, cut) : rest.replace(/£.*$/, "");
+      const lastP = rest.lastIndexOf("£"); rec.notes = [lastP >= 0 ? rest.slice(lastP).replace(/^£\s?[\d,.]+/, "") : ""];
+      rec.storage = whole; rec.grade = whole;
     } else {
-      const prices = [...raw.matchAll(/£\s?(\d+(?:\.\d+)?)/g)].map(m => +m[1]);
-      buy = prices[0] ?? null; sale = prices[1] ?? null;
-      const cut = Math.min(...[rest.search(/\d+\s*(GB|TB)/i), rest.search(/excellent|good|\bok\b|okay|faulty|£/i)].filter(i => i >= 0), rest.length);
-      model = rest.slice(0, cut);
-      const lastP = raw.lastIndexOf("£"); notes = lastP >= 0 ? raw.slice(lastP).replace(/^£\s?\d+(\.\d+)?/, "").trim() : "";
+      // one cell per line, or tab rows that don't line up with the header: work out each cell from what it looks like
+      const prices = []; let tagBuy = null, tagSale = null;
+      for (const c of cells){
+        if (!c) continue;
+        if (!rec.model && !prices.length && !/£/.test(c) && ROWNUM.test(c.trim()) && numOf(c) < 300) continue;
+        const tb = c.match(/^(?:bought|paid|buy|cost)\b[^\d]*(\d[\d,]*(?:\.\d+)?)/i) || c.match(/^£?\s*(\d[\d,]*(?:\.\d+)?)\s*(?:paid|bought|cost)\b/i);
+        if (tb){ tagBuy = +tb[1].replace(/,/g, ""); continue; }
+        const ts = c.match(/^(?:sold|sale)\b[^\d]*(\d[\d,]*(?:\.\d+)?)/i) || c.match(/^£?\s*(\d[\d,]*(?:\.\d+)?)\s*sold\b/i);
+        if (ts){ tagSale = +ts[1].replace(/,/g, ""); continue; }
+        if (!rec.date){ const d = findDate(c, ctx); if (d && c.length - d.len <= 1){ rec.date = d.iso; continue; } }
+        if (isPrice(c)){ prices.push(numOf(c)); continue; }
+        if (/^\d+\s*(gb|tb)$/i.test(c)){ rec.storage = c; continue; }
+        if (/^(excellent|very good|good|ok|okay|fair|faulty|broken|cracked|mint|like new|grade [a-c])(\s+condition)?$/i.test(c)){ rec.grade = c; continue; }
+        if (!rec.model && (DEVICE.test(c) || (!/%/.test(c) && /[a-z]/i.test(c) && c.split(/\s+/).length <= 6 && !/^(fb|facebook|vinted|gumtree|ebay|sold|bought|cash)\b/i.test(c)))){ rec.model = c; continue; }
+        rec.notes.push(c);
+      }
+      if (!rec.date){ const d = findDate(whole, ctx); if (d) rec.date = d.iso; }
+      if (tagBuy != null || tagSale != null){ const left = prices.slice(); rec.buy = tagBuy ?? left.shift() ?? null; rec.sale = tagSale ?? (tagBuy != null ? left[0] : null) ?? null; }
+      else { rec.buy = prices[0] ?? null; rec.sale = prices[1] ?? null; }
+      if (prices.length === 2 && header && header.sale == null && header.profit != null) rec.sale = rec.buy + prices[1];
     }
-    rows.push({rawModel:model, storage: stM ? stM[1] + stM[2].toUpperCase() : "", grade:cond, buy, sale, boughtOn:iso, notes:notes.trim()});
+    let monthOnly = false;
+    if (rec.date) lastMonthOnly = false;
+    else if (lastDate){ rec.date = lastDate; monthOnly = lastMonthOnly; }
+    else if (ctx.month){ rec.date = isoOf(ctx.year || thisYear, ctx.month, 1); monthOnly = true; }
+    else rec.date = today();
+    rec.date = fixYear(rec.date); lastDate = rec.date; lastMonthOnly = monthOnly;
+    const SR = /\b(\d{2,4}|1|2)\s*(GB|TB|G|gig|T)\b/i, stM = String(rec.storage || "").match(SR) || rec.model.match(SR) || whole.match(SR);
+    const grade = (CONDS.find(([re]) => re.test(rec.grade || whole)) || [null, "Good"])[1];
+    const modelTxt = rec.model.replace(/\b\d+\s*(gb|tb|g|gig)\b/gi, "").replace(/excellent|good|condition|\bok\b|okay|faulty/gi, "");
+    rows.push({rawModel: modelTxt, storage: stM ? stM[1] + (/^t/i.test(stM[2]) ? "TB" : "GB") : "", grade, buy: rec.buy, sale: rec.sale, boughtOn: rec.date, monthOnly, notes: rec.notes.filter(Boolean).join(" ").trim(), line: whole});
   }
   rows.forEach(r => {
-    const t = splitColour(tidyModel(r.rawModel.replace(/excellent|good|condition|\bok\b/gi, "")));
+    const dn = deviceName(r.rawModel) || deviceName(r.line.replace(/£.*$/, "").replace(FULLDATE, "").trim().split(/\t|\s{2,}/)[0]);
+    r.notPhone = !dn;
+    const JUNKW = /\b\d{2,3}\s*(%|bh|bhp|b\/h)(?=\s|$)|\b(bh|battery|batt)\s*\d{2,3}\s*%?|\b(fb|facebook|marketplace|vinted|ebay|gumtree|monitor|unlocked|locked|cash|swap|boxed|no box)\b/gi;
+    const junk = (dn || r.rawModel).match(JUNKW) || [];
+    if (junk.length) r.notes = (r.notes + " " + junk.join(" ")).trim();
+    const t = splitColour(tidyModel((dn || r.rawModel).replace(JUNKW, " ")));
     r.model = t.model; r.colour = t.colour;
-    const bh = r.notes.match(/(\d{2,3})\s*%/); r.battery = bh ? +bh[1] : null;
-    const n = r.notes.toLowerCase();
+    if (!r.colour){ const cw = (r.line.toLowerCase().match(new RegExp("\\b(" + COLOURS.filter(c => !["space","deep","sky","product","natural"].includes(c)).join("|") + ")\\b")) || [])[1]; if (cw) r.colour = cw.charAt(0).toUpperCase() + cw.slice(1); }
+    const bh = (r.notes + " " + r.line).match(/(\d{2,3})\s*(?:%|bh\b|bhp\b)/i) || (r.notes + " " + r.line).match(/\b(?:bh|battery|batt)\s*(\d{2,3})/i); r.battery = bh && +bh[1] <= 100 ? +bh[1] : null;
+    const n = (r.notes + " " + r.line).toLowerCase();
     r.source = /\bfb\b|facebook|marketplace/.test(n) ? "Facebook Marketplace" : /vinted/.test(n) ? "Vinted" : /gumtree/.test(n) ? "Gumtree" : /ebay/.test(n) ? "eBay" : "Other";
-    r.ok = !!r.model && r.buy != null;
+    r.odd = r.buy != null && r.buy < 10 && (r.sale == null || r.sale >= 50);
+    r.ok = !r.notPhone && !!r.model && r.buy != null && !r.odd;
   });
-  return {rows, skipped};
+  return {rows, skipped: unread.length, unread};
 }
 let impRows = [];
 $("impRead").addEventListener("click", () => {
-  const {rows, skipped} = parseNotes($("impText").value);
+  const {rows, skipped, unread} = parseNotes($("impText").value);
   impRows = rows.filter(r => r.ok);
-  const bad = rows.filter(r => !r.ok), sold = impRows.filter(r => r.sale != null).length;
-  if (!rows.length){ $("impOut").innerHTML = `<div class="panel"><p class="empty-note">I couldn't find any phones in that. Each row needs a date like 06/09/2026, a model and a purchase price.</p></div>`; return; }
+  rows.filter(r => r.notPhone).forEach(r => unread.push(r.line.replace(/\t+/g, "  ")));
+  const shown = rows.filter(r => !r.notPhone);
+  const bad = shown.filter(r => !r.ok), sold = impRows.filter(r => r.sale != null).length;
+  if (!rows.filter(r => !r.notPhone).length){ $("impOut").innerHTML = `<div class="panel"><p class="empty-note">I couldn't find any phones in that. Each phone needs a model (like iPhone 13) and what you paid for it.</p></div>`; return; }
   $("impOut").innerHTML = `<div class="panel">
     <h3 class="ph">Found ${impRows.length} phone${impRows.length===1?"":"s"}</h3>
-    <p class="small">${sold} sold, ${impRows.length - sold} in stock${bad.length ? `, ${bad.length} missing a model or price (left out)` : ""}${skipped ? `, ${skipped} line${skipped===1?"":"s"} not understood` : ""}. Your notes don't include sale dates or where phones sold, so sold phones use the date you bought them and you can tap where each sold in your Sold list.${phones.some(f => f.ex) ? " The example phones will be removed." : ""}</p>
-    <div>${rows.map(r => `<div class="imp-row${r.ok?"":" bad"}"><b>${esc([r.model, r.storage].filter(Boolean).join(" ") || "Unknown model")}${r.colour ? ` <span class="sub" style="font-weight:400;color:var(--muted)">${esc(r.colour)}</span>` : ""}</b><em>${r.buy != null ? money(r.buy) : "–"}</em>
-      <small>${fmtDate(r.boughtOn)} · ${esc(r.grade)}${r.battery ? ` · ${r.battery}%` : ""} · ${r.sale != null ? `sold ${money(r.sale)} · ${signed(r.sale - r.buy)}` : r.ok ? "in stock" : "missing price, left out"}</small></div>`).join("")}</div>
+    <p class="small">${sold} sold, ${impRows.length - sold} in stock${bad.length ? `, ${bad.length} with a missing or odd price (left out)` : ""}${skipped ? `, ${skipped} line${skipped===1?"":"s"} not understood` : ""}. Your notes don't include sale dates or where phones sold, so sold phones use the date you bought them and you can tap where each sold in your Sold list.${phones.some(f => f.ex) ? " The example phones will be removed." : ""}</p>
+    <div>${shown.map(r => `<div class="imp-row${r.ok?"":" bad"}"><b>${esc([r.model, r.storage].filter(Boolean).join(" ") || "Unknown model")}${r.colour ? ` <span class="sub" style="font-weight:400;color:var(--muted)">${esc(r.colour)}</span>` : ""}</b><em>${r.buy != null ? money(r.buy) : "–"}</em>
+      <small>${r.monthOnly ? new Date(r.boughtOn + "T12:00").toLocaleDateString("en-GB", {month: "long", year: r.boughtOn.slice(0,4) === String(new Date().getFullYear()) ? undefined : "numeric"}) : fmtDate(r.boughtOn)} · ${esc(r.grade)}${r.battery ? ` · ${r.battery}%` : ""} · ${r.sale != null ? `sold ${money(r.sale)} · ${signed(r.sale - r.buy)}` : r.ok ? "in stock" : r.odd ? "buy price looks wrong, left out" : "missing price, left out"}</small></div>`).join("")}</div>
+    ${unread.length ? `<details class="imp-unread"><summary>${unread.length} line${unread.length===1?"":"s"} skipped (totals, names or notes)</summary>${unread.slice(0,20).map(u => `<div>${esc(u)}</div>`).join("")}<p class="small">These didn't look like a phone, so they won't be added. If one is a phone, write the model (e.g. iPhone 13) and paste again, or add it with +.</p></details>` : ""}
     ${impRows.length ? `<button type="button" class="primary" id="impGo">Import ${impRows.length} phone${impRows.length===1?"":"s"}</button>` : ""}
   </div>`;
 });
 $("impOut").addEventListener("click", e => {
   if (!e.target.closest("#impGo")) return;
   phones = phones.filter(f => !f.ex);
-  impRows.forEach((r, i) => phones.push({id:"n"+Date.now()+i, model:r.model, storage:r.storage, colour:r.colour, grade:r.grade, battery:r.battery, imei:"", source:r.source,
+  impRows.forEach((r, i) => phones.push({id:"n"+Date.now()+i, kind: guessKind(r.model) || "phone", model:r.model, storage:r.storage, colour:r.colour, grade:r.grade, battery:r.battery, imei:"", source:r.source,
     boughtOn:r.boughtOn, buy:r.buy, cost:0, status:r.sale != null ? "sold" : "stock", list:null, platform:"", listedOn:null,
     sold:r.sale, soldOn:r.sale != null ? r.boughtOn : null, soldVia:r.sale != null ? "Not recorded" : "", fees:0, notes:r.notes}));
   saveFlips();
@@ -2387,6 +3451,7 @@ go("home");
 maybeWelcome();
 mtFade();
 </script>
+
 
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
